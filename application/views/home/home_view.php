@@ -9,7 +9,6 @@
 			<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 			<a class="addthis_button_tweet"></a>
 			</div>
-			<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=xa-508d41213e72f77b"></script>
 			<!-- AddThis Button END -->
 		</div>
 		<div class="span9">
@@ -241,4 +240,7 @@
 		window.location.href = "<?php echo base_url() ?>discover/locate/"+disc_lat+":"+disc_long;
 	}
 </script>
+
+<!-- AddThis Script -->
+<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=xa-508d41213e72f77b"></script>
 
