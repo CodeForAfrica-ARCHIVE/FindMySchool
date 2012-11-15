@@ -11,7 +11,6 @@
         <meta name="viewport" content="width=device-width">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> 
-
         
         <script src="<?php echo base_url(); ?>assets/js/vendor/jquery-1.8.0.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/vendor/modernizr-2.6.1.min.js"></script>
