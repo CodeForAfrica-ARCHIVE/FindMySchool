@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Api extends CI_Controller {
+class Api_Discover extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,12 +21,8 @@ class Api extends CI_Controller {
 
 	}
 	
-	public function search($search_term) {
-	
-	}
-	
-	public function discover($search_term) {
-	
+	public function locate_near($loc) {
+		
 	}
 	
 }

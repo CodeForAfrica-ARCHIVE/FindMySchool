@@ -49,6 +49,8 @@ $route['discover'] = "discover/discover";
 $route['browse/search/(:any)'] = "browse/search/$1";
 $route['browse'] = "browse";
 
+$route['api/discover/locate_near/(:any)'] = "api/api_discover/locate_near/$1";
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
