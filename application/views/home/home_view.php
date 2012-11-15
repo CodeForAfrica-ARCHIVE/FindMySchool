@@ -34,6 +34,8 @@
 	
 	<div class="row-fluid" style="text-align: center;">
 		<ul class="thumbnails">
+		
+			<!-- BY LOCATION -->
 			<li class="span4">
 				<div class="thumbnail" style="background: #fff url('<?php echo base_url(); ?>assets/img/bg/nearme.png') no-repeat center top;">
 					<div class="caption">
@@ -50,12 +52,40 @@
 						</div>
 						<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960.png') no-repeat center top; padding-top: 4px; margin-bottom: 12px;"></div>
 						<p style="margin-bottom: 5px;">
-							<a href="#" class="btn"><i class="icon-fullscreen"></i> Enlarge Map</a>
+							<a href="#enlargeMap" role="button" class="btn" data-toggle="modal"><i class="icon-fullscreen"></i> Enlarge Map</a>
 							<a href="#" onclick="setDiscLocation()" class="btn btn-primary"><i class="icon-globe icon-white"></i> Discover</a>
 						</p>
 					</div>
 				</div>
+				
+				<!-- Enlarge Map MODAL-->
+				<div id="enlargeMap" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h3>By Location <small>Enlarged Map</small></h3>
+					</div>
+					<div class="modal-body">
+						<p>Find schools near you using our <b>interactive map</b>. Simply drag the marker on the map below and hit "<b>Discover</b>".</p>
+						<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960-up.png') no-repeat center top; padding-top: 4px;">
+							<div id="map_canvas_large" style="height: 300px; width: 100%;">
+								<table style="height: 100%; width: 100%; vertical-align: middle; text-align: center;" >
+									<tbody><tr><td>
+										<p><img src="<?php echo base_url(); ?>assets/img/spinner.gif" alt="" /> Loading map...</p>
+									</td></tr></tbody>
+								</table>
+							</div>
+						</div>
+						<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960.png') no-repeat center top; padding-top: 4px; margin-bottom: 12px;"></div>
+					</div>
+					<div class="modal-footer">
+						<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+						<a href="#" onclick="setDiscLocation()" class="btn btn-primary"><i class="icon-globe icon-white"></i> Discover</a>
+					</div>
+				</div>
+				
 			</li>
+			
+			<!-- BY MARKS -->
 			<li class="span4">
 				<div class="thumbnail" style="">				
 					<div class="caption">
@@ -124,6 +154,9 @@
 					</div>
 				</div>
 			</li>
+			
+			
+			<!-- BY SEARCH -->
 			<li class="span4">
 				<div class="thumbnail">
 					<div class="caption">

@@ -12,6 +12,7 @@
 		</ul>
 	</div>
 	
+	<!-- MAP -->
 	<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960-up.png') no-repeat center top; padding-top: 4px;">
 		<div id="map_canvas" style="height: 200px; width: 100%;">
 			<table style="height: 100%; width: 100%; vertical-align: middle; text-align: center;" >
@@ -21,7 +22,12 @@
 			</table>
 		</div>
 	</div>
-	<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960.png') no-repeat center top; padding-top: 4px;"></div>
+	<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960.png') no-repeat center top; padding-top: 4px; margin-bottom: 15px;"></div>
+	
+	<!-- Results Listed -->
+	<div class="row">
+		
+	</div>
 </section>
 
 <!-- SCRIPTS -->
@@ -70,7 +76,7 @@
 		var layer_pri = new google.maps.FusionTablesLayer({
 			query: {
 				select: 'Location1',
-				from: '1lV0Og2Km6_axy4WanqEfstylMY8XAzBleL42BNo',
+				from: '1vql47h1gFTkOU2vd19gqMyKQZZD1JVcnEG3hIMw',
 				orderBy: 'ST_DISTANCE(Location1, LATLNG(<?php echo $disc_lat ?>,<?php echo $disc_long ?>))',
 				limit: 15
 			}
