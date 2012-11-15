@@ -51,9 +51,12 @@
         					<li class="divider-vertical"></li>
         					<li><a href="<?php echo base_url(); ?>discover">Discover<br/><span>Schools Near You</span></a></li>
         					<li class="divider-vertical"></li>
-        					<li><a href="<?php echo base_url(); ?>browse">Use Marks<br/><span>To Determine School</span></a></li>
+        					<li><a href="<?php echo base_url(); ?>browse">By Marks<br/><span>To Determine School</span></a></li>
         					<li class="divider-vertical"></li>
-        					<li><a href="<?php echo base_url(); ?>browse">Browse<br/><span>Our Schools List</span></a></li>
+        					<li><div class="navbar-form input-append" style="margin-top:5px;">
+        						<input type="text" class="span2" id="appendedInputButton" placeholder="Search">
+        						<button class="btn" style="margin-top:5px;"><i class="icon-search"></i></button>
+        					</div></li>
         				</ul>
         				
         				<!--
