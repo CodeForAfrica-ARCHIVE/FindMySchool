@@ -38,6 +38,9 @@ class Discover extends CI_Controller {
 		$hasError = 0;
 		if ($disc_long == NULL || $disc_long=="" || !is_numeric($disc_lat) || !is_numeric($disc_long)){
 			$hasError = 1;
+		} else {
+			$data['disc_lat'] = $disc_lat;
+			$data['disc_long'] = $disc_long;
 		}
 		
 		$this->load->view('templates/header', $data);

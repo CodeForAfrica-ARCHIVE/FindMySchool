@@ -222,7 +222,7 @@
 	});
 	
 	google.maps.event.addListener(marker, 'click', toggleBounce);
-	google.maps.event.addListener(marker, 'dragend', setDiscLocation);
+	//google.maps.event.addListener(marker, 'dragend', setDiscLocation);
 	
 	function toggleBounce() {
 		if (marker.getAnimation() != null) {
