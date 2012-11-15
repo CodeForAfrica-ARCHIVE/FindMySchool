@@ -233,6 +233,8 @@
 		
 	}
 	
+	
+	
 	function setDiscLocation() {
 		var point = marker.getPosition();
 		disc_lat = point.lat();

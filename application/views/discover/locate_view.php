@@ -30,19 +30,21 @@
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?AIzaSyDl0_EPlseIlbNlYZDOzpua7VqXyH_LfeY&sensor=true"></script>
 <script type="text/javascript">
+
+	var disc_lat = <?php echo $disc_lat ?>;
+	var disc_long = <?php echo $disc_long ?>;;
+	
+	var disc_loc = new google.maps.LatLng(disc_lat, disc_long);
+	var marker;
+	var map;
+	
+	var mapOptions = {
+		zoom: 13,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		center: disc_loc
+	};
+	
 	window.onload = function() {	
-		var disc_lat = <?php echo $disc_lat ?>;
-		var disc_long = <?php echo $disc_long ?>;;
-		
-		var disc_loc = new google.maps.LatLng(disc_lat, disc_long);
-		var marker;
-		var map;
-		
-		var mapOptions = {
-			zoom: 13,
-			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			center: disc_loc
-		};
 		
 		map = new google.maps.Map(document.getElementById("map_canvas"),
 			mapOptions);
@@ -65,11 +67,22 @@
 			}
 		}
 		
-		function setDiscLocation() {
-			var point = marker.getPosition();
-			disc_lat = point.lat();
-			disc_long = point.lng();
-			window.location.href = "<?php echo base_url() ?>discover/locate/"+disc_lat+":"+disc_long;
-		}
+		var layer = new google.maps.FusionTablesLayer({
+			query: {
+				select: 'Location1',
+				from: '1lV0Og2Km6_axy4WanqEfstylMY8XAzBleL42BNo',
+				orderBy: 'ST_DISTANCE(Location1, LATLNG(<?php echo $disc_lat ?>,<?php echo $disc_long ?>))',
+				limit: 5
+			}
+		});
+		layer.setMap(map);
+		
+	}
+	
+	function setDiscLocation() {
+		var point = marker.getPosition();
+		disc_lat = point.lat();
+		disc_long = point.lng();
+		window.location.href = "<?php echo base_url() ?>discover/locate/"+disc_lat+":"+disc_long;
 	}
 </script>
