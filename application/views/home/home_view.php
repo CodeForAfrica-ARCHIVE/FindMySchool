@@ -40,18 +40,17 @@
 					<div class="caption">
 						<h3>By Location</h3>
 						<p>Find schools near you using our <b>interactive map</b>. Simply drag the marker on the map below and hit "<b>Discover</b>".</p>
-						<div id="map_canvas" style="height: 200px; margin-bottom: 15px;">
-							<table style="height: 100%; width: 100%; vertical-align: middle; text-align: center;" >
-								<tbody>
-									<tr>
-										<td>
-											<p><img src="<?php echo base_url(); ?>assets/img/spinner.gif" alt="" /> Loading map...</p>
-										</td>
-									</tr>
-								</tbody>
-							</table>
+						<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960-up.png') no-repeat center top; padding-top: 4px;">
+							<div id="map_canvas" style="height: 200px; width: 100%;">
+								<table style="height: 100%; width: 100%; vertical-align: middle; text-align: center;" >
+									<tbody><tr><td>
+										<p><img src="<?php echo base_url(); ?>assets/img/spinner.gif" alt="" /> Loading map...</p>
+									</td></tr></tbody>
+								</table>
+							</div>
 						</div>
-						<p>
+						<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960.png') no-repeat center top; padding-top: 4px; margin-bottom: 12px;"></div>
+						<p style="margin-bottom: 5px;">
 							<a href="#" class="btn"><i class="icon-fullscreen"></i> Enlarge Map</a>
 							<a href="#" onclick="setDiscLocation()" class="btn btn-primary"><i class="icon-globe icon-white"></i> Discover</a>
 						</p>
@@ -197,7 +196,6 @@
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?AIzaSyDl0_EPlseIlbNlYZDOzpua7VqXyH_LfeY&sensor=true"></script>
 <script type="text/javascript">
-	
 	var disc_lat = -1.29353;
 	var disc_long = 36.819889;
 	
@@ -211,25 +209,29 @@
 		center: nairobi
 	};
 	
-	map = new google.maps.Map(document.getElementById("map_canvas"),
-		mapOptions);
-	
-	marker = new google.maps.Marker({
-		map:map,
-		draggable:true,
-		animation: google.maps.Animation.DROP,
-		position: nairobi
-	});
-	
-	google.maps.event.addListener(marker, 'click', toggleBounce);
-	//google.maps.event.addListener(marker, 'dragend', setDiscLocation);
-	
-	function toggleBounce() {
-		if (marker.getAnimation() != null) {
-			marker.setAnimation(null);
-		} else {
-			marker.setAnimation(google.maps.Animation.BOUNCE);
+	window.onload = function(){	
+		
+		map = new google.maps.Map(document.getElementById("map_canvas"),
+			mapOptions);
+		
+		marker = new google.maps.Marker({
+			map:map,
+			draggable:true,
+			animation: google.maps.Animation.DROP,
+			position: nairobi
+		});
+		
+		google.maps.event.addListener(marker, 'click', toggleBounce);
+		//google.maps.event.addListener(marker, 'dragend', setDiscLocation);
+		
+		function toggleBounce() {
+			if (marker.getAnimation() != null) {
+				marker.setAnimation(null);
+			} else {
+				marker.setAnimation(google.maps.Animation.BOUNCE);
+			}
 		}
+		
 	}
 	
 	function setDiscLocation() {

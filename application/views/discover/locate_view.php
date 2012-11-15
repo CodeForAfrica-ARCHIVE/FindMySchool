@@ -30,45 +30,46 @@
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?AIzaSyDl0_EPlseIlbNlYZDOzpua7VqXyH_LfeY&sensor=true"></script>
 <script type="text/javascript">
-	
-	var disc_lat = <?php echo $disc_lat ?>;
-	var disc_long = <?php echo $disc_long ?>;;
-	
-	var disc_loc = new google.maps.LatLng(disc_lat, disc_long);
-	var marker;
-	var map;
-	
-	var mapOptions = {
-		zoom: 13,
-		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		center: disc_loc
-	};
-	
-	map = new google.maps.Map(document.getElementById("map_canvas"),
-		mapOptions);
-	
-	marker = new google.maps.Marker({
-		map:map,
-		draggable:true,
-		animation: google.maps.Animation.DROP,
-		position: disc_loc
-	});
-	
-	google.maps.event.addListener(marker, 'click', toggleBounce);
-	//google.maps.event.addListener(marker, 'dragend', setDiscLocation);
-	
-	function toggleBounce() {
-		if (marker.getAnimation() != null) {
-			marker.setAnimation(null);
-		} else {
-			marker.setAnimation(google.maps.Animation.BOUNCE);
+	window.onload = function() {	
+		var disc_lat = <?php echo $disc_lat ?>;
+		var disc_long = <?php echo $disc_long ?>;;
+		
+		var disc_loc = new google.maps.LatLng(disc_lat, disc_long);
+		var marker;
+		var map;
+		
+		var mapOptions = {
+			zoom: 13,
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			center: disc_loc
+		};
+		
+		map = new google.maps.Map(document.getElementById("map_canvas"),
+			mapOptions);
+		
+		marker = new google.maps.Marker({
+			map:map,
+			draggable:true,
+			animation: google.maps.Animation.DROP,
+			position: disc_loc
+		});
+		
+		google.maps.event.addListener(marker, 'click', toggleBounce);
+		//google.maps.event.addListener(marker, 'dragend', setDiscLocation);
+		
+		function toggleBounce() {
+			if (marker.getAnimation() != null) {
+				marker.setAnimation(null);
+			} else {
+				marker.setAnimation(google.maps.Animation.BOUNCE);
+			}
 		}
-	}
-	
-	function setDiscLocation() {
-		var point = marker.getPosition();
-		disc_lat = point.lat();
-		disc_long = point.lng();
-		window.location.href = "<?php echo base_url() ?>discover/locate/"+disc_lat+":"+disc_long;
+		
+		function setDiscLocation() {
+			var point = marker.getPosition();
+			disc_lat = point.lat();
+			disc_long = point.lng();
+			window.location.href = "<?php echo base_url() ?>discover/locate/"+disc_lat+":"+disc_long;
+		}
 	}
 </script>
