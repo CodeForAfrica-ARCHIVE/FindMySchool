@@ -1,5 +1,17 @@
+# Defualt CodeIgniter
+
 */config/development
 */logs/log-*.php
 */logs/!index.html
 */cache/*
 */cache/!index.html
+
+# Custom Added
+*.DS_Store
+*.esproj
+
+*/config/database.php
+*/application/views/user/models/db-settings.php
+*application/controllers/login/twitter/tmhKeys.php
+
+*error_log
