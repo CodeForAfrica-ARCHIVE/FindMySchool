@@ -67,15 +67,25 @@
 			}
 		}
 		
-		var layer = new google.maps.FusionTablesLayer({
+		var layer_pri = new google.maps.FusionTablesLayer({
 			query: {
 				select: 'Location1',
 				from: '1lV0Og2Km6_axy4WanqEfstylMY8XAzBleL42BNo',
 				orderBy: 'ST_DISTANCE(Location1, LATLNG(<?php echo $disc_lat ?>,<?php echo $disc_long ?>))',
-				limit: 5
+				limit: 15
 			}
 		});
-		layer.setMap(map);
+		layer_pri.setMap(map);
+		
+		var layer_sec = new google.maps.FusionTablesLayer({
+			query: {
+				select: 'Location1',
+				from: '1lV0Og2Km6_axy4WanqEfstylMY8XAzBleL42BNo',
+				orderBy: 'ST_DISTANCE(Location1, LATLNG(<?php echo $disc_lat ?>,<?php echo $disc_long ?>))',
+				limit: 15
+			}
+		});
+		layer_sec.setMap(map);
 		
 	}
 	
