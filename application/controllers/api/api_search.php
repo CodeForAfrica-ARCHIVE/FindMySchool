@@ -30,25 +30,9 @@ class Api_search extends CI_Controller {
 		$this->load->database();
 		$query = $this->db->query("SELECT * FROM kcpe_2010 WHERE `SCHOOL NAME` LIKE '%".strtoupper($search_term)."%';");
 		
-		$data['title'] = "API - Search By Name";
-		$data['search_term'] = $search_term;
-		$data['query'] = $query;
-		
-		//WHERE City LIKE '%tav%' 
-		/*
-		$api_key = "&key=AIzaSyDl0_EPlseIlbNlYZDOzpua7VqXyH_LfeY";
-		$sql_pri = "SELECT * FROM 1FICuRpskdIAbgbnhJ8eOnrtKctmdxGn5wSSXK98 LIMIT 15";
-		$sql_sec = "SELECT * FROM 1lV0Og2Km6_axy4WanqEfstylMY8XAzBleL42BNo LIMIT 15";
-		
-		$sql_pri = urlencode($sql_pri);
-		$sql_sec = urlencode($sql_sec);
-		
-		$json_pri = file_get_contents ('https://www.googleapis.com/fusiontables/v1/query?sql='.$sql_pri.$api_key);
-		$json_sec = file_get_contents ('https://www.googleapis.com/fusiontables/v1/query?sql='.$sql_sec.$api_key); */
-		
-		//$this->load->view('api/templates/header', $data);
-		$this->load->view('api/search/by_name', $data);
-		//$this->load->view('api/templates/footer', $data);
+		$json_result = json_encode($query->result());
+		echo $json_result;
+
 	}
 	
 }
