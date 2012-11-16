@@ -85,9 +85,9 @@
 				from: '1vql47h1gFTkOU2vd19gqMyKQZZD1JVcnEG3hIMw',
 				orderBy: 'ST_DISTANCE(Location1, LATLNG(<?php echo $disc_lat ?>,<?php echo $disc_long ?>))',
 				limit: 15
-			}
+			},
+			map: map
 		});
-		layer_pri.setMap(map);
 		
 		var layer_sec = new google.maps.FusionTablesLayer({
 			query: {
@@ -95,9 +95,9 @@
 				from: '1lV0Og2Km6_axy4WanqEfstylMY8XAzBleL42BNo',
 				orderBy: 'ST_DISTANCE(Location1, LATLNG(<?php echo $disc_lat ?>,<?php echo $disc_long ?>))',
 				limit: 15
-			}
+			},
+			map: map
 		});
-		layer_sec.setMap(map);
 		
 	}
 	
