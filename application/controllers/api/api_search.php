@@ -22,13 +22,17 @@ class Api_search extends CI_Controller {
 	}
 	
 	public function by_name($search_term) {
-		if ($name == NULL){
+		if ($search_term == NULL){
 			redirect('/browse', 'refresh');
 			return;
 		}
 		
+		$this->load->database();
+		$query = $this->db->query("SELECT * FROM kcpe_2010 WHERE `SCHOOL NAME` LIKE '%".strtoupper($search_term)."%';");
+		
 		$data['title'] = "API - Search By Name";
 		$data['search_term'] = $search_term;
+		$data['query'] = $query;
 		
 		//WHERE City LIKE '%tav%' 
 		/*
@@ -42,9 +46,9 @@ class Api_search extends CI_Controller {
 		$json_pri = file_get_contents ('https://www.googleapis.com/fusiontables/v1/query?sql='.$sql_pri.$api_key);
 		$json_sec = file_get_contents ('https://www.googleapis.com/fusiontables/v1/query?sql='.$sql_sec.$api_key); */
 		
-		$this->load->view('api/templates/header', $data);
+		//$this->load->view('api/templates/header', $data);
 		$this->load->view('api/search/by_name', $data);
-		$this->load->view('api/templates/footer', $data);
+		//$this->load->view('api/templates/footer', $data);
 	}
 	
 }
