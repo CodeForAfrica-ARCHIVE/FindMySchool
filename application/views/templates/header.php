@@ -18,7 +18,7 @@
         
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
         
-        <script src="<?php echo base_url(); ?>assets/js/vendor/jquery-1.8.0.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/vendor/jquery-1.8.2.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/vendor/modernizr-2.6.1.min.js"></script>
         
     </head>

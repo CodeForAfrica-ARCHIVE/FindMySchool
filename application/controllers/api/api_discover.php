@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Api_Discover extends CI_Controller {
+class Api_discover extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.

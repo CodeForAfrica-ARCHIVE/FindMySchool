@@ -27,20 +27,101 @@
 	<!-- Results Listed -->
 	<div class="row">
 		<div class="span6">
+			<div class="page-header">
+				<h3>Primary Schools</h3>
+			</div>
+			<div id="pri_results">
+				<p style="text-align: center;">
+					<img src="<?php echo base_url(); ?>assets/img/spinner_big.gif" alt="Spinner" />
+				</p> 
+			</div>
 		</div>
 		<div class="span6">
+			<div class="page-header">
+				<h3>Secondary Schools</h3>
+			</div>
+			<div id="sec_results">
+				<p style="text-align: center;">
+					<img src="<?php echo base_url(); ?>assets/img/spinner_big.gif" alt="Spinner" />
+				</p> 
+			</div>
 		</div>
 	</div>
 </section>
 
 <!-- SCRIPTS -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?AIzaSyDl0_EPlseIlbNlYZDOzpua7VqXyH_LfeY&sensor=true"></script>
 
 <!-- Results Listed GET -->
+<script type="text/javascript">
+	var json_pri;
+	var json_sec;
+	
+	var get_url = "https://www.googleapis.com/fusiontables/v1/query?sql=";
+	var sql_1 = encodeURIComponent("SELECT * FROM ");
+	var sql_2 = encodeURIComponent(" ORDER BY ST_DISTANCE(Location1, LATLNG(<?php echo $disc_lat ?>,<?php echo $disc_long ?>)) LIMIT 15");
+	var api_key = "&key=AIzaSyDl0_EPlseIlbNlYZDOzpua7VqXyH_LfeY";
+	
+	function run_search_pri(table_id) {
+		var xmlhttp;
+		if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp=new XMLHttpRequest();
+		} else { // code for IE6, IE5
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange = function(){
+			if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+				json_pri = jQuery.parseJSON(xmlhttp.responseText);
+				if (json_pri.rows === null || json_pri.rows === undefined){
+					document.getElementById("pri_results").innerHTML = "No results";
+				} else {
+			
+					var pri_res = json_pri.rows[0][0];
+					for (var i = 1; i<json_pri.rows.length; i++){
+						pri_res = pri_res+"<br/>"+json_pri.rows[i][0];
+					}
+					document.getElementById("pri_results").innerHTML =  pri_res;
+				}
+				
+			}
+		}
+		xmlhttp.open("GET", get_url+sql_1+table_id+sql_2+api_key, true);
+		xmlhttp.send();
+	}
+	
+	function run_search_sec(table_id) {
+		var xmlhttp;
+		if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp=new XMLHttpRequest();
+		} else { // code for IE6, IE5
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange = function(){
+			if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+				json_sec = jQuery.parseJSON(xmlhttp.responseText);
+				if (json_sec.rows === null || json_sec.rows === undefined){
+					document.getElementById("sec_results").innerHTML = "No results";
+				} else {
+
+					var sec_res = json_sec.rows[0][0];
+					for (var i = 0; i<json_sec.rows.length; i++){
+						sec_res = sec_res+"<br/>"+json_sec.rows[i][0];
+					}
+					document.getElementById("sec_results").innerHTML = sec_res;
+				}
+			}
+		}
+		xmlhttp.open("GET", get_url+sql_1+table_id+sql_2+api_key, true);
+		xmlhttp.send();
+	}
+	run_search_pri("1ZKdH9KCa_CD5qP2zWSsh0JG4xV2ctL3UGn_h22o");
+	run_search_sec("18A1E240QpWbRU5ftsIu3biFvNk7DzhLz_5MJmGU");
+</script>
 
 
-<!-- Map Display -->
-
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?AIzaSyDl0_EPlseIlbNlYZDOzpua7VqXyH_LfeY&sensor=true"></script>
+<!-- MAP DISPLAY -->
 <script type="text/javascript">
 
 	var disc_lat = <?php echo $disc_lat ?>;
