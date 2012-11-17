@@ -49,9 +49,9 @@ $route['discover'] = "discover/discover";
 $route['browse/search/(:any)'] = "browse/search/$1";
 $route['browse'] = "browse";
 
-$route['api/discover/locate_near/(:any)'] = "api/api_discover/locate_near/$1";
+$route['api/v1/discover/locate_near/(:any)'] = "api_v1/api_discover/locate_near/$1";
 
-$route['api/search/name/(:any)'] = "api/api_search/by_name/$1";
+$route['api/v1/search/name/(:any)'] = "api_v1/api_search/by_name/$1";
 
 
 /* End of file routes.php */

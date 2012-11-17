@@ -21,16 +21,16 @@ class Api_search extends CI_Controller {
 
 	}
 	
-	public function by_name($search_term) {
-		if ($search_term == NULL){
-			redirect('/browse', 'refresh');
-			return;
-		}
+	public function by_name($search_term=NULL) {
+//		if ($search_term == NULL){
+//			redirect('/browse', 'refresh');
+//			return;
+//		}
 		
 		$this->load->database();
 		$query = $this->db->query("SELECT * FROM kcpe_2010 WHERE `SCHOOL NAME` LIKE '%".strtoupper($search_term)."%';");
 		
-		$json_result = json_encode($query->result());
+		$json_result = json_encode($query->result_array());
 		echo $json_result;
 
 	}
