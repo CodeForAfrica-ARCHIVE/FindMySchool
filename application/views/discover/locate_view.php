@@ -163,7 +163,7 @@
 		var layer_pri = new google.maps.FusionTablesLayer({
 			query: {
 				select: 'Location1',
-				from: '1vql47h1gFTkOU2vd19gqMyKQZZD1JVcnEG3hIMw',
+				from: '1ZKdH9KCa_CD5qP2zWSsh0JG4xV2ctL3UGn_h22o',
 				orderBy: 'ST_DISTANCE(Location1, LATLNG(<?php echo $disc_lat ?>,<?php echo $disc_long ?>))',
 				limit: 15
 			},
@@ -173,7 +173,7 @@
 		var layer_sec = new google.maps.FusionTablesLayer({
 			query: {
 				select: 'Location1',
-				from: '1lV0Og2Km6_axy4WanqEfstylMY8XAzBleL42BNo',
+				from: '18A1E240QpWbRU5ftsIu3biFvNk7DzhLz_5MJmGU',
 				orderBy: 'ST_DISTANCE(Location1, LATLNG(<?php echo $disc_lat ?>,<?php echo $disc_long ?>))',
 				limit: 15
 			},
