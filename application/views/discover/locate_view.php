@@ -14,7 +14,7 @@
 	
 	<!-- MAP -->
 	<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960-up.png') no-repeat center top; padding-top: 4px;">
-		<div id="map_canvas" style="height: 200px; width: 100%;">
+		<div id="map_canvas" style="height: 250px; width: 100%;">
 			<table style="height: 100%; width: 100%; vertical-align: middle; text-align: center;" >
 				<tbody><tr><td>
 					<p><img src="<?php echo base_url(); ?>assets/img/spinner.gif" alt="" /> Loading map...</p>
@@ -59,7 +59,7 @@
 	
 	var get_url = "https://www.googleapis.com/fusiontables/v1/query?sql=";
 	var sql_1 = encodeURIComponent("SELECT * FROM ");
-	var sql_2 = encodeURIComponent(" ORDER BY ST_DISTANCE(Location1, LATLNG(<?php echo $disc_lat ?>,<?php echo $disc_long ?>)) LIMIT 15");
+	var sql_2 = encodeURIComponent(" ORDER BY ST_DISTANCE(Location1, LATLNG(<?php echo $disc_lat ?>,<?php echo $disc_long ?>)) LIMIT 10");
 	var api_key = "&key=AIzaSyDl0_EPlseIlbNlYZDOzpua7VqXyH_LfeY";
 	
 	function run_search_pri(table_id) {
@@ -106,7 +106,7 @@
 				} else {
 
 					var sec_res = json_sec.rows[0][0];
-					for (var i = 0; i<json_sec.rows.length; i++){
+					for (var i = 1; i<json_sec.rows.length; i++){
 						sec_res = sec_res+"<br/>"+json_sec.rows[i][0];
 					}
 					document.getElementById("sec_results").innerHTML = sec_res;
