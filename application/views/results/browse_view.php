@@ -1,11 +1,11 @@
 <section class="container">
 	<div class="page-header">
-		<h2>Browse Schools</h2>
+		<h2>Results</h2>
 	</div>
 	<div class="container">
 		<ul class="breadcrumb pull-left">
 		  <li><a href="<?php echo base_url(); ?>">Home</a> <span class="divider">/</span></li>
-		  <li class="active">Browse</li>
+		  <li class="active">Results</li>
 		</ul>
 		<div class="pull-right">
 			<div class="input-append">
@@ -18,7 +18,7 @@
 	<div class="row">
 		<div class="span6">
 			<div class="page-header">
-				<h3>Primary Schools</h3>
+				<h3>Top Ranked in KCPE</h3>
 			</div>
 			<div id="pri_results">
 				<p style="text-align: center;">
@@ -28,7 +28,7 @@
 		</div>
 		<div class="span6">
 			<div class="page-header">
-				<h3>Secondary Schools</h3>
+				<h3>Top Ranked in KCSE</h3>
 			</div>
 			<div id="sec_results">
 				<p style="text-align: center;">
@@ -45,13 +45,13 @@
 	var search_schools_btn = document.getElementById("search_schools_btn");
 	search_schools_btn.onclick = function() {
 		search_term = document.getElementById("appendedInputButtons").value;
-		window.location.href = "<?php echo base_url() ?>browse/search/"+search_term;
+		window.location.href = "<?php echo base_url() ?>results/search/"+search_term;
 	}
 	
 	function runScript(e) {
 	    if (e.keyCode == 13) {
 	        search_term = document.getElementById("search_term").value;
-	        window.location.href = "<?php echo base_url() ?>browse/search/"+search_term;
+	        window.location.href = "<?php echo base_url() ?>results/search/"+search_term;
 	        return false;
 	    }
 	}

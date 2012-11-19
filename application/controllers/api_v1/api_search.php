@@ -26,7 +26,7 @@ class Api_search extends CI_Controller {
 //			redirect('/browse', 'refresh');
 //			return;
 //		}
-		
+				
 		$this->load->database();
 		$query = $this->db->query("SELECT * FROM kcpe_2010 WHERE `SCHOOL NAME` LIKE '%".strtoupper($search_term)."%';");
 		

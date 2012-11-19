@@ -51,24 +51,8 @@
         					<li class="divider-vertical"></li>
         					<li><a href="<?php echo base_url(); ?>discover">Discover<br/><span>Schools Near You</span></a></li>
         					<li class="divider-vertical"></li>
-        					<li><a href="<?php echo base_url(); ?>browse">By Marks<br/><span>To Determine School</span></a></li>
-        					<li class="divider-vertical"></li>
-        					<li><div class="navbar-form input-append" style="margin-top:5px;">
-        						<input type="text" class="span2" id="appendedInputButton" placeholder="Search">
-        						<button class="btn" style="margin-top:5px;"><i class="icon-search"></i></button>
-        					</div></li>
+        					<li><a href="<?php echo base_url(); ?>results">Performance<br/><span>KCPE and KCSE Results</span></a></li>
         				</ul>
-        				
-        				<!--
-        				<div class="pull-right" style="margin: 7px 0 0 10px;">
-        					<a href="<?php echo base_url(); ?>login" class="btn btn-small">Login</a>
-        					<a href="<?php echo base_url(); ?>login/signup" class="btn btn-primary btn-small">Sign Up</a>
-        				</div>   
-        				<ul class="nav pull-right" style="margin-left:10px ;">
-        					<li class="divider-vertical"></li>
-        				</ul> -->
-        				    				
-        				
         			</div>
         		
         		</div>

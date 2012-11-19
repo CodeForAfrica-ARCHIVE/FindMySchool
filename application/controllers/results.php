@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Browse extends CI_Controller {
+class Results extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,10 +19,10 @@ class Browse extends CI_Controller {
 	 */
 	public function index(){
 	
-		$data['title'] = "Browse";
+		$data['title'] = "Results";
 		
 		$this->load->view('templates/header', $data);
-		$this->load->view('browse/browse_view', $data);
+		$this->load->view('results/browse_view', $data);
 		$this->load->view('templates/footer', $data);
 
 	}
@@ -30,7 +30,7 @@ class Browse extends CI_Controller {
 	public function search($search_term = NULL) {
 	
 		if ($search_term == NULL){
-			redirect('/browse', 'refresh');
+			redirect('/results', 'refresh');
 			return;
 		}
 		
@@ -50,7 +50,7 @@ class Browse extends CI_Controller {
 		$json_sec = file_get_contents ('https://www.googleapis.com/fusiontables/v1/query?sql='.$sql_sec.$api_key); */
 		
 		$this->load->view('templates/header', $data);
-		$this->load->view('browse/search_view', $data);
+		$this->load->view('results/search_view', $data);
 		$this->load->view('templates/footer', $data);
 	}
 	

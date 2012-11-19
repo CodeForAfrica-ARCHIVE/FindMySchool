@@ -15,18 +15,18 @@
 			<dl class="dl-horizontal">
 				<dt><p><img src="http://quickimage.it/65/555555/ffffff/&text=1" class="img-circle"><br/></p></dt>
 				<dd>
-					<h4>By Location: <small>Discover Schools Near You</small></h4>
+					<h4>Location: <small>Discover Schools Near You</small></h4>
 					<p>Select a location on our <b>interactive map</b> and discover schools near you.</p>
 				</dd>
 				<dt><p><img src="http://quickimage.it/65/555555/ffffff/&text=2" class="img-circle"><br/></p></dt>
 				<dd>
-					<h4>By Marks: <small>What School Would Pick You Against Your Marks</small></h4>
+					<h4>Marks Comparison: <small>What School Would Pick You Against Your Marks</small></h4>
 					<p>Using <b>Performance</b> and <b>Placement Data</b> from the <b>Ministry of Education</b> we help find your most probable <b>Secondary School</b> placement.</p>
 				</dd>
 				<dt><p><img src="http://quickimage.it/65/555555/ffffff/&text=3" class="img-circle"><br/></p></dt>
 				<dd>
-					<h4>By Search: <small>Enter the School Name and Hit Enter</small></h4>
-					<p>Search from our database of <b>31,229 Primary Schools</b> and <b>6,494 Secondary Schools</b>.</p>
+					<h4>Search Results: <small>Enter the School Name and Hit Enter</small></h4>
+					<p>Search schools' <b>KCPE</b> and <b>KCSE</b> results.</p>
 				</dd>
 			</dl>
 		</div>
@@ -39,7 +39,7 @@
 			<li class="span4">
 				<div class="thumbnail" style="background: #fff url('<?php echo base_url(); ?>assets/img/bg/nearme.png') no-repeat center top;">
 					<div class="caption">
-						<h3>By Location</h3>
+						<h3>Location</h3>
 						<p>Find schools near you using our <b>interactive map</b>. Simply drag the marker on the map below and hit "<b>Discover</b>".</p>
 						<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960-up.png') no-repeat center top; padding-top: 4px;">
 							<div id="map_canvas" style="height: 200px; width: 100%;">
@@ -62,7 +62,7 @@
 				<div id="enlargeMap" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h3>By Location <small>Enlarged Map</small></h3>
+						<h3>Location <small>Enlarged Map</small></h3>
 					</div>
 					<div class="modal-body">
 						<p>Find schools near you using our <b>interactive map</b>. Simply drag the marker on the map below and hit "<b>Discover</b>".</p>
@@ -89,7 +89,7 @@
 			<li class="span4">
 				<div class="thumbnail" style="">				
 					<div class="caption">
-						<h3>By Marks</h3>
+						<h3>Marks Comparison</h3>
 						<p>Let us help you find the <b>Secondary School</b> you are most likely to end up in. Simply select the <b>County</b> your <b>Primary School</b> is in and your <b>KCPE marks</b> and let us do the rest.</p>
 						
 						<hr />
@@ -160,37 +160,14 @@
 			<li class="span4">
 				<div class="thumbnail">
 					<div class="caption">
-						<h3>By Search</h3>
-						<p>Enter a <b>School name</b> below and let us find it for you.</p>
+						<h3>Search Results</h3>
+						<p>Find a school's <b>result</b> by entering the name and hitting 'Search'.</p>
 						<hr/>
 						<div style="margin-bottom: 15px;">
 							<input type="text" class="search-query" id="search_term" placeholder="Search Schools..." onkeypress="return runScript(event)" style="width: 80%;">
 						</div>
-						<form class="search_filters" style="text-align: left;">
-							<table style="width: 100%;">
-								<tbody>
-									<tr>
-										<td style="width: 50%;">
-											<label class="checkbox"><input type="checkbox" checked="true"> Primary School</label>
-										</td>
-										<td style="width: 50%;">
-											<label class="checkbox"><input type="checkbox" checked="true"> Secondary School</label>
-										</td>
-									</tr>
-									<tr>
-										<td style="width: 50%;">
-											<label class="checkbox"><input type="checkbox" checked="true"> Male</label>
-										</td>
-										<td style="width: 50%;">
-											<label class="checkbox"><input type="checkbox" checked="true"> Female</label>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-							
-						</form>
 						<p>
-							<a href="#" class="btn btn-primary" id="search_schools_btn"><i class="icon-search icon-white"></i> Search</a>
+							<a href="#" class="btn btn-primary" id="search_results_btn"><i class="icon-search icon-white"></i> Search</a>
 						</p>
 					</div>
 				</div>
@@ -208,16 +185,16 @@
 	
 	// Actual Search
 	var search_term;
-	var search_schools_btn = document.getElementById("search_schools_btn");
+	var search_schools_btn = document.getElementById("search_results_btn");
 	search_schools_btn.onclick = function() {
 		search_term = document.getElementById("search_term").value;
-		window.location.href = "<?php echo base_url() ?>browse/search/"+search_term;
+		window.location.href = "<?php echo base_url() ?>results/search/"+search_term;
 	}
 	
 	function runScript(e) {
 	    if (e.keyCode == 13) {
 	        search_term = document.getElementById("search_term").value;
-	        window.location.href = "<?php echo base_url() ?>browse/search/"+search_term;
+	        window.location.href = "<?php echo base_url() ?>results/search/"+search_term;
 	        return false;
 	    }
 	}
