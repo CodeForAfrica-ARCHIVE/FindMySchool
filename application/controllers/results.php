@@ -34,23 +34,43 @@ class Results extends CI_Controller {
 			return;
 		}
 		
+		$this->load->database();
+		$query = $this->db->query("SELECT * FROM kcpe_2010_disc_codes;");
+		
+		$district_result = $query->result_array();
+		
 		$data['title'] = "Search";
 		$data['search_term'] = $search_term;
-		
-		//WHERE City LIKE '%tav%' 
-		/*
-		$api_key = "&key=AIzaSyDl0_EPlseIlbNlYZDOzpua7VqXyH_LfeY";
-		$sql_pri = "SELECT * FROM 1FICuRpskdIAbgbnhJ8eOnrtKctmdxGn5wSSXK98 LIMIT 15";
-		$sql_sec = "SELECT * FROM 1lV0Og2Km6_axy4WanqEfstylMY8XAzBleL42BNo LIMIT 15";
-		
-		$sql_pri = urlencode($sql_pri);
-		$sql_sec = urlencode($sql_sec);
-		
-		$json_pri = file_get_contents ('https://www.googleapis.com/fusiontables/v1/query?sql='.$sql_pri.$api_key);
-		$json_sec = file_get_contents ('https://www.googleapis.com/fusiontables/v1/query?sql='.$sql_sec.$api_key); */
+		$data['district_result'] = json_encode($district_result);
 		
 		$this->load->view('templates/header', $data);
 		$this->load->view('results/search_view', $data);
+		$this->load->view('templates/footer', $data);
+	}
+	
+	public function school($school_in = NULL) {
+		if ($school_in == NULL){
+			redirect('/results', 'refresh');
+			return;
+		}
+		
+		//$school_resutls = array("");
+		
+		$school_find = explode(":", $school_in);
+		
+		$this->load->database();
+		$query = $this->db->query("SELECT * FROM kcpe_2010 WHERE `Id_No` = '".$school_find[1]."';");
+		
+		$school_result = $query->result_array();
+		
+		$data['school_name'] = ucwords(strtolower($school_result[0]['SCHOOL NAME']));
+		
+		$data['title'] = "Results - ".$data['school_name'];
+		$data['school_result'] = $school_result;
+		
+		
+		$this->load->view('templates/header', $data);
+		$this->load->view('results/school_view', $data);
 		$this->load->view('templates/footer', $data);
 	}
 	

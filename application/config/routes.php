@@ -48,6 +48,7 @@ $route['discover/locate/(:any)'] = "discover/discover/locate/$1";
 $route['discover'] = "discover/discover";
 
 $route['results/search/(:any)'] = "results/search/$1";
+$route['results/school/(:any)'] = "results/school/$1";
 $route['results'] = "results";
 
 $route['api/v1/discover/locate_near/(:any)'] = "api_v1/api_discover/locate_near/$1";

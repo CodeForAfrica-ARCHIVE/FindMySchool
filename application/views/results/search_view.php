@@ -50,6 +50,7 @@
 	var search_term = "<?php echo urldecode($search_term); ?>".toUpperCase();
 	var json_kcpe;
 	var json_kcse;
+	var json_dis;
 	
 	var api_url = "<?php echo base_url(); ?>api/v1/search/name/";
 	
@@ -67,14 +68,28 @@
 				if (json_kcpe.length === 1 || json_kcpe.length === 0){
 					document.getElementById("kcpe_results").innerHTML = "<p>No results</p>";
 				} else {
+					/*  Link District  */
+					json_dis = jQuery.parseJSON(<?php echo $district_result ?>);
+					for (var i = 0; i<json_kcpe.length; i++){
+						for (var i = 0; i<json_kcpe.length; i++){
+							
+						}
+					}
+					
 					/*
-						DISPLAY RESULTS	*/
+						DISPLAY RESULTS	 */
 
-					kcpe_res = "<ol>";
-					kcpe_res += "<li><p><b>"+toTitleCase(json_kcpe[0]['SCHOOL NAME'])+"</b></p></li>";
+					kcpe_res = "<ol class=\"results\">";
+					kcpe_res += "<li><a href=\"<?php echo base_url(); ?>results/school/pri:"+
+						json_kcpe[0]['Id_No']+"\">"+
+						"<p>"+toTitleCase(json_kcpe[0]['SCHOOL NAME'])+"</p>"+
+						"</a> <span class=\"badge badge-info\">2010</span></li>";
 					
 					for (var i = 1; i<json_kcpe.length; i++){
-						kcpe_res += "<li><p><b>"+toTitleCase(json_kcpe[i]['SCHOOL NAME'])+"</b></p></li>";
+						kcpe_res += "<li><a href=\"<?php echo base_url(); ?>results/school/pri:"+
+							json_kcpe[i]['Id_No']+"\">"+
+							"<p>"+toTitleCase(json_kcpe[i]['SCHOOL NAME'])+"</p>"+
+							"</a> <span class=\"badge badge-info\">2010</span></li>";
 					}
 					kcpe_res += "<ol>";
 					document.getElementById("kcpe_results").innerHTML =  kcpe_res;
@@ -89,7 +104,7 @@
 	function toTitleCase(str) {
 	    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 	}
-
+	
 	run_search_kcpe();
 	
 </script>
