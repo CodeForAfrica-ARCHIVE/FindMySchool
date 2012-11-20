@@ -22,7 +22,7 @@
 			<div class="well">
 				
 				<ul id="kcpeTab" class="nav nav-tabs">
-					<li><h4 style="margin: 7px 5px 0 0;">KCPE Results </h4></li>
+					<li><h4 style="margin: 7px 10px 0 0;">KCPE Results </h4></li>
 					<li class="active"><a href="#2010" data-toggle="tab">2010</a></li>
 					<li><a href="#2011" data-toggle="tab">2011</a></li>
 				</ul>
