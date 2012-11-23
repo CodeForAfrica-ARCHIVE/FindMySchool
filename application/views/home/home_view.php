@@ -187,12 +187,14 @@
 	var search_term;
 	var search_schools_btn = document.getElementById("search_results_btn");
 	search_schools_btn.onclick = function() {
+		search_schools_btn.innerHTML="<i class=\"icon-search icon-white\"></i> Please wait...";
 		search_term = document.getElementById("search_term").value;
 		window.location.href = "<?php echo base_url() ?>results/search/"+search_term;
 	}
 	
 	function runScript(e) {
 	    if (e.keyCode == 13) {
+	    	search_schools_btn.innerHTML="<i class=\"icon-search icon-white\"></i> Please wait...";
 	        search_term = document.getElementById("search_term").value;
 	        window.location.href = "<?php echo base_url() ?>results/search/"+search_term;
 	        return false;
