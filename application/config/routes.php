@@ -41,9 +41,6 @@
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 
-$route['signup'] = "login";
-$route['login'] = "login";
-
 $route['discover/locate/(:any)'] = "discover/discover/locate/$1";
 $route['discover'] = "discover/discover";
 
