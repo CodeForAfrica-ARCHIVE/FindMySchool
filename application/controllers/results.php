@@ -54,7 +54,7 @@ class Results extends CI_Controller {
 		$data['school_result'] = $school_result;
 		
 		$this->load->view('templates/header', $data);
-		//$this->load->view('results/school_view', $data);
+		$this->load->view('results/school_view', $data);
 		$this->load->view('templates/footer', $data);
 	}
 	
