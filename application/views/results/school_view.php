@@ -20,40 +20,49 @@
 	<div class="row">
 		<div class="span6">
 			<div class="well">
-				
-				<ul id="kcpeTab" class="nav nav-tabs">
-					<li><h4 style="margin: 7px 10px 0 0;">KCPE Results </h4></li>
-					<li class="active"><a href="#2010" data-toggle="tab">2010</a></li>
-					<li><a href="#2011" data-toggle="tab">2011</a></li>
-				</ul>
-				
-				<div id="kcpeTabContent" class="tab-content">
-					<div class="tab-pane fade in active" id="2010">
-						<p><b>KNEC Code: </b> <?php echo $school_result[0]['CODE'] ?></p>
-						<p><b>Students: </b> <?php echo $school_result[0]['ENTRY'] ?></p>
-						<p><b>National Rank: </b> <?php echo $school_result[0]['NATIONAL'] ?></p>
-						<hr />
-						<div class="row">
-							<div class="span2">
-								<p><b>English: </b> <?php echo $school_result[0]['ENGLISH'] ?></p>
-								<p><b>Kiswahili: </b> <?php echo $school_result[0]['KISWAHILI'] ?></p>
-							</div>
-							<div class="span2">
-								<p><b>Maths: </b> <?php echo $school_result[0]['MATHS'] ?></p>
-								<p><b>Science: </b> <?php echo $school_result[0]['SCIENCE'] ?></p>
-							</div>
-							<div class="span1" style="text-align: center;">
-								<h5 style="margin-top: 0;">Mean<br /><?php echo $school_result[0]['MEAN']?></h5>
-							</div>
-						</div>
+				<h4>KCPE Results 2010</h4>
+				<hr>
+				<p><b>KNEC Code: </b> <?php echo $res_2010[0]['CODE'] ?></p>
+				<p><b>Students: </b> <?php echo $res_2010[0]['ENTRY'] ?></p>
+				<p><b>National Rank: </b> <?php echo $res_2010[0]['NATIONAL'] ?></p>
+				<hr />
+				<div class="row">
+					<div class="span2">
+						<p><b>English: </b> <?php echo $res_2010[0]['ENGLISH'] ?></p>
+						<p><b>Kiswahili: </b> <?php echo $res_2010[0]['KISWAHILI'] ?></p>
 					</div>
-					<div class="tab-pane fade" id="2011">
-						<p>Coming Soon...</p>
-					</div>				
+					<div class="span2">
+						<p><b>Maths: </b> <?php echo $res_2010[0]['MATHS'] ?></p>
+						<p><b>Science: </b> <?php echo $res_2010[0]['SCIENCE'] ?></p>
+					</div>
+					<div class="span1" style="text-align: center;">
+						<h5 style="margin-top: 0;">Mean<br /><?php echo $res_2010[0]['MEAN']?></h5>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="span6" style="">
+		<div class="span6">
+			<div class="well">
+				<h4>KCPE Results 2011</h4>
+				<hr>
+				<p><b>KNEC Code: </b> <?php echo $res_2011[0]['CODE'] ?></p>
+				<p><b>Students: </b> <?php echo $res_2011[0]['ENTRY'] ?></p>
+				<p><b>National Rank: </b> <?php echo $res_2011[0]['NATIONAL'] ?></p>
+				<hr />
+				<div class="row">
+					<div class="span2">
+						<p><b>English: </b> <?php echo $res_2011[0]['ENGLISH'] ?></p>
+						<p><b>Kiswahili: </b> <?php echo $res_2011[0]['KISWAHILI'] ?></p>
+					</div>
+					<div class="span2">
+						<p><b>Maths: </b> <?php echo $res_2011[0]['MATHS'] ?></p>
+						<p><b>Science: </b> <?php echo $res_2011[0]['SCIENCE'] ?></p>
+					</div>
+					<div class="span1" style="text-align: center;">
+						<h5 style="margin-top: 0;">Mean<br /><?php echo $res_2011[0]['MEAN']?></h5>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	

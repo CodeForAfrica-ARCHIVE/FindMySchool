@@ -44,14 +44,17 @@ class Results extends CI_Controller {
 		$school_find = explode(":", $school_in);
 		
 		$this->load->database();
+		
 		$query = $this->db->query("SELECT * FROM kcpe_2010 WHERE `Id_No` = '".$school_find[1]."';");
+		$res_2010 = $query->result_array();
+		$query = $this->db->query("SELECT * FROM kcpe_2011 WHERE `CODE` = '".$res_2010[0]['CODE']."';");
+		$res_2011 = $query->result_array();
 		
-		$school_result = $query->result_array();
-		
-		$data['school_name'] = ucwords(strtolower($school_result[0]['SCHOOL NAME']));
+		$data['school_name'] = ucwords(strtolower($res_2010[0]['SCHOOL NAME']));
 		
 		$data['title'] = "Results - ".$data['school_name'];
-		$data['school_result'] = $school_result;
+		$data['res_2010'] = $res_2010;
+		$data['res_2011'] = $res_2011;
 		
 		$this->load->view('templates/header', $data);
 		$this->load->view('results/school_view', $data);
