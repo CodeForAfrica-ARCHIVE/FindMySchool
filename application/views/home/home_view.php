@@ -1,15 +1,17 @@
 <section class="container" >
 	<div class="row" style="margin-top: 30px; margin-bottom: 30px;">
 		<div class="span3">
+			<p style="text-align: center;"><a href="http://twaweza.org" target="_blank">
+				<img src="<?php echo base_url(); ?>assets/img/logos/twaweza.png" alt="Twaweza" />
+			</a></p>
 			<h3 style="line-height: 100%;">Welcome To Find My School .Ke</h3>
 			<p><b>Find My School</b> is your platform to easily find the school for you in these three simple ways.</p>
-			<p>Brought to you by <a href="http://code4kenya.org" target="_blank">Code 4 Kenya</a>.<br/><br/><br/></p>
-			<!-- AddThis Button BEGIN -->
+			<!-- AddThis Button BEGIN 
 			<div class="addthis_toolbox addthis_default_style " style="bottom: 0px;">
 			<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 			<a class="addthis_button_tweet"></a>
 			</div>
-			<!-- AddThis Button END -->
+			 AddThis Button END -->
 		</div>
 		<div class="span9">
 			<dl class="dl-horizontal">
@@ -170,6 +172,18 @@
 							<a href="#" class="btn btn-primary" id="search_results_btn"><i class="icon-search icon-white"></i> Search</a>
 						</p>
 					</div>
+				</div>
+				<div class="home-social">
+					<h3 style="color: #555;">Share FMS.Ke</h3>
+					<p>
+						<a href="javascript:void(0);" name="Share_TW" title="Share on Twitter | FMS Ke" onclick="javascript:window.open('http://twitter.com/home?status=Find%20My%20School%20Ke%20-%20http://findmyschool.co.ke%20%23FMSke','FMS.Ke','width=550,height=270');">
+							<img src="<?php echo base_url(); ?>assets/img/social/twitter.png" alt="Share on Twitter"></a>
+						<a href="javascript:void(0);" name="Share_FB" title="Share on FB | FMS Ke" onclick="javascript:window.open('http://www.facebook.com/sharer.php?u=http%3A%2F%2Ffindmyschool.co.ke','FMS.Ke','width=550,height=270');">
+							<img src="<?php echo base_url(); ?>assets/img/social/facebook.png" alt="Share on Facebook"></a>
+						<a href="https://plus.google.com/share?url=findmyschool.co.ke" onclick="javascript:window.open(this.href,
+						  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+						  <img src="<?php echo base_url(); ?>assets/img/social/googleplus.png" alt="Share on Google Plus"></a>
+					</p>
 				</div>
 			</li>
 		</ul>

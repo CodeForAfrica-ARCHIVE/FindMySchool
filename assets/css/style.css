@@ -171,6 +171,13 @@ footer a img{
 		font-size: 50px;
 	}
 	
+.home-social{
+	margin-top: 20px;
+}
+	.home-social a{
+		margin: 10px;
+	}
+	
 
 /*      ==============     */
 /*      RESULTS LAYOUT     */

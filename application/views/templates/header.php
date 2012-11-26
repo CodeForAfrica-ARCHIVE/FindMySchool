@@ -7,8 +7,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>FMS .Ke | <?= $title ?></title>
-        <meta name="description" content="">
+        <meta name="description" content="Easily Find a School in Kenya and browse KCPE and KCSE results. By Code4Kenya and Twaweza.">
         <meta name="viewport" content="width=device-width">
+        <meta property="og:image" content="<?php echo base_url(); ?>assets/img/logos/twaweza.png">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> 
 

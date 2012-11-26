@@ -22,8 +22,8 @@
 				<h3>KCPE Results</h3>
 			</div>
 			<div id="kcpe_results">
-				<p style="text-align: center;">
-					<img src="<?php echo base_url(); ?>assets/img/spinner_big.gif" alt="Spinner" />
+				<p>
+					<img src="<?php echo base_url(); ?>assets/img/spinner.gif" alt=""> Finding Schools...
 				</p> 
 			</div>
 		</div>
