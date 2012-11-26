@@ -45,7 +45,7 @@ class Results extends CI_Controller {
 		
 		$this->load->database();
 		
-		$query = $this->db->query("SELECT * FROM kcpe_2010 WHERE `Id_No` = '".$school_find[1]."';");
+		$query = $this->db->query("SELECT * FROM kcpe_2010 WHERE `CODE` = '".$school_find[1]."';");
 		$res_2010 = $query->result_array();
 		$query = $this->db->query("SELECT * FROM kcpe_2011 WHERE `CODE` = '".$res_2010[0]['CODE']."';");
 		$res_2011 = $query->result_array();

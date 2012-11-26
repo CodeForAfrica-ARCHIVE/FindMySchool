@@ -81,13 +81,13 @@
 
 					kcpe_res = "<ol class=\"results\">";
 					kcpe_res += "<li><a href=\"<?php echo base_url(); ?>results/school/pri:"+
-						json_kcpe[0]['Id_No']+"\">"+
+						json_kcpe[0]['CODE']+"\">"+
 						"<p>"+toTitleCase(json_kcpe[0]['SCHOOL NAME'])+"</p>"+
 						"</a> <span class=\"badge badge-info\">2010, 2011</span></li>";
 					
 					for (var i = 1; i<json_kcpe.length; i++){
 						kcpe_res += "<li><a href=\"<?php echo base_url(); ?>results/school/pri:"+
-							json_kcpe[i]['Id_No']+"\">"+
+							json_kcpe[i]['CODE']+"\">"+
 							"<p>"+toTitleCase(json_kcpe[i]['SCHOOL NAME'])+"</p>"+
 							"</a> <span class=\"badge badge-info\">2010, 2011</span></li>";
 					}
