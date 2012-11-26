@@ -56,7 +56,7 @@
 	
 	function runScript(e) {
 	    if (e.keyCode == 13) {
-	        search_term = document.getElementById("search_term").value;
+	        search_term = document.getElementById("appendedInputButtons").value;
 	        window.location.href = "<?php echo base_url() ?>results/search/"+search_term;
 	        return false;
 	    }
