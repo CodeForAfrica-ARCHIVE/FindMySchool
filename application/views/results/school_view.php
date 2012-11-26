@@ -48,6 +48,10 @@
 			<div class="well">
 				<h4>KCPE Results 2011</h4>
 				<hr>
+				<?php if ($is_res_2011==0) { 
+						echo '<p style="text-align:center;">No 2011 results found.</p>';
+					} else {
+				?>
 				<p><b>KNEC Code: </b> <?php echo $res_2011[0]['CODE'] ?></p>
 				<p><b>Students: </b> <?php echo $res_2011[0]['ENTRY'] ?>
 					<?php 
@@ -149,6 +153,7 @@
 						</h5>
 					</div>
 				</div>
+				<?php } ?>
 			</div>
 		</div>
 	</div>

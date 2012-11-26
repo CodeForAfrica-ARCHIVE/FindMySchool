@@ -57,6 +57,11 @@ class Results extends CI_Controller {
 		$query = $this->db->query("SELECT * FROM kcpe_2011 WHERE `CODE` = '".$school_find[1]."';");
 		$res_2011 = $query->result_array();
 		
+		$is_res_2011 = 1;
+		if (!$res_2011) {
+			$is_res_2011 = 0;
+		}
+		
 		
 		$sch_district_name = "";
 		
@@ -92,6 +97,7 @@ class Results extends CI_Controller {
 		$data['title'] = "Results - ".$data['school_name'];
 		$data['res_2010'] = $res_2010;
 		$data['res_2011'] = $res_2011;
+		$data['is_res_2011'] = $is_res_2011;
 		
 		$this->load->view('templates/header', $data);
 		$this->load->view('results/school_view', $data);
