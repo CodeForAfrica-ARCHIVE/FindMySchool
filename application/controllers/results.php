@@ -50,7 +50,37 @@ class Results extends CI_Controller {
 		$query = $this->db->query("SELECT * FROM kcpe_2011 WHERE `CODE` = '".$res_2010[0]['CODE']."';");
 		$res_2011 = $query->result_array();
 		
+		
+		$sch_district_name = "";
+		
+		$sch_disc_code = substr($res_2010[0]['CODE'], 0, 3);
+		if ($sch_disc_code==101) {
+			$sch_district_name = "Taita";
+		} else {
+			if ($sch_disc_code==201) {
+				$sch_district_name = "Nyandarua North";
+			} else {
+				if ($sch_disc_code==301) {
+					$sch_district_name = "Machakos";
+				} else {
+					if ($sch_disc_code==351) {
+						$sch_district_name = "Nzambani";
+					} else {
+						if ($sch_disc_code>=401 && $sch_disc_code<=450) {
+							$sch_district_name = "Nairobi";
+						} else {
+							$query = $this->db->query("SELECT * FROM kcpe_2010_disc_codes WHERE `Code` = '".$sch_disc_code."';");
+							$sch_district_codes = $query->result_array();
+							$sch_district_name = $sch_district_codes[0]['Name'];
+						}
+					}
+				}
+			}
+		}
+		
+		
 		$data['school_name'] = ucwords(strtolower($res_2010[0]['SCHOOL NAME']));
+		$data['sch_district_name'] = ucwords(strtolower($sch_district_name));
 		
 		$data['title'] = "Results - ".$data['school_name'];
 		$data['res_2010'] = $res_2010;

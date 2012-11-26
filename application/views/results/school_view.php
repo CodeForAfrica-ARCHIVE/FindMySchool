@@ -16,7 +16,7 @@
 		</div>
 	</div>
 	
-	<h3><?php echo $school_name; ?> <small>County: <a href="#">County Name</a></small></h3>
+	<h3><?php echo $school_name; ?> <small>District: <a href="#"><?php echo $sch_district_name ?></a></small></h3>
 	
 	<br />
 	
