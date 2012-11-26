@@ -6,6 +6,13 @@ class Results extends CI_Controller {
 	
 		$data['title'] = "Results";
 		
+		$this->load->database();
+		
+		$query = $this->db->query("SELECT * FROM kcpe_2011 ORDER BY `NATIONAL` LIMIT 10;");
+		$top_kcpe = $query->result_array();
+		
+		$data['top_kcpe'] = $top_kcpe;
+		
 		$this->load->view('templates/header', $data);
 		$this->load->view('results/browse_view', $data);
 		$this->load->view('templates/footer', $data);

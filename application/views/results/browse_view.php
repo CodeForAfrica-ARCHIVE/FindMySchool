@@ -18,21 +18,27 @@
 	<div class="row">
 		<div class="span6">
 			<div class="page-header">
-				<h3>Top Ranked in KCPE</h3>
+				<h3>Top Ranked in KCPE 2011</h3>
 			</div>
 			<div id="pri_results">
-				<p style="text-align: center;">
-					<img src="<?php echo base_url(); ?>assets/img/spinner_big.gif" alt="Spinner" />
-				</p> 
+				<ol>
+					<?php
+						foreach ($top_kcpe as $school) {
+							echo '<li><a href="'.base_url().'results/school/pri:'.$school['CODE'].'">'.
+								ucwords(strtolower($school['SCHOOL NAME'])).'</a></li>';
+						}
+					?>
+				</ol>
 			</div>
 		</div>
 		<div class="span6">
 			<div class="page-header">
-				<h3>Top Ranked in KCSE</h3>
+				<h3>Top Ranked in KCSE 2011</h3>
 			</div>
 			<div id="sec_results">
 				<p style="text-align: center;">
-					<img src="<?php echo base_url(); ?>assets/img/spinner_big.gif" alt="Spinner" />
+					<!--<img src="<?php echo base_url(); ?>assets/img/spinner_big.gif" alt="Spinner" />-->
+					Coming Soon...
 				</p> 
 			</div>
 		</div>
