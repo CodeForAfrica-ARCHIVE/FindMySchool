@@ -178,9 +178,20 @@ footer a img{
 		margin: 10px;
 	}
 
-.error_select{
-	color: white;
+
+/*      =======================     */
+/*      MARKS COMPARISON LAYOUT     */
+/*      =======================     */
+
+#school-results td{
+	text-align: center;
 }
+	#school-results td:first-child{
+		text-align: left;
+	}
+	#school-results td:first-child span{
+		padding-left: 10px;
+	}
 	
 
 /*      ==============     */
