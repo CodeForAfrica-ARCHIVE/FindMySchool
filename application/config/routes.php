@@ -41,13 +41,21 @@
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 
-$route['signup'] = "login";
-$route['login'] = "login";
-
 $route['discover/locate/(:any)'] = "discover/discover/locate/$1";
 $route['discover'] = "discover/discover";
-$route['browse/search/(:any)'] = "browse/search/$1";
-$route['browse'] = "browse";
+
+$route['marks/compare/(:any)'] = "fms_engine/comparison/$1";
+$route['marks'] = "fms_engine";
+
+$route['results/search/(:any)'] = "results/search/$1";
+$route['results/school/(:any)'] = "results/school/$1";
+$route['results'] = "results";
+
+$route['api/v1/discover/locate_near/(:any)'] = "api_v1/api_discover/locate_near/$1";
+
+$route['api/v1/fmsengine/marks/(:any)'] = "api_v1/api_fms_engine/by_marks/$1";
+
+$route['api/v1/search/name/(:any)'] = "api_v1/api_search/by_name/$1";
 
 
 /* End of file routes.php */

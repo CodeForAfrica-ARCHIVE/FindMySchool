@@ -1,5 +1,5 @@
 /*
- * Code Store Stylesheet
+ * Find My School Stylesheet
  * ---------------------
  * 
  * This is a stylesheet to overide bootstrap elements and introduce new styling elements.
@@ -171,27 +171,37 @@ footer a img{
 		font-size: 50px;
 	}
 	
+.home-social{
+	margin-top: 20px;
+}
+	.home-social a{
+		margin: 10px;
+	}
+
+.error_select{
+	color: white;
+}
 	
-/* ----- Sign Up Elements ----- */
 
-.sign-up {
-	text-align: center;
-	margin-bottom: 50px;
-}
-	.sign-up p{
-		padding: 0 50px;
-	}
+/*      ==============     */
+/*      RESULTS LAYOUT     */
+/*      ==============     */
 
-.social-login{
-	margin: 30px 50px;
+/* ----- Search Page ----- */
+.results a{
+	display: inline-block;
 }
-	.social-login a{
-		line-height: 35px;
-		margin: 15px 0;
-	}
-		.social-login a img{
-			height: 34px;
-		}
+
+/* ----- School Page ----- */
+.school-results img{
+	height: 13px;
+	margin-top: -3px;
+}
+
+
+
+
+
 
 
 

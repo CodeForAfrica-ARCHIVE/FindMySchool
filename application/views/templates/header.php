@@ -7,8 +7,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>FMS .Ke | <?= $title ?></title>
-        <meta name="description" content="">
+        <meta name="description" content="Easily Find a School in Kenya and browse KCPE and KCSE results. By Code4Kenya and Twaweza.">
         <meta name="viewport" content="width=device-width">
+        <meta property="og:image" content="<?php echo base_url(); ?>assets/img/logos/twaweza.png">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> 
 
@@ -18,7 +19,7 @@
         
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
         
-        <script src="<?php echo base_url(); ?>assets/js/vendor/jquery-1.8.0.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/vendor/jquery-1.8.2.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/vendor/modernizr-2.6.1.min.js"></script>
         
     </head>
@@ -51,21 +52,8 @@
         					<li class="divider-vertical"></li>
         					<li><a href="<?php echo base_url(); ?>discover">Discover<br/><span>Schools Near You</span></a></li>
         					<li class="divider-vertical"></li>
-        					<li><a href="<?php echo base_url(); ?>browse">Use Marks<br/><span>To Determine School</span></a></li>
-        					<li class="divider-vertical"></li>
-        					<li><a href="<?php echo base_url(); ?>browse">Browse<br/><span>Our Schools List</span></a></li>
+        					<li><a href="<?php echo base_url(); ?>results">Performance<br/><span>KCPE and KCSE Results</span></a></li>
         				</ul>
-        				
-        				<!--
-        				<div class="pull-right" style="margin: 7px 0 0 10px;">
-        					<a href="<?php echo base_url(); ?>login" class="btn btn-small">Login</a>
-        					<a href="<?php echo base_url(); ?>login/signup" class="btn btn-primary btn-small">Sign Up</a>
-        				</div>   
-        				<ul class="nav pull-right" style="margin-left:10px ;">
-        					<li class="divider-vertical"></li>
-        				</ul> -->
-        				    				
-        				
         			</div>
         		
         		</div>
