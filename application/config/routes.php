@@ -44,7 +44,7 @@ $route['404_override'] = '';
 $route['discover/locate/(:any)'] = "discover/discover/locate/$1";
 $route['discover'] = "discover/discover";
 
-$route['marks/compare/(:any)'] = "fms_engine/compare/$1";
+$route['marks/compare/(:any)'] = "fms_engine/comparison/$1";
 $route['marks'] = "fms_engine";
 
 $route['results/search/(:any)'] = "results/search/$1";

@@ -151,7 +151,13 @@
 							<input class="input-mini" id="appendedInput KCPE_Marks" size="16" type="text" placeholder="400"><span class="add-on">out of 500</span>
 						</div>
 						
-						<p><a href="#" class="btn btn-primary"><i class="icon-list-alt icon-white"></i> Find My School <i class="icon-arrow-right icon-white"></i></a></p>
+						<p style="margin: 15px 0 0;">
+							<a href="javascript:run_engine();" class="btn btn-primary">
+								<i class="icon-list-alt icon-white" style="visibility: hidden;"></i>Find My School 
+								<i class="icon-arrow-right icon-white"></i>
+							</a>
+						</p>
+						
 						</div>
 					</div>
 				</div>
@@ -216,6 +222,17 @@
 	}
 	
 </script>
+
+<!-- BY MARKS -->
+<script type="text/javascript">
+	function run_engine() {
+		var county_id = $('#county_select').find(":selected").val();
+		if (county_id == 0) {
+			$('county_select').addClass('error');
+		}
+	}
+</script>
+
 
 <!-- BY LOCATION -->
 
