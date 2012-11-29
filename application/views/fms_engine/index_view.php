@@ -2,6 +2,13 @@
 	<div class="page-header">
 		<h2>Marks Comparison</h2>
 	</div>
+	<div class="clearfix">
+		<ul class="breadcrumb pull-left">
+		  <li><a href="<?php echo base_url(); ?>">Home</a> <span class="divider">/</span></li>
+		  <li class="active">Marks</li>
+		</ul>
+	</div>
+	
 	<p class="lead">Let us help you find the <b>Secondary School</b> you are most likely to end up in. Simply select the County your Primary School is in and your <b>KCPE marks</b> and let us do the rest.</p>
 	
 	<form class="form-inline" style="text-align: center;">

@@ -53,6 +53,8 @@ $route['results'] = "results";
 
 $route['api/v1/discover/locate_near/(:any)'] = "api_v1/api_discover/locate_near/$1";
 
+$route['api/v1/fmsengine/marks/(:any)'] = "api_v1/api_fms_engine/by_marks/$1";
+
 $route['api/v1/search/name/(:any)'] = "api_v1/api_search/by_name/$1";
 
 

@@ -2,6 +2,14 @@
 	<div class="page-header">
 		<h2>Marks Comparison</h2>
 	</div>
+	<div class="clearfix">
+		<ul class="breadcrumb pull-left">
+		  <li><a href="<?php echo base_url(); ?>">Home</a> <span class="divider">/</span></li>
+		  <li><a href="<?php echo base_url(); ?>marks">Marks</a> <span class="divider">/</span></li>
+		  <li class="active">Compare</li>
+		</ul>
+	</div>
+	
 	<p class="lead">Let us help you find the <b>Secondary School</b> you are most likely to end up in. Simply select the County your Primary School is in and your <b>KCPE marks</b> and let us do the rest.</p>
 	
 	<form class="form-inline" style="text-align: center;">
@@ -66,6 +74,18 @@
 			<i class="icon-arrow-right icon-white" style="visibility: hidden;"></i>Find My School <i class="icon-arrow-right"></i>
 		</a>
 	</form>
+	
+	<hr />
+	
+	<p class="lead" style="text-align: center; margin-bottom: 0;">
+		<small class="muted">County: <b><?php echo $county_in_name; ?> county</b> | Marks: <b><?php echo $marks_in; ?></b> out of 500</small>
+	</p>
+	<h3 style="text-align: center; margin-top: 0;">Secondary Schools</h3>
+	
+	<div id="">
+		
+	</div>
+	
 </section>
 
 <!-- Update Options Chosen -->
@@ -73,6 +93,10 @@
 	document.getElementById("county_select").selectedIndex = <?php echo $county_in_id; ?> - 1;
 	document.getElementById("appendedInput").value = "<?php echo $marks_in; ?>";
 </script>
+
+<!-- MARKS COMPARISON -->
+
+
 
 <!-- New Marks Comparison -->
 <script type="text/javascript">
