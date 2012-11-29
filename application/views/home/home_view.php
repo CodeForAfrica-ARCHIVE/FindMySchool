@@ -97,7 +97,7 @@
 						<hr />
 						
 						<div id="fms_engine" class="well" style="margin-top: 28px;">
-						<select id="county_select">
+						<div id="county_ctrl_group"><select id="county_select">
 							<option value="0">Select Your County</option>
 							<option value="1">Baringo</option>
 							<option value="2">Bomet</option>
@@ -146,9 +146,9 @@
 							<option value="45">Vihiga</option>
 							<option value="46">Wajir</option>
 							<option value="47">West Pokot</option>
-						</select>
-						<div class="input-append">
-							<input class="input-mini" id="appendedInput KCPE_Marks" size="16" type="text" placeholder="400"><span class="add-on">out of 500</span>
+						</select></div>
+						<div id="marks_ctrl_group" class="input-append">
+							<input class="input-mini" id="appendedInput" size="16" type="text" placeholder="400"><span class="add-on">out of 500</span>
 						</div>
 						
 						<p style="margin: 15px 0 0;">
@@ -225,11 +225,34 @@
 
 <!-- BY MARKS -->
 <script type="text/javascript">
+	var county_id = $('#county_select option:selected').val();
+	var county_name = encodeURIComponent($('#county_select option:selected').text());
+	var marks_in = $('#appendedInput').val();
+	
 	function run_engine() {
-		var county_id = $('#county_select').find(":selected").val();
+		county_id = $('#county_select option:selected').val();
+		county_name = encodeURIComponent($('#county_select option:selected').text());
+		marks_in = $('#appendedInput').val();
+		
 		if (county_id == 0) {
-			$('#fms_engine').addClass('control-group error');
+			$('#county_ctrl_group').addClass('control-group error');
+		} else {
+			$('#county_ctrl_group').removeClass('control-group error');
 		}
+		if (marks_in == "" || !$.isNumeric(marks_in)) {
+			$('#marks_ctrl_group').addClass('control-group error');
+		} else {
+			$('#marks_ctrl_group').removeClass('control-group error');
+		}
+		
+		if (county_id != 0 && $.isNumeric(marks_in)){
+			if (marks_in>0 && marks_in<500) {
+				window.location.href = "<?php echo base_url() ?>marks/compare/"+county_name+":"+county_id+":"+marks_in;
+			} else {
+				$('#marks_ctrl_group').addClass('control-group error');
+			}
+		}
+		
 	}
 </script>
 
