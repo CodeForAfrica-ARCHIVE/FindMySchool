@@ -57,7 +57,7 @@
 			</select>
 		</p>
 		
-		<p class="lead" style="display: inline-block; margin-left: 10px; vertical-align: bottom;"><b>Marks: </b></p>
+		<p class="lead" style="display: inline-block; margin-left: 10px; vertical-align: top; margin-bottom: 10px; margin-top: 3px;"><b>Marks: </b></p>
 		<div id="marks_ctrl_group" class="input-append" style="display: inline-block;">
 			<input class="input-mini" id="appendedInput" size="16" type="text" placeholder="400"><span class="add-on">out of 500</span>
 		</div>
