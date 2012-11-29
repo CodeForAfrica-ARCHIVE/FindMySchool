@@ -80,16 +80,12 @@
 						DISPLAY RESULTS	 */
 
 					kcpe_res = "<ol class=\"results\">";
-					kcpe_res += "<li><a href=\"<?php echo base_url(); ?>results/school/pri:"+
-						json_kcpe[0]['CODE']+"\">"+
-						"<p>"+toTitleCase(json_kcpe[0]['SCHOOL NAME'])+"</p>"+
-						"</a></li>";
 					
-					for (var i = 1; i<json_kcpe.length; i++){
+					for (var i = 0; i<json_kcpe.length; i++){
 						kcpe_res += "<li><a href=\"<?php echo base_url(); ?>results/school/pri:"+
 							json_kcpe[i]['CODE']+"\">"+
-							"<p>"+toTitleCase(json_kcpe[i]['SCHOOL NAME'])+"</p>"+
-							"</a></li>";
+							"<p>"+toTitleCase(json_kcpe[i]['SCHOOL NAME'])+"</p></a>"+
+							"<p>District: "+json_kcpe[i]['DISTRICT_NAME']+"</p></li>";
 					}
 					kcpe_res += "<ol>";
 					document.getElementById("kcpe_results").innerHTML =  kcpe_res;
