@@ -82,8 +82,14 @@
 	</p>
 	<h3 style="text-align: center; margin-top: 0;">Secondary Schools</h3>
 	
-	<div id="">
-		
+	<div style="">
+		<table class="table table-hover" style="margin: 0 auto; width: 70%;" >
+			<tbody id="school-results">
+				<tr><td>
+					<p style="text-align: center;"><img src="<?php echo base_url() ?>assets/img/spinner.gif" alt="" /> Finding schools...</p>
+				</td></tr>
+			</tbody>
+		</table>
 	</div>
 	
 </section>
