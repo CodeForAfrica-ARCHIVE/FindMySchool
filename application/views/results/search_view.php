@@ -1,6 +1,6 @@
 <section class="container">
 	<div class="page-header">
-		<h2>Search <small>Results for "<?php echo $search_term; ?>"</small></h2>
+		<h2>Search <small>Results for "<?php echo ucwords(strtolower(urldecode($search_term))); ?>"</small></h2>
 	</div>
 	<div class="container">
 		<ul class="breadcrumb pull-left">

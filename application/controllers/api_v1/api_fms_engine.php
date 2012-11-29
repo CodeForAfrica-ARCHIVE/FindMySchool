@@ -29,12 +29,28 @@ class Api_fms_engine extends CI_Controller {
 		
 		$comp_in_array = explode(":", $comp_in);
 		
-		$county_in_name = urldecode($comp_in_array[0]);
-		$county_in_id = urldecode($comp_in_array[1]);
-		$marks_in = urldecode($comp_in_array[2]);
-				
+		$gender = $comp_in_array[0];
+		$category = $comp_in_array[1];
+		$marks = $comp_in_array[2];
+		
 		$this->load->database();
-		$query = $this->db->query("SELECT * FROM kcpe_2010 WHERE  MATCH `SCHOOL NAME` AGAINST ('".$search_term."');");
+		
+		if ($category == "ALLTYPE") {
+			if ($gender == "ALLGENDER"){
+				$query = $this->db->query("SELECT * FROM f1_sel_2012_gen WHERE Mean_Total<=".$marks." ORDER BY Mean_Total DESC LIMIT 15;");
+			} else {
+				$query = $this->db->query("SELECT * FROM f1_sel_2012_gen WHERE Mean_Total<=".$marks." AND Gender='".$gender."' ORDER BY Mean_Total DESC LIMIT 15;");
+			}
+			
+		} else {
+			
+			if ($gender == "ALLGENDER"){
+				$query = $this->db->query("SELECT * FROM f1_sel_2012_gen WHERE Mean_Total<=".$marks." AND Category='".$category."' ORDER BY Mean_Total DESC LIMIT 15;");
+			} else {
+				$query = $this->db->query("SELECT * FROM f1_sel_2012_gen WHERE Mean_Total<=".$marks." AND Category='".$category."' AND Gender='".$gender."' ORDER BY Mean_Total DESC LIMIT 15;");
+			}
+			
+		}
 		
 		$json_result = json_encode($query->result_array());
 		echo $json_result;

@@ -70,7 +70,7 @@
 			<input class="input-mini" id="appendedInput" size="16" type="text" placeholder="400"><span class="add-on">out of 500</span>
 		</div>
 		
-		<a href="javascript:run_engine();" class="btn btn-large" style="margin-left: 10px;">
+		<a href="javascript:go_engine();" class="btn btn-large" style="margin-left: 10px;">
 			<i class="icon-arrow-right icon-white" style="visibility: hidden;"></i>Find My School <i class="icon-arrow-right"></i>
 		</a>
 	</form>
@@ -84,8 +84,13 @@
 	
 	<div style="">
 		<table class="table table-hover" style="margin: 0 auto; width: 70%;" >
+			<thead>
+				<tr>
+					<td></td>
+				</tr>
+			</thead>
 			<tbody id="school-results">
-				<tr><td>
+				<tr><td colspan="3">
 					<p style="text-align: center;"><img src="<?php echo base_url() ?>assets/img/spinner.gif" alt="" /> Finding schools...</p>
 				</td></tr>
 			</tbody>
@@ -101,7 +106,58 @@
 </script>
 
 <!-- MARKS COMPARISON -->
-
+<script type="text/javascript">
+	var eng_stuff;
+	var json_result;
+	var eng_res;
+	
+	var api_url = "<?php echo base_url(); ?>api/v1/fmsengine/marks/";
+	
+	function run_engine(gender, type, marks) {
+		var xmlhttp;
+		if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp=new XMLHttpRequest();
+		} else { // code for IE6, IE5
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		eng_stuff = gender+":"+type+":"+marks;
+				
+		xmlhttp.onreadystatechange = function(){
+			if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+				json_result = jQuery.parseJSON(xmlhttp.responseText);
+				if (json_result.length === 1 || json_result.length === 0){
+					document.getElementById("kcpe_results").innerHTML = "<p>No results</p>";
+				} else {
+				
+					eng_res = "<ol class=\"results\">";
+					kcpe_res += "<li><a href=\"<?php echo base_url(); ?>results/school/pri:"+
+						json_kcpe[0]['CODE']+"\">"+
+						"<p>"+toTitleCase(json_kcpe[0]['SCHOOL NAME'])+"</p>"+
+						"</a></li>";
+					
+					for (var i = 0; i<json_kcpe.length; i++){
+						kcpe_res += "<li><a href=\"<?php echo base_url(); ?>results/school/pri:"+
+							json_kcpe[i]['CODE']+"\">"+
+							"<p>"+toTitleCase(json_kcpe[i]['SCHOOL NAME'])+"</p>"+
+							"</a></li>";
+					}
+					
+					document.getElementById("kcpe_results").innerHTML =  kcpe_res;
+				}
+						
+			}
+		}
+		xmlhttp.open("GET", api_url+eng_stuff, true);
+		xmlhttp.send();
+	}
+			
+	function toTitleCase(str) {
+	    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+	}
+		
+	run_search_kcpe("ALLGENDER","ALLTYPE","<?php echo $marks_in ?>");
+</script>
 
 
 <!-- New Marks Comparison -->
@@ -110,7 +166,7 @@
 	var county_name = encodeURIComponent($('#county_select option:selected').text());
 	var marks_in = $('#appendedInput').val();
 	
-	function run_engine() {
+	function go_engine() {
 		county_id = $('#county_select option:selected').val();
 		county_name = encodeURIComponent($('#county_select option:selected').text());
 		marks_in = $('#appendedInput').val();
