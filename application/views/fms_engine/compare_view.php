@@ -5,9 +5,8 @@
 	<p class="lead">Let us help you find the <b>Secondary School</b> you are most likely to end up in. Simply select the County your Primary School is in and your <b>KCPE marks</b> and let us do the rest.</p>
 	
 	<form class="form-inline" style="text-align: center;">
-		<p class="lead" style="display: inline-block; "><b>County:</b> 
+		<p id="county_ctrl_group" class="lead" style="display: inline-block; "><b>County:</b> 
 			<select id="county_select">
-				<option value="0">Select Your County</option>
 				<option value="1">Baringo</option>
 				<option value="2">Bomet</option>
 				<option value="3">Bungoma</option>
@@ -59,12 +58,53 @@
 		</p>
 		
 		<p class="lead" style="display: inline-block; margin-left: 10px; vertical-align: bottom;"><b>Marks: </b></p>
-		<div class="input-append" style="display: inline-block;">
-			<input class="input-mini" id="appendedInput KCPE_Marks" size="16" type="text" placeholder="400"><span class="add-on">out of 500</span>
+		<div id="marks_ctrl_group" class="input-append" style="display: inline-block;">
+			<input class="input-mini" id="appendedInput" size="16" type="text" placeholder="400"><span class="add-on">out of 500</span>
 		</div>
 		
-		<a href="#" class="btn btn-large" style="margin-left: 10px;">
-			<i class="icon-arrow-right icon-white" style="visibility: hidden;"></i>Find My School <i class="icon-arrow-right icon-white"></i>
+		<a href="javascript:run_engine();" class="btn btn-large" style="margin-left: 10px;">
+			<i class="icon-arrow-right icon-white" style="visibility: hidden;"></i>Find My School <i class="icon-arrow-right"></i>
 		</a>
 	</form>
 </section>
+
+<!-- Update Options Chosen -->
+<script type="text/javascript">
+	document.getElementById("county_select").selectedIndex = <?php echo $county_in_id; ?> - 1;
+	document.getElementById("appendedInput").value = "<?php echo $marks_in; ?>";
+</script>
+
+<!-- New Marks Comparison -->
+<script type="text/javascript">
+	var county_id = $('#county_select option:selected').val();
+	var county_name = encodeURIComponent($('#county_select option:selected').text());
+	var marks_in = $('#appendedInput').val();
+	
+	function run_engine() {
+		county_id = $('#county_select option:selected').val();
+		county_name = encodeURIComponent($('#county_select option:selected').text());
+		marks_in = $('#appendedInput').val();
+		
+		if (county_id == 0) {
+			$('#county_ctrl_group').addClass('control-group error');
+		} else {
+			$('#county_ctrl_group').removeClass('control-group error');
+		}
+		if (marks_in == "" || !$.isNumeric(marks_in)) {
+			$('#marks_ctrl_group').addClass('control-group error');
+		} else {
+			$('#marks_ctrl_group').removeClass('control-group error');
+		}
+		
+		if (county_id != 0 && $.isNumeric(marks_in)){
+			if (marks_in>0 && marks_in<500) {
+				window.location.href = "<?php echo base_url() ?>marks/compare/"+county_name+":"+county_id+":"+marks_in;
+			} else {
+				$('#marks_ctrl_group').addClass('control-group error');
+			}
+		}
+		
+	}
+</script>
+
+

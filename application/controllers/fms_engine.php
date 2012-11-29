@@ -22,11 +22,13 @@ class Fms_engine extends CI_Controller {
 		$comp_in_array = explode(":", $comp_in);
 		
 		$county_in_name = urldecode($comp_in_array[0]);
-		
-		$district_result = $query->result_array();
+		$county_in_id = urldecode($comp_in_array[1]);
+		$marks_in = urldecode($comp_in_array[2]);
 		
 		$data['title'] = "Marks Comparison";
 		$data['county_in_name'] = $county_in_name;
+		$data['county_in_id'] = $county_in_id;
+		$data['marks_in'] = $marks_in;
 		
 		$this->load->view('templates/header', $data);
 		$this->load->view('fms_engine/compare_view', $data);
