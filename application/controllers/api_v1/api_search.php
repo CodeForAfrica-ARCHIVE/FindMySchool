@@ -28,7 +28,7 @@ class Api_search extends CI_Controller {
 //		}
 				
 		$this->load->database();
-		$query = $this->db->query("SELECT * FROM kcpe_2010 WHERE `SCHOOL NAME` LIKE '%".strtoupper($search_term)."%';");
+		$query = $this->db->query("SELECT * FROM kcpe_2010 WHERE  MATCH `SCHOOL NAME` AGAINST ('".$search_term."');");
 		
 		$json_result = json_encode($query->result_array());
 		echo $json_result;
