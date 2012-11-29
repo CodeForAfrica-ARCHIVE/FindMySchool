@@ -68,13 +68,6 @@
 				if (json_kcpe.length === 1 || json_kcpe.length === 0){
 					document.getElementById("kcpe_results").innerHTML = "<p>No results</p>";
 				} else {
-					/*  Link District  */
-					json_dis = jQuery.parseJSON(<?php echo $district_result ?>);
-					for (var i = 0; i<json_kcpe.length; i++){
-						for (var i = 0; i<json_kcpe.length; i++){
-							
-						}
-					}
 					
 					/*
 						DISPLAY RESULTS	 */
@@ -85,7 +78,7 @@
 						kcpe_res += "<li><a href=\"<?php echo base_url(); ?>results/school/pri:"+
 							json_kcpe[i]['CODE']+"\">"+
 							"<p>"+toTitleCase(json_kcpe[i]['SCHOOL NAME'])+"</p></a>"+
-							"<p>District: "+json_kcpe[i]['DISTRICT_NAME']+"</p></li>";
+							"<p>District: "+unescape(toTitleCase(escape(json_kcpe[i]['DISTRICT_NAME'].toLowerCase())))+"</p></li>";
 					}
 					kcpe_res += "<ol>";
 					document.getElementById("kcpe_results").innerHTML =  kcpe_res;
