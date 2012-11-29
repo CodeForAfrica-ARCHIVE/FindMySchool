@@ -96,7 +96,7 @@
 						
 						<hr />
 						
-						<div class="well" style="margin-top: 28px;">
+						<div id="fms_engine" class="well" style="margin-top: 28px;">
 						<select id="county_select">
 							<option value="0">Select Your County</option>
 							<option value="1">Baringo</option>
@@ -228,7 +228,7 @@
 	function run_engine() {
 		var county_id = $('#county_select').find(":selected").val();
 		if (county_id == 0) {
-			$('county_select').addClass('error');
+			$('#fms_engine').addClass('control-group error');
 		}
 	}
 </script>
