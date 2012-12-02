@@ -52,6 +52,8 @@
         					<li class="divider-vertical"></li>
         					<li><a href="<?php echo base_url(); ?>discover">Discover<br/><span>Schools Near You</span></a></li>
         					<li class="divider-vertical"></li>
+        					<li><a href="<?php echo base_url(); ?>marks">Marks Comparison<br/><span>For Secondary School Placement</span></a></li>
+        					<li class="divider-vertical"></li>
         					<li><a href="<?php echo base_url(); ?>results">Performance<br/><span>KCPE and KCSE Results</span></a></li>
         				</ul>
         			</div>

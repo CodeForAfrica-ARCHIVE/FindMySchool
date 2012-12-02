@@ -11,8 +11,11 @@
 		</ul>
 	</div>
 	
+	<p class="lead" style="text-align: center;">Find schools near you using our <b>interactive map</b>. Simply drag the marker on the map below and hit "<b>Discover Schools</b>".
+		Also make sure to <b>zoom in and out</b> to get a better sense of loaction.</p>
+	
 	<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960-up.png') no-repeat center top; padding-top: 4px;">
-		<div id="map_canvas" style="height: 200px; width: 100%;">
+		<div id="map_canvas" style="height: 300px; width: 100%;">
 			<table style="height: 100%; width: 100%; vertical-align: middle; text-align: center;" >
 				<tbody><tr><td>
 					<p><img src="<?php echo base_url(); ?>assets/img/spinner.gif" alt="" /> Loading map...</p>
@@ -21,6 +24,11 @@
 		</div>
 	</div>
 	<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960.png') no-repeat center top; padding-top: 4px;"></div>
+	
+	<p style="text-align: center; margin-top: 20px;">
+		<a href="javascript:setDiscLocation();" class="btn btn-large btn-primary">
+			<i class="icon-globe" style="visibility: hidden;"></i>Discover Schools <i class="icon-globe icon-white"></i>
+	</a></p>
 </section>
 
 <!-- SCRIPTS -->
@@ -38,7 +46,7 @@ var marker;
 var map;
 
 var mapOptions = {
-	zoom: 13,
+	zoom: 11,
 	mapTypeId: google.maps.MapTypeId.ROADMAP,
 	center: nairobi
 };

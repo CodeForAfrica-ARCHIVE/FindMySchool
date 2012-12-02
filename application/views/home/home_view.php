@@ -54,7 +54,7 @@
 						</div>
 						<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960.png') no-repeat center top; padding-top: 4px; margin-bottom: 12px;"></div>
 						<p style="margin-bottom: 5px;">
-							<a href="#enlargeMap" role="button" class="btn" data-toggle="modal"><i class="icon-fullscreen"></i> Enlarge Map</a>
+							<!--<a href="#enlargeMap" role="button" class="btn" data-toggle="modal"><i class="icon-fullscreen"></i> Enlarge Map</a>-->
 							<a href="#" onclick="setDiscLocation()" class="btn btn-primary"><i class="icon-globe icon-white"></i> Discover</a>
 						</p>
 					</div>

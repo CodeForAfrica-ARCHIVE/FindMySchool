@@ -65,31 +65,20 @@
 		xmlhttp.onreadystatechange = function(){
 			if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 				json_kcpe = jQuery.parseJSON(xmlhttp.responseText);
-				if (json_kcpe.length === 1 || json_kcpe.length === 0){
+				if (json_kcpe.length === 0){
 					document.getElementById("kcpe_results").innerHTML = "<p>No results</p>";
 				} else {
-					/*  Link District  */
-					json_dis = jQuery.parseJSON(<?php echo $district_result ?>);
-					for (var i = 0; i<json_kcpe.length; i++){
-						for (var i = 0; i<json_kcpe.length; i++){
-							
-						}
-					}
 					
 					/*
 						DISPLAY RESULTS	 */
 
 					kcpe_res = "<ol class=\"results\">";
-					kcpe_res += "<li><a href=\"<?php echo base_url(); ?>results/school/pri:"+
-						json_kcpe[0]['CODE']+"\">"+
-						"<p>"+toTitleCase(json_kcpe[0]['SCHOOL NAME'])+"</p>"+
-						"</a></li>";
 					
-					for (var i = 1; i<json_kcpe.length; i++){
+					for (var i = 0; i<json_kcpe.length; i++){
 						kcpe_res += "<li><a href=\"<?php echo base_url(); ?>results/school/pri:"+
 							json_kcpe[i]['CODE']+"\">"+
-							"<p>"+toTitleCase(json_kcpe[i]['SCHOOL NAME'])+"</p>"+
-							"</a></li>";
+							"<p style=\"display:inline-block;\">"+toTitleCase(json_kcpe[i]['SCHOOL NAME'])+"</p></a> "+
+							"<span class=\"label label-info\">"+unescape(toTitleCase(escape(json_kcpe[i]['DISTRICT_NAME'].toLowerCase())))+"</span></li>";
 					}
 					kcpe_res += "<ol>";
 					document.getElementById("kcpe_results").innerHTML =  kcpe_res;
