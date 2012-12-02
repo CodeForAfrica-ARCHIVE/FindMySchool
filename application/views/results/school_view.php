@@ -26,7 +26,7 @@
 				<h4>KCPE Results 2010</h4>
 				<hr>
 				<p><b>KNEC Code: </b> <?php echo $res_2010[0]['CODE'] ?></p>
-				<p><b>Students: </b> <?php echo $res_2010[0]['ENTRY'] ?></p>
+				<p><b>Students Enrolled For Examination: </b> <?php echo $res_2010[0]['ENTRY'] ?></p>
 				<p><b>National Rank: </b> <?php echo $res_2010[0]['NATIONAL'] ?></p>
 				<hr />
 				<div class="row">
@@ -45,7 +45,7 @@
 			</div>
 		</div>
 		<div class="span6">
-			<div class="well">
+			<div class="well" style="margin-bottom: 5px;">
 				<h4>KCPE Results 2011</h4>
 				<hr>
 				<?php if ($is_res_2011==0) { 
@@ -53,7 +53,7 @@
 					} else {
 				?>
 				<p><b>KNEC Code: </b> <?php echo $res_2011[0]['CODE'] ?></p>
-				<p><b>Students: </b> <?php echo $res_2011[0]['ENTRY'] ?>
+				<p><b>Students Enrolled For Examination: </b> <?php echo $res_2011[0]['ENTRY'] ?>
 					<?php 
 						if ($res_2011[0]['ENTRY']>$res_2010[0]['ENTRY']){
 							echo ' <img src="'.base_url().'assets/img/noun/arrow-up.png" alt="" />';
@@ -154,7 +154,8 @@
 					</div>
 				</div>
 				<?php } ?>
-			</div>
+			</div> <!-- End .well -->
+			<p><small>* The arrows are indicative of school drop or increase from the previous year.</small></p>
 		</div>
 	</div>
 	

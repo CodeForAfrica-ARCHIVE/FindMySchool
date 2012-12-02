@@ -86,7 +86,35 @@
 		<table class="table table-hover" style="margin: 0 auto; width: 70%;" >
 			<thead>
 				<tr>
-					<td></td>
+					<td style="width: 50%;"><b>School Name</b></td>
+					<td><ul class="nav nav-pills" style="margin-bottom: 0; text-align: center;">
+						<li class="dropdown" style="float: none;">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="" id="gender-select">
+								Gender: ANY <b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu" style="text-align: left;">
+								<li><a tabindex="-1" href="javascript:set_gender('ALLGENDER')">Any Gender</a></li>
+								<li class="divider"></li>
+								<li><a tabindex="-1" href="javascript:set_gender('M')">Boys' School</a></li>
+								<li><a tabindex="-1" href="javascript:set_gender('F')">Girls' School</a></li>
+								<li class="divider"></li>
+								<li><a tabindex="-1" href="javascript:set_gender('B')">Mixed School</a></li>
+							</ul>
+						</li>
+					</ul></td>
+					<td><ul class="nav nav-pills" style="margin-bottom: 0; text-align: center;">
+						<li class="dropdown" style="float: none;">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="" id="type-select">
+								Type: ANY <b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu" style="text-align: left;">
+								<li><a tabindex="-1" href="javascript:set_type('ALLTYPE')">Any Type</a></li>
+								<li class="divider"></li>
+								<li><a tabindex="-1" href="javascript:set_type('PUBLIC')">Public School</a></li>
+								<li><a tabindex="-1" href="javascript:set_type('PRIVATE')">Private School</a></li>
+							</ul>
+						</li>
+					</ul></td>
 				</tr>
 			</thead>
 			<tbody id="school-results">
@@ -109,7 +137,11 @@
 <script type="text/javascript">
 	var eng_stuff;
 	var json_result;
-	var eng_res;
+	var eng_res = "";
+	
+	var gender_glo = "";
+	var type_glo = "";
+	var marks_glo = "";
 	
 	var api_url = "<?php echo base_url(); ?>api/v1/fmsengine/marks/";
 	
@@ -121,29 +153,40 @@
 			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 		}
 		
+		gender_glo = gender;
+		type_glo = type;
+		marks_glo = marks;
+		
+		$('#school-results').html('<tr><td colspan="3"><p style="text-align: center;"><img src="<?php echo base_url() ?>assets/img/spinner.gif" alt="" /> Finding schools...</p></td></tr>');
 		eng_stuff = gender+":"+type+":"+marks;
 				
 		xmlhttp.onreadystatechange = function(){
 			if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 				json_result = jQuery.parseJSON(xmlhttp.responseText);
 				if (json_result.length === 1 || json_result.length === 0){
-					document.getElementById("kcpe_results").innerHTML = "<p>No results</p>";
+					$('#school-results').html('<tr><td colspan="3"><p style="text-align: center;"></p>No results</td></tr>');
 				} else {
-				
-					eng_res = "<ol class=\"results\">";
-					kcpe_res += "<li><a href=\"<?php echo base_url(); ?>results/school/pri:"+
-						json_kcpe[0]['CODE']+"\">"+
-						"<p>"+toTitleCase(json_kcpe[0]['SCHOOL NAME'])+"</p>"+
-						"</a></li>";
-					
-					for (var i = 0; i<json_kcpe.length; i++){
-						kcpe_res += "<li><a href=\"<?php echo base_url(); ?>results/school/pri:"+
-							json_kcpe[i]['CODE']+"\">"+
-							"<p>"+toTitleCase(json_kcpe[i]['SCHOOL NAME'])+"</p>"+
-							"</a></li>";
+					eng_res = "";
+					for (var i = 0; i<json_result.length; i++){
+						eng_res += '<tr><td>'+(i+1)+'. <span>';
+						eng_res += unescape(toTitleCase(escape(json_result[i]['SchoolName'].toLowerCase())));
+						eng_res += '</span></td>';
+						
+						if (json_result[i]['Gender']=="B") {
+							eng_res += '<td>Mixed</td>';
+						}
+						if (json_result[i]['Gender']=="M") {
+							eng_res += '<td>Boys\' School</td>';
+						}
+						if (json_result[i]['Gender']=="F") {
+							eng_res += '<td>Girls\' School</td>';
+						}
+						
+						eng_res += '<td>'+toTitleCase(json_result[i]['Category'])+'</td>';
+						
 					}
 					
-					document.getElementById("kcpe_results").innerHTML =  kcpe_res;
+					$('#school-results').html(eng_res);
 				}
 						
 			}
@@ -156,7 +199,35 @@
 	    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 	}
 		
-	run_search_kcpe("ALLGENDER","ALLTYPE","<?php echo $marks_in ?>");
+	run_engine("ALLGENDER","ALLTYPE","<?php echo $marks_in ?>");
+	
+	function set_gender(gen_set) {
+		gender_glo = gen_set;
+		if (gen_set=="ALLGENDER") {
+			$('#gender-select').html('Gender: ANY <b class="caret"></b>');
+		}
+		if (gen_set=="M") {
+			$('#gender-select').html('Gender: Boys\' <b class="caret"></b>');
+		}
+		if (gen_set=="F") {
+			$('#gender-select').html('Gender: Girls\' <b class="caret"></b>');
+		}
+		if (gen_set=="B") {
+			$('#gender-select').html('Gender: Mixed <b class="caret"></b>');
+		}
+		
+		run_engine(gender_glo, type_glo, "<?php echo $marks_in ?>");
+	}
+	
+	function set_type(type_set) {
+		type_glo = type_set;
+		if (type_set == "ALLTYPE") {
+			$('#type-select').html('Type: ANY <b class="caret"></b>');
+		} else {
+			$('#type-select').html('Type: '+toTitleCase(type_set)+' <b class="caret"></b>');
+		}
+		run_engine(gender_glo, type_glo, "<?php echo $marks_in ?>");
+	}
 </script>
 
 

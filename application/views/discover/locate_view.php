@@ -12,6 +12,9 @@
 		</ul>
 	</div>
 	
+	<p class="lead" style="text-align: center;">Find schools near you using our <b>interactive map</b>. Simply drag the marker on the map below and hit "<b>Discover Schools</b>".
+		Also make sure to <b>zoom in and out</b> to get a better sense of loaction.</p>
+	
 	<!-- MAP -->
 	<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960-up.png') no-repeat center top; padding-top: 4px;">
 		<div id="map_canvas" style="height: 250px; width: 100%;">
@@ -23,6 +26,11 @@
 		</div>
 	</div>
 	<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960.png') no-repeat center top; padding-top: 4px; margin-bottom: 15px;"></div>
+	
+	<p style="text-align: center; margin-top: 20px;">
+		<a href="javascript:setDiscLocation();" class="btn btn-large btn-primary">
+			<i class="icon-globe" style="visibility: hidden;"></i>Discover Schools <i class="icon-globe icon-white"></i>
+	</a></p>
 	
 	<!-- Results Listed -->
 	<div class="row">
@@ -76,11 +84,14 @@
 				if (json_pri.rows === null || json_pri.rows === undefined){
 					document.getElementById("pri_results").innerHTML = "No results";
 				} else {
-			
-					var pri_res = json_pri.rows[0][0];
-					for (var i = 1; i<json_pri.rows.length; i++){
-						pri_res = pri_res+"<br/>"+json_pri.rows[i][0];
+					var pri_res = "<ol>";
+					
+					for (var i = 0; i<json_pri.rows.length; i++){
+						var school_name = toTitleCase(json_pri.rows[i][1].toLowerCase());
+						pri_res += "<li>"+school_name+"</li>"
 					}
+					
+					pri_res += "</ol>";
 					document.getElementById("pri_results").innerHTML =  pri_res;
 				}
 				
@@ -104,11 +115,12 @@
 				if (json_sec.rows === null || json_sec.rows === undefined){
 					document.getElementById("sec_results").innerHTML = "No results";
 				} else {
-
-					var sec_res = json_sec.rows[0][0];
-					for (var i = 1; i<json_sec.rows.length; i++){
-						sec_res = sec_res+"<br/>"+json_sec.rows[i][0];
+					var sec_res = "<ol>";
+					for (var i = 0; i<json_sec.rows.length; i++){
+						var school_name = toTitleCase(json_sec.rows[i][2].toLowerCase());
+						sec_res += "<li>"+school_name+"</li>"
 					}
+					sec_res += "</ol>";
 					document.getElementById("sec_results").innerHTML = sec_res;
 				}
 			}
@@ -118,6 +130,10 @@
 	}
 	run_search_pri("1ZKdH9KCa_CD5qP2zWSsh0JG4xV2ctL3UGn_h22o");
 	run_search_sec("18A1E240QpWbRU5ftsIu3biFvNk7DzhLz_5MJmGU");
+	
+	function toTitleCase(str) {
+	    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+	}
 </script>
 
 
