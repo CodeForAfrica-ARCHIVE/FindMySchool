@@ -88,7 +88,15 @@
 					
 					for (var i = 0; i<json_pri.rows.length; i++){
 						var school_name = toTitleCase(json_pri.rows[i][1].toLowerCase());
-						pri_res += "<li>"+school_name+"</li>"
+						pri_res += "<li><p>"+school_name;
+						pri_res += " <a id=\"primore"+i+"\" href=\"javascript:$('#pri"+i+"').slideDown('slow');\">More..</a></p>";
+//						pri_res += " <a id=\"priless"+i+"\" href=\"javascript:$('#pri"+i+"').slideUp('slow');\">Less..</a></p>";
+						pri_res += "<div id=\"pri"+i+"\" class=\"well\" style=\"display:none;\">";
+						pri_res += "<p><b>School Type:</b> "+toTitleCase(json_pri.rows[i][3].toLowerCase())+"</p>";
+						pri_res += "<p><b>Sponsor:</b> "+toTitleCase(json_pri.rows[i][4].toLowerCase())+"</p>";
+						pri_res += "<p><b>Girls\\Boys\\Mixed:</b> "+toTitleCase(json_pri.rows[i][5].toLowerCase())+"</p>";
+						pri_res += "<p><b>Boarding\\Day:</b> "+toTitleCase(json_pri.rows[i][6].toLowerCase())+"</p>";
+						pri_res += "</div></li>";
 					}
 					
 					pri_res += "</ol>";
@@ -118,7 +126,14 @@
 					var sec_res = "<ol>";
 					for (var i = 0; i<json_sec.rows.length; i++){
 						var school_name = toTitleCase(json_sec.rows[i][2].toLowerCase());
-						sec_res += "<li>"+school_name+"</li>"
+						sec_res += "<li><p>"+school_name;
+						sec_res += " <a id=\"secmore"+i+"\" href=\"javascript:$('#sec"+i+"').slideDown('slow');\">More..</a></p>";
+						sec_res += "<div id=\"sec"+i+"\" class=\"well\" style=\"display:none;\">";
+						sec_res += "<p><b>School Type:</b> "+toTitleCase(json_sec.rows[i][4].toLowerCase())+"</p>";
+						sec_res += "<p><b>Sponsor:</b> "+toTitleCase(json_sec.rows[i][5].toLowerCase())+"</p>";
+						sec_res += "<p><b>Girls\\Boys\\Mixed:</b> "+toTitleCase(json_sec.rows[i][6].toLowerCase())+"</p>";
+						sec_res += "<p><b>Boarding\\Day:</b> "+toTitleCase(json_sec.rows[i][7].toLowerCase())+"</p>";
+						sec_res += "</div></li>";
 					}
 					sec_res += "</ol>";
 					document.getElementById("sec_results").innerHTML = sec_res;
