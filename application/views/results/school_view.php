@@ -18,7 +18,13 @@
 	
 	<h3><?php echo $school_name; ?> <small>District: <a href="#"><?php echo $sch_district_name ?></a></small></h3>
 	
-	<br />
+	<span class='st_facebook_hcount' displayText='Facebook'></span>
+	<span class='st_twitter_hcount' displayText='Tweet'></span>
+	<span class='st_googleplus_hcount' displayText='Google +'></span>
+	<span class='st_linkedin_hcount' displayText='LinkedIn'></span>
+	<span class='st_email_hcount' displayText='Email'></span>
+	
+	<br /><br />
 	
 	<div class="row school-results">
 		<div class="span6">
@@ -180,3 +186,8 @@
 	}
 	
 </script>
+
+<!-- ShareThis Scripts -->
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "ur-93a6ac82-f0bb-cb55-fda3-da4c51876a0d"});</script>
