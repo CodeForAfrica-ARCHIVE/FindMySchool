@@ -539,5 +539,5 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
   php_value session.cookie_httponly true
 </IfModule>
 
-RewriteCond $1 !^(index\.php|images|robots\.txt|assets)
-RewriteRule ^(.*)$ /findmyschool/index.php/$1 [L]
+#RewriteCond $1 !^(index\.php|images|robots\.txt|assets)
+#RewriteRule ^(.*)$ /findmyschool/index.php/$1 [L]

@@ -1,33 +1,38 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
 
-class Home extends CI_Controller {
+class Home_Controller extends Base_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function index()
+	/*
+	|--------------------------------------------------------------------------
+	| The Default Controller
+	|--------------------------------------------------------------------------
+	|
+	| Instead of using RESTful routes and anonymous functions, you might wish
+	| to use controllers to organize your application API. You'll love them.
+	|
+	| This controller responds to URIs beginning with "home", and it also
+	| serves as the default controller for the application, meaning it
+	| handles requests to the root of the application.
+	|
+	| You can respond to GET requests to "/home/profile" like so:
+	|
+	|		public function action_profile()
+	|		{
+	|			return "This is your profile!";
+	|		}
+	|
+	| Any extra segments are passed to the method as parameters:
+	|
+	|		public function action_profile($id)
+	|		{
+	|			return "This is the profile for user {$id}.";
+	|		}
+	|
+	*/
+
+	public function action_index()
 	{
-		$data['title'] = "Home";
-		
-		$this->load->view('templates/header', $data);
-		$this->load->view('home/home_view', $data);
-		$this->load->view('templates/footer', $data);
-		//$this->load->view('home/home_view');
+		return View::make('home.index');
 	}
-	
-}
 
-/* End of file home.php */
-/* Location: ./application/controllers/home.php */
+}
