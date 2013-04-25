@@ -1,17 +1,37 @@
-# Defualt CodeIgniter
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
 
-*/config/development
-*/logs/log-*.php
-*/logs/!index.html
-*/cache/*
-*/cache/!index.html
-
-# Custom Added
-*.DS_Store
+# OS or Editor folders
+.DS_Store
+Thumbs.db
+.cache
+.project
+.settings
+.tmproj
 *.esproj
+nbproject
 
-*/config/database.php
-*/application/views/user/models/db-settings.php
-*application/controllers/login/twitter/tmhKeys.php
+# Dreamweaver added files
+_notes
+dwsync.xml
 
-*error_log
+# Komodo
+*.komodoproject
+.komodotools
+
+# Folders to ignore
+.hg
+.svn
+.CVS
+intermediate
+publish
+.idea
