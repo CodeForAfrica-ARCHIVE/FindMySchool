@@ -11,9 +11,8 @@ Find My School | Home
 
 @section('content')
 	<?php foreach ($schools as $school) { 
-		$school_name_url = str_replace('+', '-', urlencode(strtolower(str_replace('-', '[z]', $school->name))));
+		$school_name_url = urlencode(strtolower($school->name));
 	?>
-		<a href="/school/profile/{{$school_name_url}}/{{$school->id}}">{{$school->name}}</a><br />
+		<a href="/school/{{$school_name_url}}/{{$school->id}}">{{$school->name}}</a><br />
 	<?php } ?>
-	
 @endsection

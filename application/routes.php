@@ -32,10 +32,14 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('home.index');
-});
+//Route::get('/', function()
+//{
+//	return View::make('home.index');
+//});
+
+Route::get('/', 'home@index');
+Route::get('school/search', 'school@search');
+Route::get('school/profile/(:any)/(:any)', 'school@profile');
 
 /*
 |--------------------------------------------------------------------------

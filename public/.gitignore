@@ -1,4 +1,5 @@
 # Numerous always-ignore extensions
+*.bak
 *.diff
 *.err
 *.orig
@@ -7,18 +8,19 @@
 *.swo
 *.swp
 *.vi
-*~
-*.sass-cache
+.sass-cache
 
 # OS or Editor folders
 .DS_Store
+._*
 Thumbs.db
 .cache
 .project
 .settings
 .tmproj
-*.esproj
 nbproject
+*.sublime-project
+*.sublime-workspace
 
 # Dreamweaver added files
 _notes
@@ -28,11 +30,15 @@ dwsync.xml
 *.komodoproject
 .komodotools
 
+# Espresso
+*.esproj
+*.espressostorage
+
+# Rubinius
+*.rbc
+
 # Folders to ignore
 .hg
 .svn
 .CVS
-intermediate
-publish
 .idea
-application/config/database.php

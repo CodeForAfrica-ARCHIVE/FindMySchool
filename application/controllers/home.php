@@ -32,7 +32,10 @@ class Home_Controller extends Base_Controller {
 
 	public function action_index()
 	{
-		return View::make('home.index');
+		$schools = DB::table('kcse_2006_2011_school_distinct')->take('0,10')->get();
+		
+		return View::make('home.index')
+			->with('schools', $schools);
 	}
 
 }
