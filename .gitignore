@@ -36,3 +36,5 @@ intermediate
 publish
 .idea
 application/config/database.php
+
+application/config/application.php
