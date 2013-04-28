@@ -56,9 +56,9 @@ class School_Controller extends Base_Controller {
 	
 	public function action_profile($school_name, $school_id)
 	{
-		$school_name = str_replace('[z]', '-', strtoupper(urldecode(str_replace('-', '+', $school_name))));
-		$school_data = DB::table('kcse_2006_2011')->where('SCHOOL', '=', $school_name)->take(6)->get();
-		
+		$school_name = str_replace('[Z]', '-', strtoupper(urldecode(str_replace('-', '+', $school_name))));
+		$school_data = DB::table('kcse_2006_2011')->where('SCHOOL', 'LIKE', $school_name)->take(6)->get();
+				
 		return View::make('school.profile')
 			->with('school_data', $school_data);
 	}
@@ -69,6 +69,7 @@ class School_Controller extends Base_Controller {
 		$search_term = trim(strtoupper(urldecode($search_term)));
 		$schools = DB::table('kcse_2006_2011')
 			->where('SCHOOL', 'LIKE', '%'.$search_term.'%')
+			->where('YEAR', '=','2006')
 			->distinct()
 			->take(10)->get();
 		
