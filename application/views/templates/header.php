@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en" ng-app> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en" ng-app> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" ng-app> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" ng-app> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>FMS .Ke | <?= $title ?></title>
+        <title>FMS .Ke | <?php echo $title; ?></title>
         <meta name="description" content="Easily Find a School in Kenya and browse KCPE and KCSE results. By Code4Kenya and Twaweza.">
         <meta name="viewport" content="width=device-width">
         <meta property="og:image" content="<?php echo base_url(); ?>assets/img/logos/twaweza.png">
@@ -15,12 +15,13 @@
 
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/normalize.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/main.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.css">
         
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
         
         <script src="<?php echo base_url(); ?>assets/js/vendor/jquery-1.8.2.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/vendor/modernizr-2.6.1.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/vendor/angular.min.js"></script>
         
     </head>
     <body>

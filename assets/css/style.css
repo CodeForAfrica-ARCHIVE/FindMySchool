@@ -70,6 +70,14 @@ header a{
 
 footer {
 	margin-bottom: 20px;
+	border-top: 1px solid #eee;
+}
+
+footer .footer-title{
+	color: #555;
+	padding: 10px 0 5px;
+	margin: 0 0 15px;
+	border-bottom: 1px solid #eee;
 }
 
 footer a{
@@ -169,6 +177,15 @@ footer a img{
 }
 	.home-numbers h1{
 		font-size: 50px;
+	}
+
+.search-example{
+	border-bottom: 1px dashed;
+}
+	.search-example:hover {
+		text-decoration: none;
+		color: rgb(85, 188, 240);
+		border-bottom: 1px solid;
 	}
 	
 .home-social{

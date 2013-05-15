@@ -34,168 +34,55 @@
 		</div>
 	</div>
 	
-	<div class="row-fluid" style="text-align: center;">
-		<ul class="thumbnails">
+</section>
+
+
+<!-- SEARCH SECTION -->
+
+<section style="background-color: #333; text-align: center; color: #fff;">
+	<div class="container" style="padding: 30px 0 40px;">
+		<h2 style="margin-bottom: 0;">View School Results</h2>
+		<h2 style="margin-top: 0; line-height: 15px;"><small>Primary &amp; Secondary</small></h2>
+		<div class="input-append" style="margin: 10px auto; display: inline-block;">
+			<input type="text" class="span4" id="search_term" placeholder="School Name" onkeypress="return runScript(event)"  style="font-size: 18px; line-height: 25px; height: 23px; padding: 10px 10px 10px 15px;">
+			<button class="btn btn-large" id="search_results_btn" type="button"><i class="icon-search"></i> Search</button>
+		</div>
+		<p>example: <a href="#" class="search-example">Alliance Secondary School</a></p>
+	</div>
+</section>
+
+
+<!-- DISCOVER SECTION -->
+
+<section style="background: #fff url('<?php echo base_url(); ?>assets/img/bg/nearme.png') repeat-x center top; padding-bottom: 30px;">
+
+	<div class="container">
+		<div class="page-header" style="border-bottom: 0; padding-bottom: 0px; padding-top: 9px; margin: 20px 0 30px; border-top: 1px solid #eee; text-align: center;">
+			<h2>Discover Schools Near You</h2>
+		</div>
 		
-			<!-- BY LOCATION -->
-			<li class="span4">
-				<div class="thumbnail" style="background: #fff url('<?php echo base_url(); ?>assets/img/bg/nearme.png') no-repeat center top;">
-					<div class="caption">
-						<h3>Location</h3>
-						<p>Find schools near you using our <b>interactive map</b>. Simply drag the marker on the map below and hit "<b>Discover</b>".</p>
-						<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960-up.png') no-repeat center top; padding-top: 4px;">
-							<div id="map_canvas" style="height: 200px; width: 100%;">
-								<table style="height: 100%; width: 100%; vertical-align: middle; text-align: center;" >
-									<tbody><tr><td>
-										<p><img src="<?php echo base_url(); ?>assets/img/spinner.gif" alt="" /> Loading map...</p>
-									</td></tr></tbody>
-								</table>
-							</div>
-						</div>
-						<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960.png') no-repeat center top; padding-top: 4px; margin-bottom: 12px;"></div>
-						<p style="margin-bottom: 5px;">
-							<!--<a href="#enlargeMap" role="button" class="btn" data-toggle="modal"><i class="icon-fullscreen"></i> Enlarge Map</a>-->
-							<a href="#" onclick="setDiscLocation()" class="btn btn-primary"><i class="icon-globe icon-white"></i> Discover</a>
-						</p>
-					</div>
-				</div>
-				
-				<!-- Enlarge Map MODAL-->
-				<div id="enlargeMap" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h3>Location <small>Enlarged Map</small></h3>
-					</div>
-					<div class="modal-body">
-						<p>Find schools near you using our <b>interactive map</b>. Simply drag the marker on the map below and hit "<b>Discover</b>".</p>
-						<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960-up.png') no-repeat center top; padding-top: 4px;">
-							<div id="map_canvas_large" style="height: 300px; width: 100%;">
-								<table style="height: 100%; width: 100%; vertical-align: middle; text-align: center;" >
-									<tbody><tr><td>
-										<p><img src="<?php echo base_url(); ?>assets/img/spinner.gif" alt="" /> Loading map...</p>
-									</td></tr></tbody>
-								</table>
-							</div>
-						</div>
-						<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960.png') no-repeat center top; padding-top: 4px; margin-bottom: 12px;"></div>
-					</div>
-					<div class="modal-footer">
-						<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-						<a href="#" onclick="setDiscLocation()" class="btn btn-primary"><i class="icon-globe icon-white"></i> Discover</a>
-					</div>
-				</div>
-				
-			</li>
-			
-			<!-- BY MARKS -->
-			<li class="span4">
-				<div class="thumbnail" style="">				
-					<div class="caption">
-						<h3>Marks Comparison</h3>
-						<p>Let us help you find the <b>Secondary School</b> you are most likely to end up in. Simply select the <b>County</b> your <b>Primary School</b> is in and your <b>KCPE marks</b> and let us do the rest.</p>
-						
-						<hr />
-						
-						<div id="fms_engine" class="well" style="margin-top: 28px;">
-						<div id="county_ctrl_group"><select id="county_select">
-							<option value="0">Select Your County</option>
-							<option value="1">Baringo</option>
-							<option value="2">Bomet</option>
-							<option value="3">Bungoma</option>
-							<option value="4">Busia</option>
-							<option value="5">Elgeyo Marakwet</option>
-							<option value="6">Embu</option>
-							<option value="7">Garissa</option>
-							<option value="8">Homa Bay</option>
-							<option value="9">Isiolo</option>
-							<option value="10">Kajiado</option>
-							<option value="11">Kakamega</option>
-							<option value="12">Kericho</option>
-							<option value="13">Kiambu</option>
-							<option value="14">Kilifi</option>
-							<option value="15">Kirinyaga</option>
-							<option value="16">Kisii</option>
-							<option value="17">Kisumu</option>
-							<option value="18">Kitui</option>
-							<option value="19">Kwale</option>
-							<option value="20">Laikipia</option>
-							<option value="21">Lamu</option>
-							<option value="22">Machakos</option>
-							<option value="23">Makueni</option>
-							<option value="24">Mandera</option>
-							<option value="25">Marsabit</option>
-							<option value="26">Meru</option>
-							<option value="27">Migori</option>
-							<option value="28">Mombasa</option>
-							<option value="29">Murang’a</option>
-							<option value="30">Nairobi</option>
-							<option value="31">Nakuru</option>
-							<option value="32">Nandi</option>
-							<option value="33">Narok</option>
-							<option value="34">Nyamira</option>
-							<option value="35">Nyandarua</option>
-							<option value="36">Nyeri</option>
-							<option value="37">Samburu</option>
-							<option value="38">Siaya</option>
-							<option value="39">Taita Taveta</option>
-							<option value="40">Tana River</option>
-							<option value="41">Tharaka Nithi</option>
-							<option value="42">Trans Nzoia</option>
-							<option value="43">Turkana</option>
-							<option value="44">Uasin Gishu</option>
-							<option value="45">Vihiga</option>
-							<option value="46">Wajir</option>
-							<option value="47">West Pokot</option>
-						</select></div>
-						<div id="marks_ctrl_group" class="input-append">
-							<input class="input-mini" id="appendedInput" size="16" type="text" placeholder="400"><span class="add-on">out of 500</span>
-						</div>
-						
-						<p style="margin: 15px 0 0;">
-							<a href="javascript:run_engine();" class="btn btn-primary">
-								<i class="icon-list-alt icon-white" style="visibility: hidden;"></i>Find My School 
-								<i class="icon-arrow-right icon-white"></i>
-							</a>
-						</p>
-						
-						</div>
-					</div>
-				</div>
-			</li>
-			
-			
-			<!-- BY SEARCH -->
-			<li class="span4">
-				<div class="thumbnail">
-					<div class="caption">
-						<h3>Search Results</h3>
-						<p>Find a school's <b>result</b> by entering the name and hitting 'Search'.</p>
-						<hr/>
-						<div style="margin-bottom: 15px;">
-							<input type="text" class="search-query" id="search_term" placeholder="Search Schools..." onkeypress="return runScript(event)" style="width: 80%;">
-						</div>
-						<p>
-							<a href="#" class="btn btn-primary" id="search_results_btn"><i class="icon-search icon-white"></i> Search</a>
-						</p>
-					</div>
-				</div>
-				<div class="home-social">
-					<h3 style="color: #555;">Share FMS.Ke</h3>
-					<p>
-						<a href="javascript:void(0);" name="Share_TW" title="Share on Twitter | FMS Ke" onclick="javascript:window.open('http://twitter.com/home?status=Find%20My%20School%20Ke%20-%20http://findmyschool.co.ke%20%23FMSke','FMS.Ke','width=550,height=270');">
-							<img src="<?php echo base_url(); ?>assets/img/social/twitter.png" alt="Share on Twitter"></a>
-						<a href="javascript:void(0);" name="Share_FB" title="Share on FB | FMS Ke" onclick="javascript:window.open('http://www.facebook.com/sharer.php?u=http%3A%2F%2Ffindmyschool.co.ke','FMS.Ke','width=550,height=270');">
-							<img src="<?php echo base_url(); ?>assets/img/social/facebook.png" alt="Share on Facebook"></a>
-						<a href="https://plus.google.com/share?url=findmyschool.co.ke" onclick="javascript:window.open(this.href,
-						  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
-						  <img src="<?php echo base_url(); ?>assets/img/social/googleplus.png" alt="Share on Google Plus"></a>
-					</p>
-				</div>
-			</li>
-		</ul>
+		<p class="lead" style="text-align: center;">Find schools near you using our <b>interactive map</b>. Simply drag the marker on the map below and hit "<b>Discover Schools</b>".
+			Also make sure to <b>zoom in and out</b> to get a better sense of loaction.</p>
+		
+		<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960-up.png') no-repeat center top; padding-top: 4px;">
+			<div id="map_canvas" style="height: 300px; width: 100%;">
+				<table style="height: 100%; width: 100%; vertical-align: middle; text-align: center;" >
+					<tbody><tr><td>
+						<p><img src="<?php echo base_url(); ?>assets/img/spinner.gif" alt="" /> Loading map...</p>
+					</td></tr></tbody>
+				</table>
+			</div>
+		</div>
+		<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960.png') no-repeat center top; padding-top: 4px;"></div>
+		
+		<p style="text-align: center; margin-top: 20px;">
+			<a href="javascript:setDiscLocation();" class="btn btn-large btn-primary">
+				<i class="icon-globe" style="visibility: hidden;"></i>Discover Schools <i class="icon-globe icon-white"></i>
+		</a></p>
 	</div>
 	
 </section>
+
 
 <!-- JS Scripts for this Page -->
 
@@ -261,53 +148,54 @@
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?AIzaSyDl0_EPlseIlbNlYZDOzpua7VqXyH_LfeY&sensor=true"></script>
 <script type="text/javascript">
-	var disc_lat = -1.29353;
-	var disc_long = 36.819889;
+
+var disc_lat = -1.29353;
+var disc_long = 36.819889;
+
+var nairobi = new google.maps.LatLng(-1.29353, 36.819889);
+var marker;
+var map;
+
+var mapOptions = {
+	zoom: 11,
+	mapTypeId: google.maps.MapTypeId.ROADMAP,
+	center: nairobi
+};
+
+window.onload = function(){	
 	
-	var nairobi = new google.maps.LatLng(-1.29353, 36.819889);
-	var marker;
-	var map;
+	map = new google.maps.Map(document.getElementById("map_canvas"),
+		mapOptions);
 	
-	var mapOptions = {
-		zoom: 13,
-		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		center: nairobi
-	};
+	marker = new google.maps.Marker({
+		map:map,
+		draggable:true,
+		animation: google.maps.Animation.DROP,
+		position: nairobi
+	});
 	
-	window.onload = function(){	
-		
-		map = new google.maps.Map(document.getElementById("map_canvas"),
-			mapOptions);
-		
-		marker = new google.maps.Marker({
-			map:map,
-			draggable:true,
-			animation: google.maps.Animation.DROP,
-			position: nairobi
-		});
-		
-		google.maps.event.addListener(marker, 'click', toggleBounce);
-		//google.maps.event.addListener(marker, 'dragend', setDiscLocation);
-		
-		function toggleBounce() {
-			if (marker.getAnimation() != null) {
-				marker.setAnimation(null);
-			} else {
-				marker.setAnimation(google.maps.Animation.BOUNCE);
-			}
+	google.maps.event.addListener(marker, 'click', toggleBounce);
+	//google.maps.event.addListener(marker, 'dragend', setDiscLocation);
+	
+	function toggleBounce() {
+		if (marker.getAnimation() != null) {
+			marker.setAnimation(null);
+		} else {
+			marker.setAnimation(google.maps.Animation.BOUNCE);
 		}
-		
 	}
 	
+}
+
+function setDiscLocation() {
+	var point = marker.getPosition();
+	disc_lat = point.lat();
+	disc_long = point.lng();
+	window.location.href = "<?php echo base_url() ?>discover/locate/"+disc_lat+":"+disc_long;
+}
 	
-	
-	function setDiscLocation() {
-		var point = marker.getPosition();
-		disc_lat = point.lat();
-		disc_long = point.lng();
-		window.location.href = "<?php echo base_url() ?>discover/locate/"+disc_lat+":"+disc_long;
-	}
 </script>
+
 
 <!-- AddThis Script -->
 <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=xa-508d41213e72f77b"></script>
