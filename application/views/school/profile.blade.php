@@ -16,9 +16,9 @@ FMS Ke | Profile
 	      google.setOnLoadCallback(drawChart);
 	      function drawChart() {
 	        var data = google.visualization.arrayToDataTable([
-	          ['Year', 'Mean Grade'],
+	          ['Year', 'Mean Grade', 'Math'],
 	          <?php foreach ($school_data as $data) { ?>
-	          	['{{$data->year}}', {{$data->mean_grade}}],
+	          	['{{$data->year}}', {{$data->mean_grade}}, {{$data->math}}],
 	          <?php } ?>
 	        ]);
 	
