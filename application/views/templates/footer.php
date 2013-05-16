@@ -2,8 +2,9 @@
 		<!-- Footer stuff -->
 		<footer>
 			
-			<section class="container" style="padding: 20px 0 0px;">
+			<section class="container">
 				<div class="row">
+				
 					<div class="span4">
 						<h3 class="footer-title">Recent Visualizations</h3>
 						<ul class="media-list">
@@ -20,30 +21,48 @@
 							<?php } ?>
 						</ul>
 					</div>
+					
 					<div class="span4">
-						<h3 class="footer-title">Latest News</h3>
+						<h3 class="footer-title">Latest Headlines</h3>
+						<?php
+							$url = "https://news.google.com/news/feeds?q=kenya%20education&output=rss";
+							$xml = simplexml_load_file($url) or die("could not connect");
+							foreach($xml->channel->item as $item){
+						?>
+							<p><b><?php echo $item->title; ?> : </b>
+							<?php echo strip_tags($item->description); ?> 
+							<br /><a href="<?php echo $item->link; ?>" target="_blank">Read More</a></p>
+						<?php } ?>
 					</div>
+					
 					<div class="span4">
-						<h3 class="footer-title">Latest Tweets</h3>
-						<hr />
-						<div style="text-align: center;">
-							<h3 style="color: #555;">Share FMS.Ke</h3>
-							<p>
-								<a href="javascript:void(0);" name="Share_TW" title="Share on Twitter | FMS Ke" onclick="javascript:window.open('http://twitter.com/home?status=Find%20My%20School%20Ke%20-%20http://findmyschool.co.ke%20%23FMSke','FMS.Ke','width=550,height=270');">
-									<img src="<?php echo base_url(); ?>assets/img/social/twitter.png" alt="Share on Twitter"></a>
-								<a href="javascript:void(0);" name="Share_FB" title="Share on FB | FMS Ke" onclick="javascript:window.open('http://www.facebook.com/sharer.php?u=http%3A%2F%2Ffindmyschool.co.ke','FMS.Ke','width=550,height=270');">
-									<img src="<?php echo base_url(); ?>assets/img/social/facebook.png" alt="Share on Facebook"></a>
-								<a href="https://plus.google.com/share?url=findmyschool.co.ke" onclick="javascript:window.open(this.href,
-								  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
-								  <img src="<?php echo base_url(); ?>assets/img/social/googleplus.png" alt="Share on Google Plus"></a>
-							</p>
+						<div>
+							<h3 class="footer-title" >Latest Tweets 
+								<a href="https://twitter.com/FindMySchool" class="twitter-follow-button" data-show-count="false">@FindMySchool</a>
+							</h3>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 						</div>
+						
+						<ul>
+							<?php
+								$url = "https://api.twitter.com/1/statuses/user_timeline/openinstitute.xml?count=5&include_rts=1callback=?";
+								$xml = simplexml_load_file($url) or die("could not connect");
+								foreach($xml->status as $status){
+							?>
+								<li><?php $text = $status->text; echo $text; ?></li>
+							<?php
+									
+								}
+							?>
+						</ul>
+						
 					</div>
 				</div>
+				
 			</section>
 			
-			<section class="container">
-				<hr>
+			<section class="container footer-links">
+				<hr style="border-top: 0;"/>
 				<p>
 					<a href="<?php echo base_url(); ?>">Home</a> 
 					<a href="#">About</a> 
@@ -52,7 +71,16 @@
 					<a href="#">Twitter</a> - 
 					<a href="#">API</a> 
 					<a href="#">Terms</a>
-					<a href="http://code4kenya.org" class="pull-right c4k-logo"><img src="<?php echo base_url(); ?>assets/img/logos/c4k_1.png" alt="Code4Kenya" /></a>
+					
+					<a href="http://code4kenya.org" target="_blank" class="pull-right c4k-logo" style="border-left: 1px #333 solid;">
+						<img src="<?php echo base_url(); ?>assets/img/logos/c4k_2.png" alt="Code4Kenya" style="height: 40px;"/>
+					</a>
+					<a href="http://twaweza.org" target="_blank" class="pull-right c4k-logo" style="border-left: 1px #333 solid;">
+						<img src="<?php echo base_url(); ?>assets/img/logos/twaweza.png" alt="Twaweza" style="height: 68px;">
+					</a>
+					<a href="http://www.knec.ac.ke" target="_blank" class="pull-right c4k-logo">
+						<img src="<?php echo base_url(); ?>assets/img/logos/knec.jpg" alt="KNEC" style="height: 60px;">
+					</a>
 				</p>
 			</section>
 			

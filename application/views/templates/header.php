@@ -16,6 +16,10 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/normalize.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/main.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/font-awesome.min.css">
+        <!--[if IE 7]>
+        	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/font-awesome-ie7.min.css">
+        <![endif]-->
         
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
         
@@ -44,18 +48,20 @@
         			</a>
         			
         			<!-- Be sure to leave the brand out there if you want it shown -->
-        			<a class="brand" href="<?php echo base_url(); ?>">Find My School .Ke</a>
+        			<a class="brand" href="<?php echo base_url(); ?>">Find My School <small>.Ke</small></a>
         			
         			<!-- Everything you want hidden at 940px or less, place within here -->
         			<div class="nav-collapse pull-right">
         				<ul class="nav">
-        					<li style="padding-top: 7px;"><a href="<?php echo base_url(); ?>">Home</a></li>
+        					<!--<li style="padding-top: 7px;"><a href="<?php echo base_url(); ?>">Home</a></li>-->
         					<li class="divider-vertical"></li>
         					<li><a href="<?php echo base_url(); ?>discover">Discover<br/><span>Schools Near You</span></a></li>
-        					<li class="divider-vertical"></li>
-        					<li><a href="<?php echo base_url(); ?>marks">Marks Comparison<br/><span>For Secondary School Placement</span></a></li>
+        					<!--<li class="divider-vertical"></li>
+        					<li><a href="<?php echo base_url(); ?>marks">Marks Comparison<br/><span>For Secondary School Placement</span></a></li>-->
         					<li class="divider-vertical"></li>
         					<li><a href="<?php echo base_url(); ?>results">Performance<br/><span>KCPE and KCSE Results</span></a></li>
+        					<li class="divider-vertical"></li>
+        					<li><a href="<?php echo base_url(); ?>about">About<br/><span>Find My School</span></a></li>
         				</ul>
         			</div>
         		
@@ -64,6 +70,6 @@
         </div>
         </header>
         
-        <article style="margin-top: 85px;">
+        <article style="margin-top: 100px;">
         
         <!-- Site content goes here -->

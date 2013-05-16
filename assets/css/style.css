@@ -69,40 +69,50 @@ header a{
 /*      ===================     */
 
 footer {
-	margin-bottom: 20px;
+	padding: 35px 0 10px;
 	border-top: 1px solid #eee;
+	background-color: #333;
+	color: #fff;
 }
 
-footer .footer-title{
-	color: #555;
+footer .footer-title {
+	color: #fff;
 	padding: 10px 0 5px;
 	margin: 0 0 15px;
 	border-bottom: 1px solid #eee;
 }
 
-footer a{
-	color: #9E9E9E;
+footer td:first-of-type {
+	border-top: 0;
+}
+
+footer .footer-links a {
+	color: #f1f1f1;
 	padding: 0px 10px;
 }
-	footer a:hover{
-		color: #000;
+	footer .footer-links a:hover {
+		color: silver;
 	}
 	
-	footer a .c4k-logo{
-		padding: 0;
+	footer .footer-links .c4k-logo {
+		background-color: rgba(255,255,255,1);
 	}
+		footer .footer-links .c4k-logo:hover {
+			background-color: rgba(255,255,255,0.8);
+			opacity: 1.0;
+		}
 
-footer p {
+footer .footer-links p {
 	color: #9E9E9E;
 	margin: 20px 0px 10px;
-	line-height: 30px;
+	line-height: 70px;
 }
 
-footer a img{
-	opacity: 0.5;
+footer .footer-links a img {
+	opacity: 1.0;
 }
-	footer a img:hover{
-		opacity: 1.0;
+	footer .footer-links a img:hover {
+		opacity: 0.7;
 	}
 
 
@@ -112,7 +122,7 @@ footer a img{
 
 /* ----- Home Elements ----- */
 
-.home-header{
+.home-header {
 	text-align: center;
 	height: 120px;
 	background-color: #404040;
@@ -123,7 +133,7 @@ footer a img{
 	margin-bottom: 30px;
 }
 
-	.home-header .text{
+	.home-header .text {
 		font-size: 24px;
 		line-height: 120px;
 		text-align: center;
@@ -133,34 +143,34 @@ footer a img{
 		text-shadow: 0 1px 1px black;
 	}
 	
-.home-featured{
+.home-featured {
 	margin-bottom: 50px;
 }
 
-.home-featured h2{
+.home-featured h2 {
 	margin-bottom: 25px;
 }	
-.home-featured h2 small{
+.home-featured h2 small {
 	color: inherit;
 	font-size: 23px;
 }
-	.home-featured h2 small a{
+	.home-featured h2 small a {
 		line-height: 100%;
 		color: #7A7A7A;
 		font-size: 15px;
 		text-decoration: underline;
 		padding-top: 17px;
 	}
-		.home-featured h2 small a:hover{
+		.home-featured h2 small a:hover {
 			color: #000;
 		}
 /*.home-featured .creator-avatar, .home-featured .project-title{
 	display: inline-block;
 }*/
-.home-featured .project-details{
+.home-featured .project-details {
 	margin-left: 30px; width: 355px;
 }
-	.project-title h3{
+	.project-title h3 {
 		margin: 0;
 		line-height: 100%;
 	}
@@ -172,14 +182,14 @@ footer a img{
 		width: 200px;
 	}
 
-.home-numbers{
+.home-numbers {
 	text-align: center;
 }
-	.home-numbers h1{
+	.home-numbers h1 {
 		font-size: 50px;
 	}
 
-.search-example{
+.search-example {
 	border-bottom: 1px dashed;
 }
 	.search-example:hover {
@@ -188,25 +198,38 @@ footer a img{
 		border-bottom: 1px solid;
 	}
 	
-.home-social{
+.home-social {
 	margin-top: 20px;
 }
-	.home-social a{
+	.home-social a {
 		margin: 10px;
 	}
+
+.about-logos {
+	text-align: center;
+	vertical-align: middle;
+}
+	.about-logos a:hover {
+		opacity: 0.7;
+		text-decoration: none;
+	}
+
+#go-to-blog:hover {
+	text-decoration: none;
+}
 
 
 /*      =======================     */
 /*      MARKS COMPARISON LAYOUT     */
 /*      =======================     */
 
-#school-results td{
+#school-results td {
 	text-align: center;
 }
-	#school-results td:first-child{
+	#school-results td:first-child {
 		text-align: left;
 	}
-	#school-results td:first-child span{
+	#school-results td:first-child span {
 		padding-left: 10px;
 	}
 	
@@ -216,12 +239,12 @@ footer a img{
 /*      ==============     */
 
 /* ----- Search Page ----- */
-.results a{
+.results a {
 	display: inline-block;
 }
 
 /* ----- School Page ----- */
-.school-results img{
+.school-results img {
 	height: 10px;
 	margin-top: -3px;
 }

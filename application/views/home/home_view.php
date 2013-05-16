@@ -1,53 +1,128 @@
+<!--
+	HOME VIEW
+	=========
+	/application/views/home_view.php
+	
+	-->
+
+<!-- LATEST HEADLINE SECTION -->
+
+<section class="container" style="">
+	<div class="alert alert-info">
+		<button type="button" class="close" data-dismiss="alert">×</button>
+		<strong>Latest Headline:</strong> <a href="#" target="_blank" id="latest-headline-top">School Board on row over teacher pay. [Daily Nation]</a>
+	</div>
+</section>
+
+
+<!-- SLIDER SECTION -->
+
 <section class="container" >
 	<div class="row" style="margin-top: 30px; margin-bottom: 30px;">
 		<div class="span3">
 			<p style="text-align: center;"><a href="http://twaweza.org" target="_blank">
 				<img src="<?php echo base_url(); ?>assets/img/logos/twaweza.png" alt="Twaweza" />
 			</a></p>
-			<h3 style="line-height: 100%;">Welcome To Find My School .Ke</h3>
-			<p><b>Find My School</b> is your platform to easily find the school for you in these three simple ways.</p>
-			<!-- AddThis Button BEGIN 
+			<h3 style="line-height: 100%;">Welcome To Find My School <span style="font-size: 20px;">.Ke</span></h3>
+			<p class="lead">Your platform to easily find <b>results</b> on primary &amp; secondary schools across <b>Kenya</b>.</p>
+			<!-- AddThis Button BEGIN -->
 			<div class="addthis_toolbox addthis_default_style " style="bottom: 0px;">
 			<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 			<a class="addthis_button_tweet"></a>
 			</div>
-			 AddThis Button END -->
+			<!--AddThis Button END -->
 		</div>
 		<div class="span9">
-			<dl class="dl-horizontal">
-				<dt><p><img src="http://quickimage.it/65/555555/ffffff/&text=1" class="img-circle"><br/></p></dt>
-				<dd>
-					<h4>Location: <small>Discover Schools Near You</small></h4>
-					<p>Select a location on our <b>interactive map</b> and discover schools near you.</p>
-				</dd>
-				<dt><p><img src="http://quickimage.it/65/555555/ffffff/&text=2" class="img-circle"><br/></p></dt>
-				<dd>
-					<h4>Marks Comparison: <small>What School Would Pick You Against Your Marks</small></h4>
-					<p>Using <b>Performance</b> and <b>Placement Data</b> from the <b>Ministry of Education</b> we help find your most probable <b>Secondary School</b> placement.</p>
-				</dd>
-				<dt><p><img src="http://quickimage.it/65/555555/ffffff/&text=3" class="img-circle"><br/></p></dt>
-				<dd>
-					<h4>Search Results: <small>Enter the School Name and Hit Enter</small></h4>
-					<p>Search schools' <b>KCPE</b> and <b>KCSE</b> results.</p>
-				</dd>
-			</dl>
+			<div id="myCarousel" class="carousel slide">
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+				</ol>
+				<!-- Carousel items -->
+				<div class="carousel-inner">
+					<div class="item active">
+						<img src="<?php echo base_url(); ?>assets/js/vendor/holder.js/700x340" alt="">
+						<div class="carousel-caption">
+							<h4>Second Thumbnail label</h4>
+							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="<?php echo base_url(); ?>assets/js/vendor/holder.js/700x340" alt="">
+						<div class="carousel-caption">
+							<h4>Second Thumbnail label</h4>
+							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="<?php echo base_url(); ?>assets/js/vendor/holder.js/700x340" alt="">
+						<div class="carousel-caption">
+							<h4>Second Thumbnail label</h4>
+							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+						</div>
+					</div>
+				</div>
+				<!-- Carousel nav -->
+				<a class="carousel-control left" href="#myCarousel" data-slide="prev" style="border: 0; background: none; color: #333; font-weight: 200;" >&lsaquo;</a>
+				<a class="carousel-control right" href="#myCarousel" data-slide="next" style="border: 0; background: none; color: #333; font-weight: 200;" >&rsaquo;</a>
+			</div>
 		</div>
 	</div>
 	
 </section>
 
+<!--<hr class="container"/>-->
 
-<!-- SEARCH SECTION -->
+<!-- EXPLANATION SECTION -->
+
+<!--<section style="margin: 50px 0 40px; text-align: center;">
+	<div class="container">
+		<div class="row">
+			<div class="span4">
+				<img src="<?php echo base_url(); ?>assets/js/vendor/holder.js/150x150/gray" alt="" class="img-circle" />
+				<h3>Visualize</h3>
+				<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+			</div>
+			<div class="span4">
+				<img src="<?php echo base_url(); ?>assets/js/vendor/holder.js/150x150/gray" alt="" class="img-circle" />
+				<h3>Compare</h3>
+				<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+			</div>
+			<div class="span4">
+				<img src="<?php echo base_url(); ?>assets/js/vendor/holder.js/150x150/gray" alt="" class="img-circle" />
+				<h3>Embed &amp; Share</h3>
+				<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+			</div>
+		</div>
+	</div>
+</section>-->
+
+
+<!-- SEARCH & BROWSE SECTION -->
 
 <section style="background-color: #333; text-align: center; color: #fff;">
 	<div class="container" style="padding: 30px 0 40px;">
-		<h2 style="margin-bottom: 0;">View School Results</h2>
+		<h2 style="margin-bottom: 0;">School Results Search</h2>
 		<h2 style="margin-top: 0; line-height: 15px;"><small>Primary &amp; Secondary</small></h2>
 		<div class="input-append" style="margin: 10px auto; display: inline-block;">
 			<input type="text" class="span4" id="search_term" placeholder="School Name" onkeypress="return runScript(event)"  style="font-size: 18px; line-height: 25px; height: 23px; padding: 10px 10px 10px 15px;">
 			<button class="btn btn-large" id="search_results_btn" type="button"><i class="icon-search"></i> Search</button>
 		</div>
 		<p>example: <a href="#" class="search-example">Alliance Secondary School</a></p>
+		
+		<div class="row" style="text-align: left;">
+			<div class="span6">
+				<div class="page-header">
+					<h3 style="margin-bottom: 0;">Top Primary Schools 2011</h3>
+				</div>
+			</div>
+			<div class="span6">
+				<div class="page-header">
+					<h3 style="margin-bottom: 0;">Top Secondary Schools 2011</h3>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -82,6 +157,56 @@
 	</div>
 	
 </section>
+
+<hr class="container"/>
+
+<!-- OTHER ITEMS SECTION -->
+<section class="container" style="padding: 0px 0 50px;">
+	<div class="row">
+		<div class="span7">
+			<div class="page-header">
+				<h3>About Find My School <span style="font-size: 20px;">.Ke</span></h3>
+			</div>
+			<p style="text-indent: 40px;">Ut mattis risus in elit fermentum nec lobortis nisl ultricies. Aliquam ligula ante, eleifend vitae euismod et, sodales et ligula. In accumsan ipsum a orci fermentum quis luctus libero sagittis. In imperdiet sem vel turpis varius in congue lectus iaculis. Duis quis venenatis leo. Suspendisse potenti. Integer tristique odio vel nisi lobortis pulvinar. Pellentesque commodo blandit nisi, a eleifend felis convallis sit amet. Etiam justo nunc, facilisis eget fringilla a, scelerisque ultricies risus.</p>
+			<br />
+			<p class="about-logos" style="">
+				<a href="http://www.knec.ac.ke" target="_blank" style="padding: 0 10px; border-right: 1px solid #777;">
+					<img src="<?php echo base_url(); ?>assets/img/logos/knec.jpg" alt="KNEC" style="height: 70px;" />
+				</a>
+				<a href="http://twaweza.org" target="_blank" style="padding: 0 10px; border-right: 1px solid #777;">
+					<img src="<?php echo base_url(); ?>assets/img/logos/twaweza.png" alt="Twaweza" style="height: 80px;" />
+				</a>
+				<a href="http://code4kenya.org" target="_blank" style="padding: 0 10px;">
+					<img src="<?php echo base_url(); ?>assets/img/logos/c4k_2.png" alt="Code4Kenya" style="height: 50px;" />
+				</a>
+			</p>
+		</div>
+		<div class="span5">
+			<div class="page-header">
+				<h3>From Our Blog 
+					<small><a href="#"><i class="icon-link"></i> - blog.findmyschool.co.ke</a></small>
+				</h3>
+			</div>
+			<ul class="media-list">
+				<?php foreach (array(0,1,2) as $visualization) { ?>
+					<li class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" data-src="<?php echo base_url(); ?>assets/js/vendor/holder.js/64x64">
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading">Media heading</h4>
+							<p>...</p>
+						</div>
+					</li>
+				<?php } ?>
+			</ul>
+			<p style="text-align: right;">
+				
+			</p>
+		</div>
+	</div>
+</section>
+
 
 
 <!-- JS Scripts for this Page -->

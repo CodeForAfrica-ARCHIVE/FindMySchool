@@ -1,11 +1,11 @@
-<section class="container">
+<section class="container" style="padding-bottom: 60px;">
 	<div class="page-header">
-		<h2>Results</h2>
+		<h2>School Results</h2>
 	</div>
 	<div class="container">
 		<ul class="breadcrumb pull-left">
 		  <li><a href="<?php echo base_url(); ?>">Home</a> <span class="divider">/</span></li>
-		  <li class="active">Results</li>
+		  <li class="active">School Results</li>
 		</ul>
 		<div class="pull-right">
 			<div class="input-append">
