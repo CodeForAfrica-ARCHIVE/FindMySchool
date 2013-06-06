@@ -19,11 +19,18 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$data['title'] = "Home";
+		$data['title'] = "Find My School .Ke";
 		
-		$this->load->view('templates/header', $data);
+		$this->load->database();
+		
+		$query = $this->db->query("SELECT * FROM kcpe_2011 ORDER BY `NATIONAL` LIMIT 10;");
+		$top_kcpe = $query->result_array();
+		
+		$data['top_kcpe'] = $top_kcpe;
+		
+		$this->load->view('templates/header_view', $data);
 		$this->load->view('home/home_view', $data);
-		$this->load->view('templates/footer', $data);
+		$this->load->view('templates/footer_view', $data);
 		//$this->load->view('home/home_view');
 	}
 	

@@ -8,14 +8,14 @@ class Results extends CI_Controller {
 		
 		$this->load->database();
 		
-		$query = $this->db->query("SELECT * FROM kcpe_2010 ORDER BY `NATIONAL` LIMIT 10;");
+		$query = $this->db->query("SELECT * FROM kcpe_2011 ORDER BY `NATIONAL` LIMIT 10;");
 		$top_kcpe = $query->result_array();
 		
 		$data['top_kcpe'] = $top_kcpe;
 		
-		$this->load->view('templates/header', $data);
+		$this->load->view('templates/header_view', $data);
 		$this->load->view('results/browse_view', $data);
-		$this->load->view('templates/footer', $data);
+		$this->load->view('templates/footer_view', $data);
 
 	}
 	
@@ -29,9 +29,9 @@ class Results extends CI_Controller {
 		$data['title'] = "Search";
 		$data['search_term'] = $search_term;
 		
-		$this->load->view('templates/header', $data);
+		$this->load->view('templates/header_view', $data);
 		$this->load->view('results/search_view', $data);
-		$this->load->view('templates/footer', $data);
+		$this->load->view('templates/footer_view', $data);
 	}
 	
 	public function school($school_in = NULL) {
@@ -64,9 +64,9 @@ class Results extends CI_Controller {
 		$data['res_2011'] = $res_2011;
 		$data['is_res_2011'] = $is_res_2011;
 		
-		$this->load->view('templates/header', $data);
+		$this->load->view('templates/header_view', $data);
 		$this->load->view('results/school_view', $data);
-		$this->load->view('templates/footer', $data);
+		$this->load->view('templates/footer_view', $data);
 	}
 	
 }

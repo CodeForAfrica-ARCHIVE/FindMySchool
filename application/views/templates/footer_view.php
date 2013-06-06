@@ -24,15 +24,9 @@
 					
 					<div class="span4">
 						<h3 class="footer-title">Latest Headlines</h3>
-						<?php
-							$url = "https://news.google.com/news/feeds?q=kenya%20education&output=rss";
-							$xml = simplexml_load_file($url) or die("could not connect");
-							foreach($xml->channel->item as $item){
-						?>
-							<p><b><?php echo $item->title; ?> : </b>
-							<?php echo strip_tags($item->description); ?> 
-							<br /><a href="<?php echo $item->link; ?>" target="_blank">Read More</a></p>
-						<?php } ?>
+						<div id="latest-headlines-stream">
+							<!-- Latest Headlines Stream -->
+						</div>
 					</div>
 					
 					<div class="span4">
@@ -43,17 +37,8 @@
 							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 						</div>
 						
-						<ul>
-							<?php
-								$url = "https://api.twitter.com/1/statuses/user_timeline/openinstitute.xml?count=5&include_rts=1callback=?";
-								$xml = simplexml_load_file($url) or die("could not connect");
-								foreach($xml->status as $status){
-							?>
-								<li><?php $text = $status->text; echo $text; ?></li>
-							<?php
-									
-								}
-							?>
+						<ul id="latest-tweets-stream">
+							
 						</ul>
 						
 					</div>
@@ -87,6 +72,8 @@
 		</footer>
 		
 		</article>
+		
+		<!-- SCRIPTS -->
         
         <script src="<?php echo base_url(); ?>assets/js/plugins.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
@@ -95,10 +82,44 @@
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
-            var _gaq=[['_setAccount','UA-33350783-3'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
+			var _gaq=[['_setAccount','UA-33350783-3'],['_trackPageview']];
+			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+			g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+			s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+        
+        <script src="<?php echo base_url(); ?>assets/js/vendor/jquery.feeds.js"></script>
+        <script type="text/javascript">
+        
+        	// Latest News Feed
+        	
+			jQuery.getFeed({
+				url: 'https://news.google.com/news/feeds?q=kenya%20education&output=rss',
+				success: function(feed) {
+					var latest_headlines = "";
+					for (var i = 0; i < 5; i++) {
+						latest_headlines += "<p><b><a href=\"";
+						latest_headlines += feed.channel.item[i].link;
+						latest_headlines += "\">" + feed.channel.item[i].title;
+						latest_headlines += "</a></b></p>";
+					}
+					$("#latest-headlines-stream").html(latest_headlines);
+				}
+			});
+			
+			// Latest Twitter Feed
+			
+			jQuery.getFeed({
+				url: 'https://api.twitter.com/1/statuses/user_timeline/openinstitute.xml?count=5&include_rts=1callback=?',
+				success: function(feed) {
+					var latest_tweets = "";
+					for (var i = 0; i < 5; i++) {
+						latest_tweets += "<li>" + feed.status[i].text + "</li>";
+					}
+					$("#latest-tweets-stream").html(latest_tweets);
+				}
+			});
+			
         </script>
     </body>
 </html>

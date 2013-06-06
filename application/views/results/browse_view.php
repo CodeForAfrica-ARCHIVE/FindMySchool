@@ -18,7 +18,7 @@
 	<div class="row">
 		<div class="span6">
 			<div class="page-header">
-				<h3>Top Ranked in KCPE 2010</h3>
+				<h3>Top Ranked in KCPE 2011</h3>
 			</div>
 			<div id="pri_results">
 				<ol>

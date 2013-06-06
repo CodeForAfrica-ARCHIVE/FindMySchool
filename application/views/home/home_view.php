@@ -7,40 +7,45 @@
 
 <!-- LATEST HEADLINE SECTION -->
 
-<section class="container" style="">
-	<div class="alert alert-info">
-		<button type="button" class="close" data-dismiss="alert">×</button>
-		<strong>Latest Headline:</strong> <a href="#" target="_blank" id="latest-headline-top">School Board on row over teacher pay. [Daily Nation]</a>
+<section style="background: #fff url('<?php echo base_url(); ?>assets/img/bg/home-header.jpg') no-repeat center top; background-size: cover; padding-top: 13px;">
+	<div class="container" style="">
+		<div class="alert alert-info">
+			<button type="button" class="close" data-dismiss="alert">×</button>
+			<strong>Latest Headlines: {</strong> <a href="#" target="_blank" id="latest-headline-top">School Board on row over teacher pay. [Daily Nation]</a> <strong>} <a href="#"><</a> <a href="#">></a></strong>
+		</div>
+		<div class="home-learn-more" >
+			<img src="<?php echo base_url(); ?>assets/img/air-home.png" alt="" />
+		</div>
 	</div>
 </section>
 
 
 <!-- SLIDER SECTION -->
 
-<section class="container" >
+<!--<section class="container" >
 	<div class="row" style="margin-top: 30px; margin-bottom: 30px;">
 		<div class="span3">
 			<p style="text-align: center;"><a href="http://twaweza.org" target="_blank">
 				<img src="<?php echo base_url(); ?>assets/img/logos/twaweza.png" alt="Twaweza" />
 			</a></p>
 			<h3 style="line-height: 100%;">Welcome To Find My School <span style="font-size: 20px;">.Ke</span></h3>
-			<p class="lead">Your platform to easily find <b>results</b> on primary &amp; secondary schools across <b>Kenya</b>.</p>
+			<p class="lead">Your platform to easily find <b>results</b> on primary &amp; secondary schools across <b>Kenya</b>.</p>-->
 			<!-- AddThis Button BEGIN -->
-			<div class="addthis_toolbox addthis_default_style " style="bottom: 0px;">
+<!--			<div class="addthis_toolbox addthis_default_style " style="bottom: 0px;">
 			<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 			<a class="addthis_button_tweet"></a>
-			</div>
+			</div>-->
 			<!--AddThis Button END -->
-		</div>
+<!--		</div>
 		<div class="span9">
 			<div id="myCarousel" class="carousel slide">
 				<ol class="carousel-indicators">
 					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 					<li data-target="#myCarousel" data-slide-to="1"></li>
 					<li data-target="#myCarousel" data-slide-to="2"></li>
-				</ol>
+				</ol>-->
 				<!-- Carousel items -->
-				<div class="carousel-inner">
+<!--				<div class="carousel-inner">
 					<div class="item active">
 						<img src="<?php echo base_url(); ?>assets/js/vendor/holder.js/700x340" alt="">
 						<div class="carousel-caption">
@@ -62,15 +67,15 @@
 							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
 						</div>
 					</div>
-				</div>
+				</div>-->
 				<!-- Carousel nav -->
-				<a class="carousel-control left" href="#myCarousel" data-slide="prev" style="border: 0; background: none; color: #333; font-weight: 200;" >&lsaquo;</a>
+<!--				<a class="carousel-control left" href="#myCarousel" data-slide="prev" style="border: 0; background: none; color: #333; font-weight: 200;" >&lsaquo;</a>
 				<a class="carousel-control right" href="#myCarousel" data-slide="next" style="border: 0; background: none; color: #333; font-weight: 200;" >&rsaquo;</a>
 			</div>
 		</div>
 	</div>
 	
-</section>
+</section>-->
 
 <!--<hr class="container"/>-->
 
@@ -103,24 +108,45 @@
 
 <section style="background-color: #333; text-align: center; color: #fff;">
 	<div class="container" style="padding: 30px 0 40px;">
-		<h2 style="margin-bottom: 0;">School Results Search</h2>
+		<h1 style="margin-bottom: 0;">School Results</h1>
 		<h2 style="margin-top: 0; line-height: 15px;"><small>Primary &amp; Secondary</small></h2>
-		<div class="input-append" style="margin: 10px auto; display: inline-block;">
-			<input type="text" class="span4" id="search_term" placeholder="School Name" onkeypress="return runScript(event)"  style="font-size: 18px; line-height: 25px; height: 23px; padding: 10px 10px 10px 15px;">
-			<button class="btn btn-large" id="search_results_btn" type="button"><i class="icon-search"></i> Search</button>
-		</div>
-		<p>example: <a href="#" class="search-example">Alliance Secondary School</a></p>
 		
-		<div class="row" style="text-align: left;">
-			<div class="span6">
-				<div class="page-header">
+		
+		<div class="row">
+			<div class="span6" style="text-align: left;">
+				<div class="page-header" style="margin-bottom: 15px;">
 					<h3 style="margin-bottom: 0;">Top Primary Schools 2011</h3>
 				</div>
-			</div>
-			<div class="span6">
-				<div class="page-header">
-					<h3 style="margin-bottom: 0;">Top Secondary Schools 2011</h3>
+				<div class="top-schools" id="pri_results">
+					<ol>
+						<?php
+							foreach ($top_kcpe as $school) {
+								echo '<li><a href="'.base_url().'results/school/pri:'.$school['CODE'].'">'.
+									ucwords(strtolower($school['SCHOOL NAME'])).'</a></li>';
+							}
+						?>
+					</ol>
 				</div>
+			</div>
+			<div class="span6" style="text-align: right;">
+				<div>
+					<h3>Search Schools Database</h3>
+					<div class="input-append" style="margin: 10px auto; display: inline-block;">
+						<input type="text" class="span3" id="search_term" placeholder="School Name" onkeypress="return runScript(event)"  style="font-size: 18px; line-height: 25px; height: 22px; padding: 10px 10px 10px 15px;">
+						<button class="btn btn-large btn-purple" id="search_results_btn" type="button"><i class="icon-search"></i> Search</button>
+					</div>
+					<p>example: <a href="#" class="search-example">Alliance Secondary School</a></p>
+				</div>
+				<div class="clearfix"></div>
+				
+				<hr style="border-top: none;" />
+				
+				<div class="home-school-results-btns">
+					<p><a href="#" class="btn btn-large btn-purple"><i class="icon-list-alt"></i> Browse Secondary Schools</a></p>
+					<p><a href="#" class="btn btn-large btn-purple"><i class="icon-map-marker"></i> Discover Schools Near You</a></p>
+					<p><a href="#" class="btn btn-large btn-purple"><i class="icon-info-sign"></i> About Find My School</a></p>
+				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -151,7 +177,7 @@
 		<div style="background: #fff url('<?php  echo base_url(); ?>assets/img/bg/shadow-960.png') no-repeat center top; padding-top: 4px;"></div>
 		
 		<p style="text-align: center; margin-top: 20px;">
-			<a href="javascript:setDiscLocation();" class="btn btn-large btn-primary">
+			<a href="javascript:setDiscLocation();" class="btn btn-large btn-purple">
 				<i class="icon-globe" style="visibility: hidden;"></i>Discover Schools <i class="icon-globe icon-white"></i>
 		</a></p>
 	</div>

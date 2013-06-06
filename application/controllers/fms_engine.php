@@ -6,9 +6,9 @@ class Fms_engine extends CI_Controller {
 	
 		$data['title'] = "Marks Comparison";
 		
-		$this->load->view('templates/header', $data);
+		$this->load->view('templates/header_view', $data);
 		$this->load->view('fms_engine/index_view', $data);
-		$this->load->view('templates/footer', $data);
+		$this->load->view('templates/footer_view', $data);
 
 	}
 	
@@ -30,9 +30,9 @@ class Fms_engine extends CI_Controller {
 		$data['county_in_id'] = $county_in_id;
 		$data['marks_in'] = $marks_in;
 		
-		$this->load->view('templates/header', $data);
+		$this->load->view('templates/header_view', $data);
 		$this->load->view('fms_engine/compare_view', $data);
-		$this->load->view('templates/footer', $data);
+		$this->load->view('templates/footer_view', $data);
 	}
 	
 	

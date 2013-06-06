@@ -21,9 +21,9 @@ class Discover extends CI_Controller {
 	
 		$data['title'] = "Discover";
 		
-		$this->load->view('templates/header', $data);
+		$this->load->view('templates/header_view', $data);
 		$this->load->view('discover/discover_view', $data);
-		$this->load->view('templates/footer', $data);
+		$this->load->view('templates/footer_view', $data);
 
 	}
 	
@@ -43,13 +43,13 @@ class Discover extends CI_Controller {
 			$data['disc_long'] = $disc_long;
 		}
 		
-		$this->load->view('templates/header', $data);
+		$this->load->view('templates/header_view', $data);
 		if($hasError == 1){
 			$this->load->view('discover/locate_view_error', $data);
 		} else {
 			$this->load->view('discover/locate_view', $data);
 		}
-		$this->load->view('templates/footer', $data);
+		$this->load->view('templates/footer_view', $data);
 	}
 	
 	

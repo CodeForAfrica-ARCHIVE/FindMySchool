@@ -6,10 +6,10 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>FMS .Ke | <?php echo $title; ?></title>
+        <title><?php echo $title; ?> | FMS .Ke</title>
         <meta name="description" content="Easily Find a School in Kenya and browse KCPE and KCSE results. By Code4Kenya and Twaweza.">
         <meta name="viewport" content="width=device-width">
-        <meta property="og:image" content="<?php echo base_url(); ?>assets/img/logos/twaweza.png">
+        <meta property="og:image" content="<?php echo base_url(); ?>assets/img/icon.png">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> 
 
@@ -23,7 +23,7 @@
         
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
         
-        <script src="<?php echo base_url(); ?>assets/js/vendor/jquery-1.8.2.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/vendor/jquery-1.10.1.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/vendor/modernizr-2.6.1.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/vendor/angular.min.js"></script>
         
@@ -48,7 +48,10 @@
         			</a>
         			
         			<!-- Be sure to leave the brand out there if you want it shown -->
-        			<a class="brand" href="<?php echo base_url(); ?>">Find My School <small>.Ke</small></a>
+        			<a class="brand" href="http://findmyschool/" style="margin-top: 10px;">
+        				<img src="/assets/img/icon.png" style="height: 30px; margin-top: -15px; padding-right: 5px;"/>
+        				Find My School <small>.Ke</small>
+        			</a>
         			
         			<!-- Everything you want hidden at 940px or less, place within here -->
         			<div class="nav-collapse pull-right">
@@ -70,6 +73,6 @@
         </div>
         </header>
         
-        <article style="margin-top: 100px;">
+        <article style="margin-top: 87px;">
         
         <!-- Site content goes here -->
