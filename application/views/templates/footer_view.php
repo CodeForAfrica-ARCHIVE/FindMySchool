@@ -92,32 +92,22 @@
         <script type="text/javascript">
         
         	// Latest News Feed
-        	
-			jQuery.getFeed({
-				url: 'https://news.google.com/news/feeds?q=kenya%20education&output=rss',
-				success: function(feed) {
-					var latest_headlines = "";
-					for (var i = 0; i < 5; i++) {
-						latest_headlines += "<p><b><a href=\"";
-						latest_headlines += feed.channel.item[i].link;
-						latest_headlines += "\">" + feed.channel.item[i].title;
-						latest_headlines += "</a></b></p>";
-					}
-					$("#latest-headlines-stream").html(latest_headlines);
-				}
+			
+			$('#latest-headlines-stream').feeds({
+				feeds: {
+					feed1: 'https://news.google.com/news/feeds?q=kenya%20education&output=rss'
+				},
+				max: 3
 			});
 			
 			// Latest Twitter Feed
 			
-			jQuery.getFeed({
-				url: 'https://api.twitter.com/1/statuses/user_timeline/openinstitute.xml?count=5&include_rts=1callback=?',
-				success: function(feed) {
-					var latest_tweets = "";
-					for (var i = 0; i < 5; i++) {
-						latest_tweets += "<li>" + feed.status[i].text + "</li>";
-					}
-					$("#latest-tweets-stream").html(latest_tweets);
-				}
+			$('#latest-tweets-stream').feeds({
+				feeds: {
+					feed1: 'https://api.twitter.com/1/statuses/user_timeline/openinstitute.xml?count=5&include_rts=1'
+				},
+				xml: true,
+				max: 5
 			});
 			
         </script>
