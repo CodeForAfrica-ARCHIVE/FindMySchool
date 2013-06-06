@@ -28,9 +28,15 @@ class Api_search extends CI_Controller {
 //		}
 				
 		$this->load->database();
-		$query = $this->db->query("SELECT * FROM kcpe_2010 WHERE  MATCH `SCHOOL NAME` AGAINST ('".$search_term."');");
+		$query_pri = $this->db->query("SELECT * FROM kcpe_2010 WHERE  MATCH `SCHOOL NAME` AGAINST ('".$search_term."');");
+		$query_sec = $this->db->query("SELECT * FROM kcse_2006_2011 WHERE YEAR = 2011 AND MATCH `SCHOOL` AGAINST ('".$search_term."') ;");
 		
-		$json_result = json_encode($query->result_array());
+		$array_result = array(
+			"pri_result" => $query_pri->result_array(),
+			"sec_result" => $query_sec->result_array()
+		);
+		
+		$json_result = json_encode($array_result);
 		echo $json_result;
 
 	}

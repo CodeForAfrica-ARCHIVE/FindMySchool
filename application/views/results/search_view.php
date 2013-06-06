@@ -19,9 +19,9 @@
 	<div class="row">
 		<div class="span6">
 			<div class="page-header">
-				<h3>KCPE Results</h3>
+				<h3>Primary Schools</h3>
 			</div>
-			<div id="kcpe_results">
+			<div id="pri-schools">
 				<p>
 					<img src="<?php echo base_url(); ?>assets/img/spinner.gif" alt=""> Finding Schools...
 				</p> 
@@ -29,9 +29,9 @@
 		</div>
 		<div class="span6">
 			<div class="page-header">
-				<h3>KCSE Results</h3>
+				<h3>Secondary Schools</h3>
 			</div>
-			<div id="kcse_results">
+			<div id="sec-schools">
 				<p style="text-align: center;">
 					<!--<img src="<?php echo base_url(); ?>assets/img/spinner_big.gif" alt="Spinner" />-->
 					Coming Soon...
@@ -48,8 +48,9 @@
 <!-- Search Script -->
 <script type="text/javascript">
 	var search_term = "<?php echo urldecode($search_term); ?>".toUpperCase();
-	var json_kcpe;
-	var json_kcse;
+	var json_all;
+	var json_pri;
+	var json_sec;
 	var json_dis;
 	
 	var api_url = "<?php echo base_url(); ?>api/v1/search/name/";
@@ -64,24 +65,50 @@
 		
 		xmlhttp.onreadystatechange = function(){
 			if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-				json_kcpe = jQuery.parseJSON(xmlhttp.responseText);
-				if (json_kcpe.length === 0){
-					document.getElementById("kcpe_results").innerHTML = "<p>No results</p>";
+				json_all = jQuery.parseJSON(xmlhttp.responseText);
+				json_pri = json_all['pri_result'];
+				json_sec = json_all['sec_result'];
+				
+				// Primary School Results
+				
+				if (json_pri.length === 0){
+					document.getElementById("pri-schools").innerHTML = "<p>No results</p>";
 				} else {
 					
 					/*
 						DISPLAY RESULTS	 */
 
-					kcpe_res = "<ol class=\"results\">";
+					pri_res = "<ol class=\"results\">";
 					
-					for (var i = 0; i<json_kcpe.length; i++){
-						kcpe_res += "<li><a href=\"<?php echo base_url(); ?>results/school/pri:"+
-							json_kcpe[i]['CODE']+"\">"+
-							"<p style=\"display:inline-block;\">"+toTitleCase(json_kcpe[i]['SCHOOL NAME'])+"</p></a> "+
-							"<span class=\"label label-info\">"+unescape(toTitleCase(escape(json_kcpe[i]['DISTRICT_NAME'].toLowerCase())))+"</span></li>";
+					for (var i = 0; i<json_pri.length; i++){
+						pri_res += "<li><a href=\"<?php echo base_url(); ?>results/school/pri:"+
+							json_pri[i]['CODE']+"\">"+
+							"<p style=\"display:inline-block;\">"+toTitleCase(json_pri[i]['SCHOOL NAME'])+"</p></a> "+
+							"<span class=\"label label-info\">"+unescape(toTitleCase(escape(json_pri[i]['DISTRICT_NAME'].toLowerCase())))+"</span></li>";
 					}
-					kcpe_res += "<ol>";
-					document.getElementById("kcpe_results").innerHTML =  kcpe_res;
+					pri_res += "<ol>";
+					document.getElementById("pri-schools").innerHTML =  pri_res;
+				}
+				
+				// Secondary School Results
+				
+				if (json_sec.length === 0){
+					document.getElementById("sec-schools").innerHTML = "<p>No results</p>";
+				} else {
+					
+					/*
+						DISPLAY RESULTS	 */
+
+					sec_res = "<ol class=\"results\">";
+					
+					for (var i = 0; i<json_sec.length; i++){
+						sec_res += "<li><a href=\"<?php echo base_url(); ?>results/school/sec:"+
+							json_sec[i]['CODE']+"\">"+
+							"<p style=\"display:inline-block;\">"+toTitleCase(json_sec[i]['SCHOOL'])+
+							"</p></a></li>";
+					}
+					sec_res += "<ol>";
+					document.getElementById("sec-schools").innerHTML =  sec_res;
 				}
 				
 			}

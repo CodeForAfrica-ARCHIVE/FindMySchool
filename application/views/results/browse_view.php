@@ -10,7 +10,7 @@
 		<div class="pull-right">
 			<div class="input-append">
 				<input class="span4" id="appendedInputButtons" size="16" type="text" placeholder="Search..." onkeypress="return runScript(event)">
-				<a class="btn" href="#" id="search_schools_btn"><i class="icon-search"></i> Search</a>
+				<a class="btn btn-purple" href="#" id="search_schools_btn"><i class="icon-search"></i> Search</a>
 			</div>
 		</div>
 	</div>

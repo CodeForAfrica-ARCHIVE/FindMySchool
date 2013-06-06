@@ -187,7 +187,7 @@
 <hr class="container"/>
 
 <!-- OTHER ITEMS SECTION -->
-<section class="container" style="padding: 0px 0 50px;">
+<section class="container">
 	<div class="row">
 		<div class="span7">
 			<div class="page-header">
