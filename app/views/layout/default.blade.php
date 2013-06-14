@@ -23,7 +23,7 @@
 		<![endif]-->
 		
 		<!-- Add your site or application content here -->
-		<p>Hello world! This is HTML5 Boilerplate.</p>
+		@yield('content')
 		
 		<script src="/assets/js/vendor/jquery-1.9.1.min.js"></script>
 		<script src="/assets/js/plugins.js"></script>

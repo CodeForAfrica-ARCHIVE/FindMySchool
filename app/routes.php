@@ -16,4 +16,4 @@
 //	return View::make('hello');
 //});
 
-Route::get('/', 'home@getIndex');
+Route::get('/', 'HomeController@getIndex');
