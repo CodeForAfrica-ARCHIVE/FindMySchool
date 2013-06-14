@@ -18,7 +18,7 @@ class Api_search extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index(){
-
+		echo 'We are almost there';
 	}
 	
 	public function by_name($search_term=NULL) {

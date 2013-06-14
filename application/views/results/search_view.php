@@ -32,9 +32,8 @@
 				<h3>Secondary Schools</h3>
 			</div>
 			<div id="sec-schools">
-				<p style="text-align: center;">
-					<!--<img src="<?php echo base_url(); ?>assets/img/spinner_big.gif" alt="Spinner" />-->
-					Coming Soon...
+				<p>
+					<img src="<?php echo base_url(); ?>assets/img/spinner.gif" alt=""> Finding Schools...
 				</p> 
 			</div>
 		</div>
@@ -75,8 +74,7 @@
 					document.getElementById("pri-schools").innerHTML = "<p>No results</p>";
 				} else {
 					
-					/*
-						DISPLAY RESULTS	 */
+					/*	DISPLAY RESULTS	 */
 
 					pri_res = "<ol class=\"results\">";
 					
@@ -96,14 +94,13 @@
 					document.getElementById("sec-schools").innerHTML = "<p>No results</p>";
 				} else {
 					
-					/*
-						DISPLAY RESULTS	 */
+					/*	DISPLAY RESULTS	 */
 
 					sec_res = "<ol class=\"results\">";
 					
 					for (var i = 0; i<json_sec.length; i++){
 						sec_res += "<li><a href=\"<?php echo base_url(); ?>results/school/sec:"+
-							json_sec[i]['CODE']+"\">"+
+							json_sec[i]['School_ID']+"\">"+
 							"<p style=\"display:inline-block;\">"+toTitleCase(json_sec[i]['SCHOOL'])+
 							"</p></a></li>";
 					}

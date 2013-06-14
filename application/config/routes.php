@@ -57,6 +57,8 @@ $route['api/v1/fmsengine/marks/(:any)'] = "api_v1/api_fms_engine/by_marks/$1";
 
 $route['api/v1/search/name/(:any)'] = "api_v1/api_search/by_name/$1";
 
+$route['api/v0/configure/sec'] = "api_v1/sec_school_id";
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
