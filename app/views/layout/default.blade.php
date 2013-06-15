@@ -17,6 +17,10 @@
 		<script src="/assets/js/vendor/modernizr-2.6.2.min.js"></script>
 		
 		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+		<!--[if IE 7]>
+			<link rel="stylesheet" href="/assets/css/font-awesome-ie7.min.css">
+		<![endif]-->
 		<script src="/assets/js/vendor/jquery-1.9.1.min.js"></script>
 		
 	</head>
@@ -27,6 +31,9 @@
 		<![endif]-->
 		
 		<!-- Add your site or application content here -->
+		
+		
+		
 		@yield('content')
 		
 		<script src="/assets/js/plugins.js"></script>
