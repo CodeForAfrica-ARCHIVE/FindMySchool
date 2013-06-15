@@ -15,6 +15,10 @@
 		<link rel="stylesheet" href="/assets/css/normalize.css">
 		<link rel="stylesheet" href="/assets/css/main.css">
 		<script src="/assets/js/vendor/modernizr-2.6.2.min.js"></script>
+		
+		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+		<script src="/assets/js/vendor/jquery-1.9.1.min.js"></script>
+		
 	</head>
 	
 	<body>
@@ -25,7 +29,6 @@
 		<!-- Add your site or application content here -->
 		@yield('content')
 		
-		<script src="/assets/js/vendor/jquery-1.9.1.min.js"></script>
 		<script src="/assets/js/plugins.js"></script>
 		<script src="/assets/js/main.js"></script>
 		
