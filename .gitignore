@@ -1,4 +1,4 @@
-# Defualt CodeIgniter
+# Default CodeIgniter
 
 */config/development
 */logs/log-*.php
@@ -17,3 +17,10 @@
 *error_log
 
 dev
+
+# Ignore Laravel
+
+vendor
+app
+bootstrap
+composer.lock

@@ -11,7 +11,9 @@
 	<div class="container" style="">
 		<div class="alert alert-info">
 			<button type="button" class="close" data-dismiss="alert">×</button>
-			<strong>Latest Headlines: {</strong> <a href="#" target="_blank" id="latest-headline-top">School Board on row over teacher pay. [Daily Nation]</a> <strong>} <a href="#"><</a> <a href="#">></a></strong>
+			<span style="font-weight: bold;">Latest Headlines: {</span>
+				<a href="#" target="_blank" id="latest-headline-top">School Board on row over teacher pay. [Daily Nation]</a>
+			<span style="font-weight: bold;">} <a href="#"><i class="icon-chevron-left" style="padding: 3px;"></i></a> <a href="#"><i class="icon-chevron-right"></i></a></span>
 		</div>
 		<div class="home-learn-more" >
 			<img src="<?php echo base_url(); ?>assets/img/air-home.png" alt="" />

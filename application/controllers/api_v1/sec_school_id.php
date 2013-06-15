@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Api_search extends CI_Controller {
+class Sec_school_id extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,7 +18,12 @@ class Api_search extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index(){
-		echo 'We are almost there';
+		$this->load->database();
+		$query_distinct = $this->db->query("SELECT DISTINCT 'SCHOOL' FROM kcse_2006_2011 LIMIT 10;");
+		
+		foreach ($query_distinct->result_array() as $school) {
+			echo $school;
+		}
 	}
 	
 	public function by_name($search_term=NULL) {
