@@ -48,7 +48,7 @@
         			</a>
         			
         			<!-- Be sure to leave the brand out there if you want it shown -->
-        			<a class="brand" href="http://findmyschool/" style="margin-top: 10px;">
+        			<a class="brand" href="<?php echo base_url(); ?>" style="margin-top: 10px;">
         				<img src="/assets/img/icon.png" style="height: 30px; margin-top: -15px; padding-right: 5px;"/>
         				Find My School <small>.Ke</small>
         			</a>
