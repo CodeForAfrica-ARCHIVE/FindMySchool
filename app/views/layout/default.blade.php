@@ -14,7 +14,6 @@
 		
 		<link rel="stylesheet" href="/assets/css/normalize.css">
 		<link rel="stylesheet" href="/assets/css/main.css">
-		<script src="/assets/js/vendor/modernizr-2.6.2.min.js"></script>
 		
 		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/assets/css/font-awesome.min.css">
@@ -23,10 +22,7 @@
 		<![endif]-->
 		<link rel="stylesheet" href="/assets/css/style.css">
 		
-		<!--[if lt IE 9]>
-			<script src="/assets/js/vendor/html5shiv.js"></script>
-		<![endif]-->
-		
+		<script src="/assets/js/vendor/modernizr-2.6.2.min.js"></script>
 		<script src="/assets/js/vendor/jquery-1.10.1.min.js"></script>
 		
 	</head>
