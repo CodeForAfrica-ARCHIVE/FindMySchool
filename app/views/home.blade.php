@@ -35,6 +35,18 @@
     
     <section style="background-color: #333; text-align: center; color: #fff;">
     	<div class="container" style="padding: 30px 0 40px;">
+    		
+    		<div class="row" style="text-align: center;">
+    			<div class="span4 offset2">
+    				<h1>22,787</h1>
+    				<p class="lead">Primary Schools</p>
+    			</div>
+    			<div class="span4">
+    				<h1>6,958</h1>
+    				<p class="lead">Secondary Schools</p>
+    			</div>
+    		</div>
+    		
     		<h1 style="margin-bottom: 0;">School Results</h1>
     		<h2 style="margin-top: 0; line-height: 15px;"><small>Primary &amp; Secondary</small></h2>
     		

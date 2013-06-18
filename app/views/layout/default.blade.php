@@ -73,7 +73,7 @@
 			</div>
 		</header>
 		        
-        <article style="margin-top: 87px;">
+        <article style="margin-top: 85px;">
         
 			@yield('content')
 			

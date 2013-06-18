@@ -13,7 +13,20 @@
  */
 
 
+/* FONTS import */
+@import url('../font/Open_Sans/OpenSans-Regular.ttf');
+@import url('../font/Open_Sans/OpenSans-Bold.ttf');
+@import url('../font/Open_Sans/OpenSans-Italic.ttf');
+@import url('../font/Open_Sans/OpenSans-Light.ttf');
+
+
+
 /* BOOTSTRAP OVERIDES & Default tags */
+
+/* Fonts */
+body {
+	font-family: "Open Sans", "Helvetica Neue", Helvetica,Arial, sans-serif;
+}
 
 /* Navigation Bar */
 .navbar-inner {
