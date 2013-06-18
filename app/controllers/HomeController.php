@@ -17,7 +17,10 @@ class HomeController extends BaseController {
 
 	public function getIndex()
 	{
-		return View::make('home');
+		$environment = App::environment();
+		echo $environment;
+	
+		//return View::make('home');
 	}
 
 }

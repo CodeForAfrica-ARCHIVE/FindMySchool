@@ -1,5 +1,9 @@
 @extends('layout.default')
 
+@section('title')
+	Find My School .Ke
+@stop
+
 @section('content')
     
     <?php
