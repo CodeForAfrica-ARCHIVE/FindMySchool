@@ -23,6 +23,10 @@
 		<![endif]-->
 		<link rel="stylesheet" href="/assets/css/style.css">
 		
+		<!--[if lt IE 9]>
+			<script src="/assets/js/vendor/html5shiv.js"></script>
+		<![endif]-->
+		
 		<script src="/assets/js/vendor/jquery-1.10.1.min.js"></script>
 		
 	</head>
