@@ -186,7 +186,7 @@ footer .footer-links a img {
 	line-height: 35px;
 }
 	.top-schools li a {
-		color: #fff;
+		color: #333;
 		-webkit-transition: all 0.2s ease-in-out;
 		-moz-transition: all 0.2s ease-in-out;
 		-o-transition: all 0.2s ease-in-out;
@@ -194,7 +194,7 @@ footer .footer-links a img {
 		transition: all 0.2s ease-in-out;
 	}
 		.top-schools li a:hover {
-			color: #00ccfb;
+			color: #08c;
 			text-decoration: none;
 		}
 

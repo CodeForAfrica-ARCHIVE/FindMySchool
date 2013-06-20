@@ -49,10 +49,10 @@
     				<div class="top-schools" id="pri_results">
     					<ol>
     						<?php
-//    							foreach ($top_kcpe as $school) {
-//    								echo '<li><a href="'.base_url().'results/school/pri:'.$school['CODE'].'">'.
-//    									ucwords(strtolower($school['SCHOOL NAME'])).'</a></li>';
-//    							}
+    							foreach ($top_primary_schools as $school) {
+    								echo '<li><a href="/performance/school/pri:2011:'.$school->school_code.'">'.
+    									ucwords(strtolower($school->school_name)).'</a></li>';
+    							}
     						?>
     					</ol>
     				</div>

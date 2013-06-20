@@ -17,7 +17,11 @@ class HomeController extends BaseController {
 
 	public function getIndex()
 	{
-		return View::make('home');
+		
+		$top_primary_schools = DB::table('kcpe_results_2011')->orderBy('national', 'asc')->take(10)->get();
+		
+		$data = array('top_primary_schools' => $top_primary_schools);
+		return View::make('home', $data);
 	}
 
 }
