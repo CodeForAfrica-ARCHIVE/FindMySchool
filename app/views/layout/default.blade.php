@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" ng-app> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" ng-app> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app> <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -23,6 +23,7 @@
 		<link rel="stylesheet" href="/assets/css/style.css">
 		
 		<script src="/assets/js/vendor/modernizr-2.6.2.min.js"></script>
+		<script src="/assets/js/vendor/angular.min.js"></script>
 		<script src="/assets/js/vendor/jquery-1.10.1.min.js"></script>
 		
 	</head>

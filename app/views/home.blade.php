@@ -33,19 +33,9 @@
     
     <!-- SEARCH & BROWSE SECTION -->
     
-    <section style="background-color: #333; text-align: center; color: #fff;">
+    <section style="text-align: center; border-top: 1px solid #d4d4d4;">
+    
     	<div class="container" style="padding: 30px 0 40px;">
-    		
-    		<div class="row" style="text-align: center;">
-    			<div class="span4 offset2">
-    				<h1>22,787</h1>
-    				<p class="lead">Primary Schools</p>
-    			</div>
-    			<div class="span4">
-    				<h1>6,958</h1>
-    				<p class="lead">Secondary Schools</p>
-    			</div>
-    		</div>
     		
     		<h1 style="margin-bottom: 0;">School Results</h1>
     		<h2 style="margin-top: 0; line-height: 15px;"><small>Primary &amp; Secondary</small></h2>
@@ -88,6 +78,29 @@
     				
     			</div>
     		</div>
+    	</div>
+    </section>
+    
+    <section style="background-color: #333; text-align: center; color: #fff;">
+    	<div class="container" style="padding: 30px 0;">
+    		<div class="row">
+    			<div class="span4 offset2">
+    				<h1 style="font-size: 60px;">22,787</h1>
+    				<p class="lead">Primary Schools</p>
+    			</div>
+    			<div class="span4">
+    				<h1 style="font-size: 50px;">6,958</h1>
+    				<p class="lead">Secondary Schools</p>
+    			</div>
+    		</div>
+			<div class="btn-group">
+				<button class="btn btn-large btn-purple dropdown-toggle" data-toggle="dropdown">
+					<b>National</b> <span class="caret" style="margin-top: 8px;"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li></li>
+				</ul>
+			</div>
     	</div>
     </section>
     

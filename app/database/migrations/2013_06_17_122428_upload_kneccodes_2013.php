@@ -18,9 +18,9 @@ class UploadKneccodes2013 extends Migration {
 	    	$table->engine = 'MyISAM';
 	        $table->increments('id');
 	        $table->integer('school_code')->index();
-	        $table->string('school_name')->fulltext();
+	        $table->string('school_name')->index();
 	        $table->integer('county_code')->index();
-	        $table->string('county_name')->fulltext();
+	        $table->string('county_name')->index();
 	    });
 	    
 	    Schema::create('kneccodes_secondary_2013', function($table)
@@ -28,10 +28,13 @@ class UploadKneccodes2013 extends Migration {
 	    	$table->engine = 'MyISAM';
 	        $table->increments('id');
 	        $table->integer('school_code')->index();
-	        $table->string('school_name')->fulltext();
+	        $table->string('school_name')->index();
 	        $table->integer('county_code')->index();
-	        $table->string('county_name')->fulltext();
+	        $table->string('county_name')->index();
 	    });
+	    
+	    DB::statement('ALTER TABLE `kneccodes_primary_2013` ADD FULLTEXT search(school_name, county_name)');
+	    DB::statement('ALTER TABLE `kneccodes_secondary_2013` ADD FULLTEXT search(school_name, county_name)');
 	    
 	    // Import from CSV
 	    
