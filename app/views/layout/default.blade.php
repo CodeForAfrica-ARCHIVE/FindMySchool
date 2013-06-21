@@ -26,6 +26,8 @@
 		<script src="/assets/js/vendor/angular.min.js"></script>
 		<script src="/assets/js/vendor/jquery-1.10.1.min.js"></script>
 		
+		@yield('head')
+		
 	</head>
 	
 	<body>
@@ -63,7 +65,7 @@
 								<!--<li class="divider-vertical"></li>
 								<li><a href="/marks">Marks Comparison<br/><span>For Secondary School Placement</span></a></li>-->
 								<li class="divider-vertical"></li>
-								<li><a href="/results">Performance<br/><span>KCPE and KCSE Results</span></a></li>
+								<li><a href="/performance">Performance<br/><span>KCPE and KCSE Results</span></a></li>
 								<li class="divider-vertical"></li>
 								<li><a href="/about">About<br/><span>Find My School</span></a></li>
 							</ul>

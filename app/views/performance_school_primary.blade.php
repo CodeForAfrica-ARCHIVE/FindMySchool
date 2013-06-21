@@ -4,6 +4,50 @@
 	<?php echo $school_name." | FMS .Ke"; ?>
 @stop
 
+<?php
+	function dig_it($number) {
+		return number_format((float)$number, 2, '.', '');
+	}
+?>
+
+@section('head')
+	<?php
+		$nat_mean_2010 = 0.0;	$nat_mean_2011 = 0.0;
+		$dis_mean_2010 = 0.0;			$dis_mean_2011 = 0.0;
+		$sch_mean_2010 = 0.0;			$sch_mean_2011 = 0.0;
+		if (count($school_2010) != 0) {
+			$nat_mean_2010 = 248.64;
+			$dis_mean_2010 = dig_it($district_data[0]->kcpe_mean_2010);
+			$sch_mean_2010 = dig_it($school_2010[0]->mean);
+		}
+		if (count($school_2011) != 0) {
+			$nat_mean_2011 = 248.31;
+			$dis_mean_2011 = dig_it($district_data[0]->kcpe_mean_2011);
+			$sch_mean_2011 = dig_it($school_2011[0]->mean);
+		}
+	?>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+		google.load("visualization", "1", {packages:["corechart"]});
+		google.setOnLoadCallback(drawChart);
+		function drawChart() {
+			var data = google.visualization.arrayToDataTable([
+				['Year',	'<?php echo $school_name; ?>',	'<?php echo $district_name; ?> District Average',	'National Average'],
+				['2010',	<?php echo $sch_mean_2010.', '.$dis_mean_2010.', '.$nat_mean_2010; ?>],
+				['2010',	<?php echo $sch_mean_2011.', '.$dis_mean_2011.', '.$nat_mean_2011; ?>],
+			]);
+			
+			var options = {
+				title: 'School Mean Comparison (School, District, National)',
+				hAxis: {title: 'Year'}
+			};
+			
+			var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+			chart.draw(data, options);
+		}
+	</script>
+@stop
+
 @section('content')
 
 	<section class="container">
@@ -39,11 +83,11 @@
 		
 		<br /><br />
 		
-		<?php
-			function dig_it($number) {
-				return number_format((float)$number, 2, '.', '');
-			}
-		?>
+		<div class="row" style="margin-top: 10px;">
+			<div class="span10 offset1">
+				<div id="chart_div" style="height: 400px; width: 100%;"></div>
+			</div>
+		</div>
 		
 		<div class="row school-results">
 			<div class="span6">

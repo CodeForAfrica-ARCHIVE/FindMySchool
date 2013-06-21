@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class KcpeCountyDistrictPerformance extends Migration {
+class KcpeDistrictPerformance extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -25,17 +25,13 @@ class KcpeCountyDistrictPerformance extends Migration {
 		    $table->integer('kcpe_rank_2011')->nullable();
 		});
 		
-//		Schema::table('county_level_data', function($table)
-//		{
-//			$table->string('kcpe_top_2010')->nullable();
-//			$table->string('kcpe_top_2011')->nullable();
-//			$table->string('kcpe_btm_2010')->nullable();
-//			$table->string('kcpe_btm_2011')->nullable();
-//			$table->float('kcpe_mean_2010')->nullable();
-//			$table->float('kcpe_mean_2011')->nullable();
-//			$table->integer('kcpe_rank_2010')->nullable();
-//			$table->integer('kcpe_rank_2011')->nullable();
-//		});
+		Schema::table('county_level_data', function($table)
+		{
+			$table->float('kcpe_mean_2010')->nullable();
+			$table->float('kcpe_mean_2011')->nullable();
+			$table->integer('kcpe_rank_2010')->nullable();
+			$table->integer('kcpe_rank_2011')->nullable();
+		});
 		
 		$districts = DB::table('kcpe_results_2010')->select('district_name')->distinct()->get();
 		foreach ($districts as $district) {
@@ -74,13 +70,22 @@ class KcpeCountyDistrictPerformance extends Migration {
 		}
 		
 		// Rank districts
-//		$rank = 1;
-//		$districts = DB::table('district_level_data')->orderBy('kcpe_mean_2010','desc')->get();
-//		foreach ($districts as $district) {
-//			DB::table('district_level_data')
-//			            ->where('district_name', $district->distric_name)
-//			            ->update(array('kcpe_rank_2010' => ));
-//		}
+		$rank = 1;
+		$districts = DB::table('district_level_data')->orderBy('kcpe_mean_2010','desc')->get();
+		foreach ($districts as $district) {
+			DB::table('district_level_data')
+	            ->where('district_name', $district->district_name)
+	            ->update(array('kcpe_rank_2010' => $rank));
+	        $rank++;
+		}
+		$rank = 1;
+		$districts = DB::table('district_level_data')->orderBy('kcpe_mean_2011','desc')->get();
+		foreach ($districts as $district) {
+			DB::table('district_level_data')
+		        ->where('district_name', $district->district_name)
+		        ->update(array('kcpe_rank_2011' => $rank));
+		    $rank++;
+		}
 	}
 
 	/**
@@ -92,17 +97,6 @@ class KcpeCountyDistrictPerformance extends Migration {
 	{
 		//
 		Schema::drop('district_level_data');
-//		Schema::table('county_level_data', function($table)
-//		{
-//		    $table->dropColumn('kcpe_top_2010');
-//		    $table->dropColumn('kcpe_top_2011');
-//		    $table->dropColumn('kcpe_btm_2010');
-//		    $table->dropColumn('kcpe_btm_2011');
-//		    $table->dropColumn('kcpe_mean_2010');
-//		    $table->dropColumn('kcpe_mean_2011');
-//		    $table->dropColumn('kcpe_rank_2010');
-//		    $table->dropColumn('kcpe_rank_2011');
-//		});
 	}
 
 }
