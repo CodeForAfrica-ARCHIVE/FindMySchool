@@ -32,7 +32,6 @@ class PerformanceController extends BaseController {
 		$district_name = NULL;
 		$county_name = NULL;
 		
-		
 		if ($param[0] == '2011') {
 			$school_data_2011 = DB::table('kcpe_results_2011')->where('school_code', $param[1])->take(1)->get();
 			$school_data_2010 = DB::table('kcpe_results_2010')->where('school_name', $school_data_2011[0]->school_name)->take(1)->get();
@@ -47,6 +46,8 @@ class PerformanceController extends BaseController {
 			$district_name = ucwords(strtolower($school_data_2010[0]->district_name));
 			$county_name = ucwords(strtolower($school_data_2010[0]->county_name));
 		}
+		
+		
 		
 		$data = array('school_2011' => $school_data_2011, 'school_2010' => $school_data_2010, 'school_name' => $school_name, 'county_name' => $county_name,  'district_name' => $district_name);
 		return View::make('performance_school_primary', $data);
