@@ -18,3 +18,4 @@
 
 Route::get('/', 'HomeController@getIndex');
 Route::get('/performance/school/pri:{params}', 'PerformanceController@getPrimarySchool');
+Route::get('/discover', 'DiscoverController@getIndex');

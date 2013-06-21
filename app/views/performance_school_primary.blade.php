@@ -34,7 +34,7 @@
 			var data = google.visualization.arrayToDataTable([
 				['Year',	'<?php echo $school_name; ?>',	'<?php echo $district_name; ?> District Average',	'National Average'],
 				['2010',	<?php echo $sch_mean_2010.', '.$dis_mean_2010.', '.$nat_mean_2010; ?>],
-				['2010',	<?php echo $sch_mean_2011.', '.$dis_mean_2011.', '.$nat_mean_2011; ?>],
+				['2011',	<?php echo $sch_mean_2011.', '.$dis_mean_2011.', '.$nat_mean_2011; ?>],
 			]);
 			
 			var options = {
