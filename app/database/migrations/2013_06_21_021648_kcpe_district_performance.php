@@ -25,14 +25,6 @@ class KcpeDistrictPerformance extends Migration {
 		    $table->integer('kcpe_rank_2011')->nullable();
 		});
 		
-		Schema::table('county_level_data', function($table)
-		{
-			$table->float('kcpe_mean_2010')->nullable();
-			$table->float('kcpe_mean_2011')->nullable();
-			$table->integer('kcpe_rank_2010')->nullable();
-			$table->integer('kcpe_rank_2011')->nullable();
-		});
-		
 		$districts = DB::table('kcpe_results_2010')->select('district_name')->distinct()->get();
 		foreach ($districts as $district) {
 			if ($district->district_name != '') {
