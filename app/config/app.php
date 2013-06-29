@@ -27,6 +27,7 @@ return array(
 	*/
 
 	'url' => 'http://findmyschool',
+	'blog_url' => 'http://blog.findmyschool.co.ke/',
 
 	/*
 	|--------------------------------------------------------------------------

@@ -30,6 +30,7 @@ class PerformanceController extends BaseController {
 		$school_data_2010 = NULL;
 		$school_name = NULL;
 		$district_name = NULL;
+		$district_link = NULL;
 		$county_name = NULL;
 		
 		if ($param[0] == '2011') {
@@ -48,9 +49,16 @@ class PerformanceController extends BaseController {
 			$district_name = ucwords(strtolower($school_data_2010[0]->district_name));
 			$county_name = ucwords(strtolower($school_data_2010[0]->county_name));
 			
-			$district_data = DB::table('district_level_data')->where('district_name', $school_data_2011[0]->district_name)->get();
+			$district_data = DB::table('district_level_data')->where('district_name', $school_data_2010[0]->district_name)->get();
 		}
 		
+		if (count($district_data)==0) {
+			$district_data[0] = (object) array('kcpe_mean_2010' => 0, 'kcpe_mean_2011' => 0);
+			$district_name = 'N/A';
+			$district_link = '#';
+		} else {
+
+		}
 		
 		
 		$data = array('school_2011' => $school_data_2011, 'school_2010' => $school_data_2010, 'school_name' => $school_name, 'county_name' => $county_name,  'district_name' => $district_name, 'district_data' => $district_data);

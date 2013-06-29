@@ -19,3 +19,7 @@
 Route::get('/', 'HomeController@getIndex');
 Route::get('/performance/school/pri:{params}', 'PerformanceController@getPrimarySchool');
 Route::get('/discover', 'DiscoverController@getIndex');
+
+App::missing(function($exception) {
+	return Response::view('errors.404', array(), 404);
+});

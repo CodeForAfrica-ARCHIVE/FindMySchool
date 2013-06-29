@@ -139,6 +139,7 @@
     <hr class="container"/>
     
     <!-- OTHER ITEMS SECTION -->
+    <a name="about"></a>
     <section class="container">
     	<div class="row">
     		<div class="span7">

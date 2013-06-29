@@ -37,7 +37,7 @@
 		<![endif]-->
 		
 		<header>
-			<div class="navbar navbar-fixed-top">
+			<div class="navbar navbar-static-top">
 				<div class="beta">
 					<p>Under Construction: We are in <span>BETA</span> <img src="/assets/img/noun/construction.png" alt=""/></p>
 				</div>
@@ -76,7 +76,7 @@
 			</div>
 		</header>
 		        
-        <article style="margin-top: 85px;">
+        <article>
         
 			@yield('content')
 			
