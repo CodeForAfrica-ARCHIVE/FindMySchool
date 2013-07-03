@@ -6,3 +6,4 @@ composer.lock
 
 /app/config/development
 /app/config/production
+/app/config/alpha

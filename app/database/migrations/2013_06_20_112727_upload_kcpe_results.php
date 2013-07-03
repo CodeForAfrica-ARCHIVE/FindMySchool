@@ -12,6 +12,12 @@ class UploadKcpeResults extends Migration {
 	public function up()
 	{
 		//
+		if (Schema::hasTable('kcpe_results_2011')) {
+			Schema::drop('kcpe_results_2011');
+		}
+		if (Schema::hasTable('kcpe_results_2010')) {
+			Schema::drop('kcpe_results_2010');
+		}
 		
 		Schema::create('kcpe_results_2011', function($table)
 		{
