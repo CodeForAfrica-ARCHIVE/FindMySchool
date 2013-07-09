@@ -267,13 +267,13 @@
 		var search_schools_btn = document.getElementById("search_schools_btn");
 		search_schools_btn.onclick = function() {
 			search_term = document.getElementById("appendedInputButtons").value;
-			window.location.href = "/results/search/"+search_term;
+			window.location.href = "/search?q="+search_term;
 		}
 		
 		function runScript(e) {
 		    if (e.keyCode == 13) {
 		        search_term = document.getElementById("appendedInputButtons").value;
-		        window.location.href = "/results/search/"+search_term;
+		        window.location.href = "/search?q="+search_term;
 		        return false;
 		    }
 		}
