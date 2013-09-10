@@ -26,8 +26,8 @@ return array(
 	|
 	*/
 
-	'url' => 'http://findmyschool',
-	'blog_url' => 'http://blog.findmyschool.co.ke/',
+	'url' => 'http://localhost',
+	'blog_url' => 'http://blog.localhost',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -40,7 +40,7 @@ return array(
 	|
 	*/
 
-	'timezone' => 'Africa/Nairobi',
+	'timezone' => 'UTC',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -66,7 +66,7 @@ return array(
 	|
 	*/
 
-	'key' => 'urPLB5iug2TkDuCnR8OZCyFojNBcKROg',
+	'key' => 'Your secret key!!!',
 
 	/*
 	|--------------------------------------------------------------------------

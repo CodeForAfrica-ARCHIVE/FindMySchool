@@ -24,7 +24,7 @@
 		
 		<script src="/assets/js/vendor/modernizr-2.6.2.min.js"></script>
 		<script src="/assets/js/vendor/angular.min.js"></script>
-		<script src="/assets/js/vendor/jquery-1.10.1.min.js"></script>
+		<script src="/assets/js/vendor/jquery.min.js"></script>
 		
 		@yield('head')
 		
@@ -90,7 +90,7 @@
 				<div class="row">
 				
 					<div class="span4">
-						<h3 class="footer-title">Recent Visualizations</h3>
+						<h3 class="footer-title">From Our Blog</h3>
 						<ul class="media-list">
 							<?php foreach (array(0,1,2,3) as $visualization) { ?>
 								<li class="media">
@@ -113,18 +113,9 @@
 						</div>
 					</div>
 					
-					<div class="span4">
-						<div>
-							<h3 class="footer-title" >Latest Tweets 
-								<a href="https://twitter.com/FindMySchool" class="twitter-follow-button" data-show-count="false">@FindMySchool</a>
-							</h3>
-							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-						</div>
-						
-						<ul id="latest-tweets-stream">
-							
-						</ul>
-						
+					<div class="span4" style="padding-top: 10px;">
+						<a class="twitter-timeline" href="https://twitter.com/Open_Institute" data-widget-id="377530888927473664">Tweets by @Open_Institute</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 					</div>
 				</div>
 				
@@ -176,17 +167,9 @@
 				max: 3
 			});
 			
-			// Latest Twitter Feed
-			
-			$('#latest-tweets-stream').feeds({
-				feeds: {
-					feed1: 'https://api.twitter.com/1/statuses/user_timeline/openinstitute.xml?count=5&include_rts=1'
-				},
-				xml: true,
-				max: 5
-			});
-			
         </script>
+        
+        @yield('scripts')
 		
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 		<script>

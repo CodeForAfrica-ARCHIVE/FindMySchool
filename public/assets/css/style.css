@@ -159,6 +159,10 @@ footer .footer-links a img {
 
 /* ----- Home Elements ----- */
 
+#newsBiteCarousel div .active{
+	display: inline;
+}
+
 .home-learn-more {
 	text-align: center;
 	height: 150px;

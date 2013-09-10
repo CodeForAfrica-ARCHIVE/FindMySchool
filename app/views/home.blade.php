@@ -17,13 +17,23 @@
     <!-- LATEST HEADLINE SECTION -->
     
     <section style="background: #fff url('/assets/img/bg/home-header.jpg') no-repeat center top; background-size: cover; padding-top: 13px;">
-    	<div class="container" style="">
+    	<div class="container" >
+    		<!-- Latest News Headlines Bite -->
     		<div class="alert alert-info">
     			<button type="button" class="close" data-dismiss="alert">×</button>
-    			<span style="font-weight: bold;">Latest Headlines: {</span>
-    				<a href="#" target="_blank" id="latest-headline-top">School Board on row over teacher pay. [Daily Nation]</a>
-    			<span style="font-weight: bold;">} <a href="#"><i class="icon-chevron-left" style="padding: 3px;"></i></a> <a href="#"><i class="icon-chevron-right"></i></a></span>
+    			<span style="font-weight: bold;">Latest Headlines: </span>
+    				
+				<span id="news-bite">
+					<a href="#" target="_blank">Loading <i class="icon-spinner icon-spin"></i></a>
+				</span>
+				<span id="news-bite-hidden" style="display: none;"></span>
+    				
+    			<span style="font-weight: bold;">
+    				<a href="#" id="news-bite-prev"><i class="icon-chevron-left" style="padding: 3px;"></i></a>
+    				<a href="#" id="news-bite-next"><i class="icon-chevron-right"></i></a>
+    			</span>
     		</div>
+    		
     		<div class="home-learn-more" >
     			<img src="/assets/img/air-home.png" alt="" />
     		</div>
@@ -138,7 +148,44 @@
     
     <hr class="container"/>
     
-    <!-- OTHER ITEMS SECTION -->
+    
+    <!-- VISUALISATIONS SECTION -->
+    
+    <a name="visualisations"></a>
+    <section class="container">
+    	<h2 style="text-align: center; margin-bottom: 15px;">Visualisations</h2>
+    	<ul class="thumbnails">
+			<li class="span4">
+				<div class="thumbnail">
+					<img data-src="/assets/js/vendor/holder.js/300x200" alt="">
+					<h4>Thumbnail label</h4>
+					<p>Thumbnail caption...</p>
+				</div>
+			</li>
+			<li class="span4">
+				<div class="thumbnail">
+					<img data-src="/assets/js/vendor/holder.js/300x200" alt="">
+					<h4>Thumbnail label</h4>
+					<p>Thumbnail caption...</p>
+				</div>
+			</li>
+			<li class="span4">
+				<div class="thumbnail">
+					<img data-src="/assets/js/vendor/holder.js/300x200" alt="">
+					<h4>Thumbnail label</h4>
+					<p>Thumbnail caption...</p>
+				</div>
+			</li>
+    	</ul>
+    	<p style="text-align: right; padding-right: 5px;"><a href="/visualisations">
+    		View all visualisations <i class="icon-double-angle-right"></i>
+    	</a></p>
+    </section>
+    
+    <hr class="container"/>
+    
+    
+    <!-- ABOUT SECTION -->
     <a name="about"></a>
     <section class="container">
     	<div class="row">
@@ -159,7 +206,7 @@
     					<img src="/assets/img/logos/c4k_2.png" alt="Code4Kenya" style="height: 50px;" />
     				</a>
     			</p>
-    		</div>
+    		</div> <!-- /.span7 -->
     		<div class="span5">
     			<div class="page-header">
     				<h3>From Our Blog 
@@ -179,130 +226,167 @@
     					</li>
     				<?php } ?>
     			</ul>
-    			<p style="text-align: right;">
-    				
-    			</p>
-    		</div>
-    	</div>
+    		</div> <!-- /.span5 -->
+    	</div> <!-- /.row -->
     </section>
     
     
-    
-    <!-- JS Scripts for this Page -->
-    
-    <!-- BY SEARCH -->
-    
-    <script type="text/javascript">
-    	
-    	// Actual Search
-    	var search_term;
-    	var search_schools_btn = document.getElementById("search_results_btn");
-    	search_schools_btn.onclick = function() {
-    		search_schools_btn.innerHTML="<i class=\"icon-search icon-white\"></i> Please wait...";
-    		search_term = document.getElementById("search_term").value;
-    		window.location.href = "/results/search/"+search_term;
-    	}
-    	
-    	function runScript(e) {
-    	    if (e.keyCode == 13) {
-    	    	search_schools_btn.innerHTML="<i class=\"icon-search icon-white\"></i> Please wait...";
-    	        search_term = document.getElementById("search_term").value;
-    	        window.location.href = "/results/search/"+search_term;
-    	        return false;
-    	    }
-    	}
-    	
-    </script>
-    
-    <!-- BY MARKS -->
-    <script type="text/javascript">
-    	var county_id = $('#county_select option:selected').val();
-    	var county_name = encodeURIComponent($('#county_select option:selected').text());
-    	var marks_in = $('#appendedInput').val();
-    	
-    	function run_engine() {
-    		county_id = $('#county_select option:selected').val();
-    		county_name = encodeURIComponent($('#county_select option:selected').text());
-    		marks_in = $('#appendedInput').val();
-    		
-    		if (county_id == 0) {
-    			$('#county_ctrl_group').addClass('control-group error');
-    		} else {
-    			$('#county_ctrl_group').removeClass('control-group error');
-    		}
-    		if (marks_in == "" || !$.isNumeric(marks_in)) {
-    			$('#marks_ctrl_group').addClass('control-group error');
-    		} else {
-    			$('#marks_ctrl_group').removeClass('control-group error');
-    		}
-    		
-    		if (county_id != 0 && $.isNumeric(marks_in)){
-    			if (marks_in>0 && marks_in<500) {
-    				window.location.href = "/marks/compare/"+county_name+":"+county_id+":"+marks_in;
-    			} else {
-    				$('#marks_ctrl_group').addClass('control-group error');
-    			}
-    		}
-    		
-    	}
-    </script>
-    
-    
-    <!-- BY LOCATION -->
-    
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?AIzaSyDl0_EPlseIlbNlYZDOzpua7VqXyH_LfeY&sensor=true"></script>
-    <script type="text/javascript">
-    
-    var disc_lat = -1.29353;
-    var disc_long = 36.819889;
-    
-    var nairobi = new google.maps.LatLng(-1.29353, 36.819889);
-    var marker;
-    var map;
-    
-    var mapOptions = {
-    	zoom: 11,
-    	mapTypeId: google.maps.MapTypeId.ROADMAP,
-    	center: nairobi
-    };
-    
-    window.onload = function(){	
-    	
-    	map = new google.maps.Map(document.getElementById("map_canvas"),
-    		mapOptions);
-    	
-    	marker = new google.maps.Marker({
-    		map:map,
-    		draggable:true,
-    		animation: google.maps.Animation.DROP,
-    		position: nairobi
-    	});
-    	
-    	google.maps.event.addListener(marker, 'click', toggleBounce);
-    	//google.maps.event.addListener(marker, 'dragend', setDiscLocation);
-    	
-    	function toggleBounce() {
-    		if (marker.getAnimation() != null) {
-    			marker.setAnimation(null);
-    		} else {
-    			marker.setAnimation(google.maps.Animation.BOUNCE);
-    		}
-    	}
-    	
-    }
-    
-    function setDiscLocation() {
-    	var point = marker.getPosition();
-    	disc_lat = point.lat();
-    	disc_long = point.lng();
-    	window.location.href = "/discover/locate/"+disc_lat+":"+disc_long;
-    }
-    	
-    </script>
-    
-    
-    <!-- AddThis Script -->
-    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=xa-508d41213e72f77b"></script>
-    
-    
+@stop
+
+@section('scripts')
+
+<!-- TOP PAGE NEWS BITE -->
+
+<script type="text/javascript">
+
+	// Latest News Headlines Feed
+	var news_bites = new Array();
+	var news_bite_pos = 0;
+	
+	$('#news-bite-hidden').feeds({
+		feeds: {
+			feed1: 'https://news.google.com/news/feeds?q=kenya%20education&output=rss'
+		},
+		max: 4,
+		onComplete: function (entries) {
+			news_bites = entries;
+			$('#news-bite').html('<a href="'+news_bites[0].link+'" target="_blank">'+news_bites[0].title+'</a>');
+		},
+	});
+	
+	$('#news-bite-next').click( function() {
+		if (news_bite_pos == 3) {
+			$('#news-bite').html('<a href="'+news_bites[0].link+'" target="_blank">'+news_bites[0].title+'</a>');
+			news_bite_pos = 0;
+		} else {
+			news_bite_pos = news_bite_pos + 1;
+			$('#news-bite').html('<a href="'+news_bites[news_bite_pos].link+'" target="_blank">'+news_bites[news_bite_pos].title+'</a>');
+		}
+	});
+	$('#news-bite-prev').click( function() {
+		if (news_bite_pos == 0) {
+			$('#news-bite').html('<a href="'+news_bites[3].link+'" target="_blank">'+news_bites[3].title+'</a>');
+			news_bite_pos = 3;
+		} else {
+			news_bite_pos = news_bite_pos - 1;
+			$('#news-bite').html('<a href="'+news_bites[news_bite_pos].link+'" target="_blank">'+news_bites[news_bite_pos].title+'</a>');
+		}
+	});
+	
+</script>
+
+<!-- BY SEARCH -->
+
+<script type="text/javascript">
+	
+	// Actual Search
+	var search_term;
+	var search_schools_btn = document.getElementById("search_results_btn");
+	search_schools_btn.onclick = function() {
+		search_schools_btn.innerHTML="<i class=\"icon-search icon-white\"></i> Please wait...";
+		search_term = document.getElementById("search_term").value;
+		window.location.href = "/results/search/"+search_term;
+	}
+	
+	function runScript(e) {
+	    if (e.keyCode == 13) {
+	    	search_schools_btn.innerHTML="<i class=\"icon-search icon-white\"></i> Please wait...";
+	        search_term = document.getElementById("search_term").value;
+	        window.location.href = "/results/search/"+search_term;
+	        return false;
+	    }
+	}
+	
+</script>
+
+<!-- BY MARKS -->
+<script type="text/javascript">
+	var county_id = $('#county_select option:selected').val();
+	var county_name = encodeURIComponent($('#county_select option:selected').text());
+	var marks_in = $('#appendedInput').val();
+	
+	function run_engine() {
+		county_id = $('#county_select option:selected').val();
+		county_name = encodeURIComponent($('#county_select option:selected').text());
+		marks_in = $('#appendedInput').val();
+		
+		if (county_id == 0) {
+			$('#county_ctrl_group').addClass('control-group error');
+		} else {
+			$('#county_ctrl_group').removeClass('control-group error');
+		}
+		if (marks_in == "" || !$.isNumeric(marks_in)) {
+			$('#marks_ctrl_group').addClass('control-group error');
+		} else {
+			$('#marks_ctrl_group').removeClass('control-group error');
+		}
+		
+		if (county_id != 0 && $.isNumeric(marks_in)){
+			if (marks_in>0 && marks_in<500) {
+				window.location.href = "/marks/compare/"+county_name+":"+county_id+":"+marks_in;
+			} else {
+				$('#marks_ctrl_group').addClass('control-group error');
+			}
+		}
+		
+	}
+</script>
+
+
+<!-- BY LOCATION -->
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?AIzaSyDl0_EPlseIlbNlYZDOzpua7VqXyH_LfeY&sensor=true"></script>
+<script type="text/javascript">
+
+var disc_lat = -1.29353;
+var disc_long = 36.819889;
+
+var nairobi = new google.maps.LatLng(-1.29353, 36.819889);
+var marker;
+var map;
+
+var mapOptions = {
+	zoom: 11,
+	mapTypeId: google.maps.MapTypeId.ROADMAP,
+	center: nairobi
+};
+
+window.onload = function(){	
+	
+	map = new google.maps.Map(document.getElementById("map_canvas"),
+		mapOptions);
+	
+	marker = new google.maps.Marker({
+		map:map,
+		draggable:true,
+		animation: google.maps.Animation.DROP,
+		position: nairobi
+	});
+	
+	google.maps.event.addListener(marker, 'click', toggleBounce);
+	//google.maps.event.addListener(marker, 'dragend', setDiscLocation);
+	
+	function toggleBounce() {
+		if (marker.getAnimation() != null) {
+			marker.setAnimation(null);
+		} else {
+			marker.setAnimation(google.maps.Animation.BOUNCE);
+		}
+	}
+	
+}
+
+function setDiscLocation() {
+	var point = marker.getPosition();
+	disc_lat = point.lat();
+	disc_long = point.lng();
+	window.location.href = "/discover/locate/"+disc_lat+":"+disc_long;
+}
+	
+</script>
+
+
+<!-- AddThis Script -->
+<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=xa-508d41213e72f77b"></script>
+
 @stop
