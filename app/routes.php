@@ -17,6 +17,7 @@
 //});
 
 Route::get('/', 'HomeController@getIndex');
+Route::get('/performance', 'PerformanceController@getIndex');
 Route::get('/performance/school/pri:{params}', 'PerformanceController@getPrimarySchool');
 Route::get('/discover', 'DiscoverController@getIndex');
 Route::get('/search', 'SearchController@getIndex');

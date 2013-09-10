@@ -20,7 +20,7 @@ class PerformanceController extends BaseController {
 		$top_primary_schools = DB::table('kcpe_results_2011')->orderBy('national', 'asc')->take(10)->get();
 		
 		$data = array('top_primary_schools' => $top_primary_schools);
-		return View::make('home', $data);
+		return View::make('perf', $data);
 	}
 	
 	public function getPrimarySchool($params)
@@ -62,7 +62,7 @@ class PerformanceController extends BaseController {
 		
 		
 		$data = array('school_2011' => $school_data_2011, 'school_2010' => $school_data_2010, 'school_name' => $school_name, 'county_name' => $county_name,  'district_name' => $district_name, 'district_data' => $district_data);
-		return View::make('performance_school_primary', $data);
+		return View::make('perf_sch_pri', $data);
 	}
 
 }
