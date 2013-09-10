@@ -105,10 +105,18 @@
     		</div>
 			<div class="btn-group">
 				<button class="btn btn-large btn-purple dropdown-toggle" data-toggle="dropdown">
-					<b>National</b> <span class="caret" style="margin-top: 8px;"></span>
+					<b id="county-select">National</b>
+					<span class="caret" style="margin-top: 8px;"></span>
 				</button>
-				<ul class="dropdown-menu">
-					<li></li>
+				<ul class="dropdown-menu" id="county-list" style="color: #333; text-align: left; height: 200px; overflow-y: scroll;">
+					<li><a href="#">National</a></li>
+					<li class="divider"></li>
+					<?php
+						foreach ($county_level_data as $county) {
+							echo '<li><a href="#">'.
+								ucwords(strtolower($county->county_name)).'</a></li>';
+						}
+					?>
 				</ul>
 			</div>
     	</div>
@@ -349,7 +357,11 @@ var map;
 var mapOptions = {
 	zoom: 11,
 	mapTypeId: google.maps.MapTypeId.ROADMAP,
-	center: nairobi
+	center: nairobi,
+	scrollwheel: false,
+	zoomControlOptions: {
+		style: google.maps.ZoomControlStyle.LARGE,
+	}
 };
 
 window.onload = function(){	

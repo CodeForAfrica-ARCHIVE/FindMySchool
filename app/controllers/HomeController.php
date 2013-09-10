@@ -19,8 +19,12 @@ class HomeController extends BaseController {
 	{
 		
 		$top_primary_schools = DB::table('kcpe_results_2011')->orderBy('national', 'asc')->take(10)->get();
+		$county_level_data = DB::table('county_level_data')->orderBy('county_name', 'asc')->get();
 		
-		$data = array('top_primary_schools' => $top_primary_schools);
+		$data = array(
+			'top_primary_schools' => $top_primary_schools,
+			'county_level_data' => $county_level_data
+		);
 		return View::make('home', $data);
 	}
 
