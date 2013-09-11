@@ -83,7 +83,7 @@
     				<div class="home-school-results-btns">
     					<p><a href="#" class="btn btn-large btn-purple"><i class="icon-list-alt"></i> Browse Secondary Schools</a></p>
     					<p><a href="#discover" class="btn btn-large btn-purple"><i class="icon-map-marker"></i> Discover Schools Near You</a></p>
-    					<p><a href="#" class="btn btn-large btn-purple"><i class="icon-info-sign"></i> About Find My School</a></p>
+    					<p><a href="#about" class="btn btn-large btn-purple"><i class="icon-info-sign"></i> About Find My School</a></p>
     				</div>
     				
     			</div>
