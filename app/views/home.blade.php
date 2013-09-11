@@ -22,16 +22,17 @@
     		<div class="alert alert-info">
     			<button type="button" class="close" data-dismiss="alert">×</button>
     			<span style="font-weight: bold;">Latest Headlines: </span>
-    				
+    			
+    			<span style="font-weight: bold;">
+    				<a href="#" id="news-bite-prev"><i class="icon-chevron-left" style="padding: 3px;"></i></a>
+    				<a href="#" id="news-bite-next"><i class="icon-chevron-right" style="padding-right: 3px;"></i></a>
+    			</span>
+    			
 				<span id="news-bite">
 					<a href="#" target="_blank">Loading <i class="icon-spinner icon-spin"></i></a>
 				</span>
 				<span id="news-bite-hidden" style="display: none;"></span>
-    				
-    			<span style="font-weight: bold;">
-    				<a href="#" id="news-bite-prev"><i class="icon-chevron-left" style="padding: 3px;"></i></a>
-    				<a href="#" id="news-bite-next"><i class="icon-chevron-right"></i></a>
-    			</span>
+    			
     		</div>
     		
     		<div style="text-align: center;">
