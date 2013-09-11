@@ -166,6 +166,8 @@ footer .footer-links a img {
 .home-learn-more {
 	text-align: center;
 	height: 150px;
+	margin-bottom: -5px;
+	display: inline-block;
 	overflow: hidden;
 	-webkit-transition: all 1s ease-in-out;
 	-moz-transition: all 1s ease-in-out;
@@ -174,6 +176,7 @@ footer .footer-links a img {
 }
 	.home-learn-more:hover {
 		height: 371px;
+		margin-bottom: 0;
 	}
 
 .search-example {

@@ -34,8 +34,10 @@
     			</span>
     		</div>
     		
-    		<div class="home-learn-more" >
-    			<img src="/assets/img/air-home.png" alt="" />
+    		<div style="text-align: center;">
+    			<div class="home-learn-more">
+    				<img src="/assets/img/air-home.png" id="" />
+    			</div>
     		</div>
     	</div>
     </section>
