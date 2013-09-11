@@ -95,26 +95,29 @@
     	<div class="container" style="padding: 30px 0;">
     		<div class="row">
     			<div class="span4 offset2">
-    				<h1 style="font-size: 60px;">22,787</h1>
+    				<h1 style="font-size: 60px;" id="pri_sum">22,787</h1>
     				<p class="lead">Primary Schools</p>
     			</div>
     			<div class="span4">
-    				<h1 style="font-size: 50px;">6,958</h1>
+    				<h1 style="font-size: 50px;" id="sec_sum">6,958</h1>
     				<p class="lead">Secondary Schools</p>
     			</div>
     		</div>
 			<div class="btn-group">
 				<button class="btn btn-large btn-purple dropdown-toggle" data-toggle="dropdown">
-					<b id="county-select">National</b>
+					<b id="county_selected">National</b>
 					<span class="caret" style="margin-top: 8px;"></span>
 				</button>
 				<ul class="dropdown-menu" id="county-list" style="color: #333; text-align: left; height: 200px; overflow-y: scroll;">
-					<li><a href="#">National</a></li>
+					<li><a onclick="javascript:county_numbers(0)">National</a></li>
 					<li class="divider"></li>
 					<?php
+						$county_id = 1;
 						foreach ($county_level_data as $county) {
-							echo '<li><a href="#">'.
+							echo '<li><a style="cursor: pointer;"'.
+								'onclick="javascript:county_numbers('.$county_id.')">'.
 								ucwords(strtolower($county->county_name)).'</a></li>';
+							$county_id = $county_id + 1;	
 						}
 					?>
 				</ul>
@@ -243,7 +246,7 @@
 
 @section('scripts')
 
-<!-- TOP PAGE NEWS BITE -->
+<!-- News Bite -->
 
 <script type="text/javascript">
 
@@ -284,7 +287,7 @@
 </script>
 
 
-<!-- BY SEARCH -->
+<!-- Search Schools -->
 
 <script type="text/javascript">
 	
@@ -342,59 +345,91 @@
 </script>
 
 
-<!-- BY LOCATION -->
+<!-- County Numbers -->
+
+<script type="text/javascript">
+	var pri_sum = new Array();
+	var sec_sum = new Array();
+	var county_selected = new Array();
+	<?php foreach ($county_level_data as $county) { ?>
+		pri_sum.push(<?php echo $county->pri_sum; ?>);
+		sec_sum.push(<?php echo $county->sec_sum; ?>);
+		county_selected.push("<?php echo ucwords(strtolower($county->county_name)) ?>");
+	<?php } ?>
+	
+	function county_numbers(id) {
+		if (id==0) {
+			$('#pri_sum').html(commaSeparateNumber(22787));
+			$('#sec_sum').html(commaSeparateNumber(6958));
+			$('#county_selected').html('National');
+			return;
+		}
+		$('#pri_sum').html(commaSeparateNumber(pri_sum[id-1]));
+		$('#sec_sum').html(commaSeparateNumber(sec_sum[id-1]));
+		$('#county_selected').html(county_selected[id-1]);
+	}
+	function commaSeparateNumber(val){
+		while (/(\d+)(\d{3})/.test(val.toString())){
+			val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+		}
+		return val;
+	}
+</script>
+
+
+<!-- Discover Schools -->
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?AIzaSyDl0_EPlseIlbNlYZDOzpua7VqXyH_LfeY&sensor=true"></script>
 <script type="text/javascript">
 
-var disc_lat = -1.29353;
-var disc_long = 36.819889;
-
-var nairobi = new google.maps.LatLng(-1.29353, 36.819889);
-var marker;
-var map;
-
-var mapOptions = {
-	zoom: 11,
-	mapTypeId: google.maps.MapTypeId.ROADMAP,
-	center: nairobi,
-	scrollwheel: false,
-	zoomControlOptions: {
-		style: google.maps.ZoomControlStyle.LARGE,
-	}
-};
-
-window.onload = function(){	
+	var disc_lat = -1.29353;
+	var disc_long = 36.819889;
 	
-	map = new google.maps.Map(document.getElementById("map_canvas"),
-		mapOptions);
+	var nairobi = new google.maps.LatLng(-1.29353, 36.819889);
+	var marker;
+	var map;
 	
-	marker = new google.maps.Marker({
-		map:map,
-		draggable:true,
-		animation: google.maps.Animation.DROP,
-		position: nairobi
-	});
-	
-	google.maps.event.addListener(marker, 'click', toggleBounce);
-	//google.maps.event.addListener(marker, 'dragend', setDiscLocation);
-	
-	function toggleBounce() {
-		if (marker.getAnimation() != null) {
-			marker.setAnimation(null);
-		} else {
-			marker.setAnimation(google.maps.Animation.BOUNCE);
+	var mapOptions = {
+		zoom: 11,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		center: nairobi,
+		scrollwheel: false,
+		zoomControlOptions: {
+			style: google.maps.ZoomControlStyle.LARGE,
 		}
+	};
+	
+	window.onload = function(){	
+		
+		map = new google.maps.Map(document.getElementById("map_canvas"),
+			mapOptions);
+		
+		marker = new google.maps.Marker({
+			map:map,
+			draggable:true,
+			animation: google.maps.Animation.DROP,
+			position: nairobi
+		});
+		
+		google.maps.event.addListener(marker, 'click', toggleBounce);
+		//google.maps.event.addListener(marker, 'dragend', setDiscLocation);
+		
+		function toggleBounce() {
+			if (marker.getAnimation() != null) {
+				marker.setAnimation(null);
+			} else {
+				marker.setAnimation(google.maps.Animation.BOUNCE);
+			}
+		}
+		
 	}
 	
-}
-
-function setDiscLocation() {
-	var point = marker.getPosition();
-	disc_lat = point.lat();
-	disc_long = point.lng();
-	window.location.href = "/discover/locate/"+disc_lat+":"+disc_long;
-}
+	function setDiscLocation() {
+		var point = marker.getPosition();
+		disc_lat = point.lat();
+		disc_long = point.lng();
+		window.location.href = "/discover/locate/"+disc_lat+":"+disc_long;
+	}
 	
 </script>
 
