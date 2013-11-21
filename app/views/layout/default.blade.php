@@ -114,7 +114,7 @@
 					</div>
 					
 					<div class="span4" style="padding-top: 10px;">
-						<a class="twitter-timeline" href="https://twitter.com/Open_Institute" data-widget-id="377530888927473664">Tweets by @Open_Institute</a>
+						<a class="twitter-timeline" href="https://twitter.com/code4africa" data-widget-id="403627053460627456">Tweets by @code4africa</a>
 						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 					</div>
 				</div>
